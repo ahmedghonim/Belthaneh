@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply dark:bg-dark-100 bg-light-200 dark:text-white text-dark-300;
+}
+.table:where(:not(.table-zebra))
+  :where(thead, tbody, tfoot)
+  :where(tr:not(:last-child) :where(th, td)) {
+  border: none;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+}
+html[class='dark'] .toggle {
+  --tglbg: rgb(14 15 20 / var(--tw-bg-opacity)) !important;
+  border-color: #fff;
+}
+html[class='light'] .toggle {
+  --tglbg: #fff !important;
+  border-color: rgb(94 94 94 / var(--tw-text-opacity));
+}
+.rtl-div {
+  direction: ltr;
+}
+.table :where(th, td) {
+  white-space: wrap;
+  padding: 1rem 0.6rem;
+  vertical-align: middle;
+}
+.checkbox {
+  border-color: #fff;
+}
+html[class='dark'] .checkbox:checked,
+.checkbox[checked='true'],
+.checkbox[aria-checked='true'] {
+  border-color: #fff;
+  background-image: linear-gradient(-45deg, transparent 65%, #0e0f14 65.99%),
+    linear-gradient(45deg, transparent 75%, #0e0f14 75.99%),
+    linear-gradient(-45deg, #0e0f14 40%, transparent 40.99%),
+    linear-gradient(
+      45deg,
+      #0e0f14 30%,
+      #fff 30.99%,
+      #fff 40%,
+      transparent 40.99%
+    ),
+    linear-gradient(-45deg, #fff 50%, #0e0f14 50.99%);
+}
+.checkbox:checked,
+.checkbox[checked='true'],
+.checkbox[aria-checked='true'] {
+  border-color: #5e5e5e;
+  background-image: linear-gradient(-45deg, transparent 65%, #fff 65.99%),
+    linear-gradient(45deg, transparent 75%, #fff 75.99%),
+    linear-gradient(-45deg, #fff 40%, transparent 40.99%),
+    linear-gradient(
+      45deg,
+      #fff 30%,
+      #797979 30.99%,
+      #797979 40%,
+      transparent 40.99%
+    ),
+    linear-gradient(-45deg, #797979 50%, #fff 50.99%);
+}
+/* width */
+::-webkit-scrollbar {
+  @apply h-1.5 w-2;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  @apply !rounded-full bg-secondary-100;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-100 rounded-full;
+}
+.rmdp-calendar {
+  @apply dark:bg-dark-200;
+}
+.sd {
+  @apply dark:text-white;
+}
+.rmdp-header-values {
+  @apply dark:text-white;
+}
+.react-tel-input .selected-flag .arrow {
+  @apply !hidden;
+}
+.react-tel-input .selected-flag .flag {
+  @apply scale-[2];
+}
+.react-tel-input .selected-flag {
+  @apply m-0 !p-4;
+}
+.react-tel-input .country-list .country,
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus,
+.react-tel-input .flag-dropdown.open .selected-flag {
+  @apply dark:bg-dark-100;
+}
+.react-tel-input .country-list .country.highlight,
+.react-tel-input .country-list .country:hover {
+  @apply dark:bg-dark-200 bg-white;
+}
+.rmdp-time-picker,
+.rmdp-ep-arrow:after,
+.rmdp-ep-arrow[direction='bottom'],
+.rmdp-ep-arrow[direction='bottom'] > div {
+  @apply dark:bg-transparent dark:border-dark-200  bg-white;
+}
+
+.rbc-calendar {
+  @apply rounded-md;
+}
+div[class^='rbc-time']:not(.rbc-time-header),
+.rbc-header,
+.rbc-row,
+.rbc-row-resource,
+.rbc-label,
+.rbc-today {
+  @apply dark:bg-dark-200 !border-0 mx-0 rounded-md   bg-white border-white;
+}
+.rbc-time-header-content > .rbc-row.rbc-row-resource {
+  @apply h-full flex justify-center items-center  dark:bg-dark-200 border-none  bg-white border-white;
+}
+.rbc-time-content > .rbc-time-gutter {
+  @apply py-0 px-2;
+}
+
+.rbc-header.rbc-time-header .rbc-overflowing {
+  @apply py-0 px-8 border-0 mx-0;
+}
+.rbc-time-header,
+.rbc-overflowing {
+  @apply border-0 dark:border-dark-200 border-b-8 my-2 mx-0 px-8 py-0   border-white;
+}
+
+.rbc-time-view-resources .rbc-time-gutter,
+.rbc-time-view-resources .rbc-time-header-gutter {
+  @apply dark:bg-dark-200 !border-0  items-center flex justify-end  bg-white;
+}
+.rbc-event-label {
+  @apply !hidden;
+}
+.rbc-event {
+  @apply relative;
+}
+.rbc-time-header.rbc-overflowing {
+  @apply p-0 !border-r-0;
+}
+.rbc-time-header {
+  @apply m-0;
+}
+
+.rbc-time-content {
+  @apply py-0 px-8  max-h-[48vh];
+}
+.webQueue {
+  @apply max-h-[93vh]	 h-[68vh];
+}
+
+.fullscreen-enabled * .rbc-time-content {
+  @apply py-0 px-8  h-[90vh] max-h-[80vh];
+}
+.fullscreen-enabled * .webQueue {
+  @apply py-0 px-8  h-[90vh] max-h-[100vh];
+}
