@@ -1,27 +1,25 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import Trans from 'next-translate/trans'
 import Select from 'ui/select'
-
-const paymentsOptions: Array<{ value: string; label: string | any }> = [
-  { value: 'Paid', label: <Trans i18nKey="common:paid" /> },
-  { value: 'Unpaid', label: <Trans i18nKey="common:un_paid" /> }
-]
-
-const statusOptions: Array<{ value: string; label: string | any }> = [
-  { value: 'New', label: <Trans i18nKey="common:new" /> },
-  { value: 'Ready', label: <Trans i18nKey="common:ready" /> },
-  {
-    value: 'Delivery',
-    label: <Trans i18nKey="common:delivery_in_progress" />
-  },
-  { value: 'Completed', label: <Trans i18nKey="common:Completed" /> },
-  { value: 'Canceled', label: <Trans i18nKey="common:Canceled" /> },
-  { value: 'Preparation', label: 'preparation' }
-]
 
 function OrderStatus() {
   const { t } = useTranslation('common')
+  const paymentsOptions: Array<{ value: string; label: string | any }> = [
+    { value: 'Paid', label: t('common:paid') },
+    { value: 'Unpaid', label: t('common:un_paid') }
+  ]
+
+  const statusOptions: Array<{ value: string; label: string | any }> = [
+    { value: 'New', label: t('common:new') },
+    { value: 'Ready', label: t('common:ready') },
+    {
+      value: 'Delivery',
+      label: t('common:delivery_in_progress')
+    },
+    { value: 'Completed', label: t('common:Completed') },
+    { value: 'Canceled', label: t('common:Canceled') },
+    { value: 'Preparation', label: 'preparation' }
+  ]
 
   // Status Options Change Handler
   const statusChangeHandler = () => {}

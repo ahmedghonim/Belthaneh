@@ -1,5 +1,4 @@
 import React from 'react'
-import Trans from 'next-translate/trans'
 import useTranslation from 'next-translate/useTranslation'
 import Table from 'ui/table'
 import RoundedBox from 'ui/rounded-box'
@@ -10,27 +9,27 @@ interface Props {
   items: SingleOrderTableType[]
 }
 
-const orderColumns = [
-  {
-    Header: <Trans i18nKey="common:product_code" />,
-    accessor: 'productCode'
-  },
-  {
-    Header: <Trans i18nKey="common:product" />,
-    accessor: 'product'
-  },
-  {
-    Header: <Trans i18nKey="common:Quantity" />,
-    accessor: 'quantity'
-  },
-  {
-    Header: <Trans i18nKey="common:weight" />,
-    accessor: 'weight'
-  }
-]
-
 function OrderDetailsTable({ coreData, items }: Props) {
   const { t } = useTranslation('common')
+
+  const orderColumns = [
+    {
+      Header: t('common:product_code'),
+      accessor: 'productCode'
+    },
+    {
+      Header: t('common:product'),
+      accessor: 'product'
+    },
+    {
+      Header: t('common:Quantity'),
+      accessor: 'quantity'
+    },
+    {
+      Header: t('common:weight'),
+      accessor: 'weight'
+    }
+  ]
   return (
     <>
       <RoundedBox className="hidden sm:block p-4 py-8">
