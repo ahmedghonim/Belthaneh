@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Tabs, Button, Select } from 'ui'
 import { TabProps } from 'ui/tabs/types'
 import PlusSquareIcon from 'svg/plus-square.svg'
@@ -8,7 +8,7 @@ function Navigation() {
   const { t } = useTranslation('common')
   const { push, asPath } = useRouter()
   const isActive = (path: string): boolean => asPath.split('/')[3] === path
-  const [currentSelect, setCurrentSelect] = useState<string>('')
+
   const tabs: TabProps[] = [
     {
       isActive: isActive('home-services'),
@@ -58,7 +58,6 @@ function Navigation() {
       value: 'membership'
     }
   ]
-  useEffect(() => {}, [currentSelect])
 
   return (
     <div className="flex justify-between">
