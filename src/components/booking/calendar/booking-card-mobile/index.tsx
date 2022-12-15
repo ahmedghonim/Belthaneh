@@ -63,7 +63,7 @@ export default function BookingCardMobile({
       {bookings?.map(
         (_item) =>
           _item.resourceId === employee.resourceId && (
-            <EventCard status={_item.status} key={Math.random().toString()}>
+            <EventCard status={_item.status} key={_item.id}>
               <div className="absolute flex gap-2 top-0 rtl:left-0 ltr:right-0 bg-white rounded-tl rounded-tr ltr:rounded-bl-[30px] rtl:rounded-br-[30px] p-2">
                 <button onClick={_item.handleEdit}>
                   <Edit className="stroke-secondary-100 scale-75" />

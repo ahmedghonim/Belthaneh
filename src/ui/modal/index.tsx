@@ -9,12 +9,14 @@ export interface ModalProps {
   onClose: () => void
   className?: string
   header?: React.ReactNode
+  wrapperClassName?: string
 }
 const EmptyModal = ({
   children,
   open,
   onClose,
   className = '',
+  wrapperClassName = '',
   header
 }: ModalProps) => {
   const { lang } = useTranslation()
@@ -28,7 +30,7 @@ const EmptyModal = ({
         <Dialog.Overlay className="fixed inset-0 bg-[#071512] bg-opacity-40" />
 
         <div
-          className={`bg-[#fff] rounded-lg overflow-hidden relative z-10  sm:max-h-[730px] lg:w-3/4 w-full xs:h-[80vh]  dark:bg-dark-200 overflow-y-auto ${className}`}
+          className={`bg-[#fff] rounded-lg overflow-hidden relative z-10  max-h-screen max-w-screen  dark:bg-dark-200 overflow-y-auto flex flex-col ${className}`}
         >
           <div className="flex p-5">
             <div className="ltr:left-1 rtl:right-1 absolute top-3 m-1 font-bold text-lg">
@@ -49,7 +51,9 @@ const EmptyModal = ({
               </button>
             </div>
           </div>
-          <div className="px-14 py-8">{children}</div>
+          <div className={`sm:px-14 py-8 px-6 ${wrapperClassName}`}>
+            {children}
+          </div>
         </div>
       </div>
     </Dialog>

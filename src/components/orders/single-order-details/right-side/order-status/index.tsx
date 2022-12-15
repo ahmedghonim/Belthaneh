@@ -4,21 +4,22 @@ import Select from 'ui/select'
 
 function OrderStatus() {
   const { t } = useTranslation('common')
+
   const paymentsOptions: Array<{ value: string; label: string | any }> = [
-    { value: 'Paid', label: t('common:paid') },
-    { value: 'Unpaid', label: t('common:un_paid') }
+    { value: 'Paid', label: t('paid') },
+    { value: 'Unpaid', label: t('un_paid') }
   ]
 
   const statusOptions: Array<{ value: string; label: string | any }> = [
-    { value: 'New', label: t('common:new') },
-    { value: 'Ready', label: t('common:ready') },
+    { value: 'New', label: t('new') },
+    { value: 'Ready', label: t('ready') },
     {
       value: 'Delivery',
-      label: t('common:delivery_in_progress')
+      label: t('delivery_in_progress')
     },
-    { value: 'Completed', label: t('common:Completed') },
-    { value: 'Canceled', label: t('common:Canceled') },
-    { value: 'Preparation', label: 'preparation' }
+    { value: 'Completed', label: t('Completed') },
+    { value: 'Canceled', label: t('Canceled') },
+    { value: 'Preparation', label: t('preparation') }
   ]
 
   // Status Options Change Handler

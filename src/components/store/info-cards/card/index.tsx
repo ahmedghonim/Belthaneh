@@ -10,7 +10,7 @@ interface Props {
 
 function DataBox({ heading, data, upLeft }: Props) {
   return (
-    <RoundedBox className="relative xs:w-2/3 xs:m-auto flex flex-col items-center gap-4 py-2 px-4 capitalize text-center">
+    <RoundedBox className="relative xs:w-full flex flex-col items-center gap-4 py-2 px-4 capitalize text-center">
       <h1 className="font-medium dark:text-white text-dark-100">{heading}</h1>
       <h2 className="xs:text-lg text-xl font-bold sm:mt-3 dark:text-white text-dark-100">
         {data}

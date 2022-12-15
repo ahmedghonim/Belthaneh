@@ -72,7 +72,7 @@ export default function SettingForm({
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="sm:flex gap-4 space-4 w-full">
+        <Form className="flex gap-4 sm:flex-row flex-col  w-full">
           <BasicInfoForm />
           <PasswordForm />
         </Form>

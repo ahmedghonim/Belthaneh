@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
+import 'react-phone-input-2/lib/style.css'
 import { ThemeProvider } from 'next-themes'
 import MainLayout from 'components/main-layout'
 

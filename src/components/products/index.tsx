@@ -4,10 +4,10 @@ import AddProduct from './add-product'
 
 function Products() {
   return (
-    <main>
+    <section>
       <Product />
       <AddProduct />
-    </main>
+    </section>
   )
 }
 

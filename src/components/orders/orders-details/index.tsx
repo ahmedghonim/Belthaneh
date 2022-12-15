@@ -61,7 +61,7 @@ const tableData: OrdersDetailsType[] = [
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
-    status: 'cancelled'
+    status: 'canceled'
   },
   {
     orderNum: '#4556',
@@ -103,7 +103,7 @@ const boxData: OrdersDetailsType[] = [
 
 function OrdersDetails() {
   return (
-    <section>
+    <section className="xs:pb-24">
       <div>
         <WebOrdersActions />
         <OrdersDetailsTable data={tableData} />

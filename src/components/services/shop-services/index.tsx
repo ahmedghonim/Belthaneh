@@ -15,7 +15,13 @@ function ShopServices() {
       onClick: () => {
         setCurrentCategory(0)
       },
-      icon: <HairIcon />
+      icon: (
+        <HairIcon
+          className={`dark:fill-white  ${
+            currentCategory === 1 ? 'fill-white' : 'fill-secondary-100'
+          }`}
+        />
+      )
     },
     {
       label: t('waxing'),
@@ -23,7 +29,13 @@ function ShopServices() {
       onClick: () => {
         setCurrentCategory(1)
       },
-      icon: <HairIcon />
+      icon: (
+        <HairIcon
+          className={`dark:fill-white  ${
+            currentCategory === 1 ? 'fill-white' : 'fill-secondary-100'
+          }`}
+        />
+      )
     },
     {
       label: t('waxing'),
@@ -31,7 +43,13 @@ function ShopServices() {
       onClick: () => {
         setCurrentCategory(2)
       },
-      icon: <HairIcon />
+      icon: (
+        <HairIcon
+          className={`dark:fill-white  ${
+            currentCategory === 2 ? 'fill-white' : 'fill-secondary-100'
+          }`}
+        />
+      )
     },
     {
       label: t('waxing'),
@@ -39,7 +57,13 @@ function ShopServices() {
       onClick: () => {
         setCurrentCategory(3)
       },
-      icon: <HairIcon />
+      icon: (
+        <HairIcon
+          className={`dark:fill-white  ${
+            currentCategory === 3 ? 'fill-white' : 'fill-secondary-100'
+          }`}
+        />
+      )
     }
   ]
   return (

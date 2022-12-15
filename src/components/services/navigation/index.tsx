@@ -4,11 +4,11 @@ import React from 'react'
 import { Tabs, Button, Select } from 'ui'
 import { TabProps } from 'ui/tabs/types'
 import PlusSquareIcon from 'svg/plus-square.svg'
+
 function Navigation() {
   const { t } = useTranslation('common')
   const { push, asPath } = useRouter()
   const isActive = (path: string): boolean => asPath.split('/')[3] === path
-
   const tabs: TabProps[] = [
     {
       isActive: isActive('home-services'),

@@ -13,12 +13,14 @@ interface Props {
   label?: string
   icon?: ReactElement<SVGAElement, any>
   titleStyle?: string
+  className?: string
 }
 
 export default function Dropdown({
   label,
   icon,
   titleStyle = '',
+  className = '',
   options
 }: Props) {
   const { lang } = useTranslation()
@@ -40,7 +42,7 @@ export default function Dropdown({
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className={`absolute ${
+          className={`absolute ${className} ${
             lang === 'ar' ? 'left-0' : 'right-0'
           }  mt-2 z-50 origin-top-right divide-y divide-gray-100 rounded-md whitespace-nowrap bg-dark-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
         >

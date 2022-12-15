@@ -13,14 +13,7 @@ body {
   --tw-border-opacity: 1;
   border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
 }
-html[class='dark'] .toggle {
-  --tglbg: rgb(14 15 20 / var(--tw-bg-opacity)) !important;
-  border-color: #fff;
-}
-html[class='light'] .toggle {
-  --tglbg: #fff !important;
-  border-color: rgb(94 94 94 / var(--tw-text-opacity));
-}
+
 .rtl-div {
   direction: ltr;
 }
@@ -29,8 +22,11 @@ html[class='light'] .toggle {
   padding: 1rem 0.6rem;
   vertical-align: middle;
 }
-.checkbox {
+html[class='dark'] .checkbox {
   border-color: #fff;
+}
+html[class='light'] .checkbox {
+  border-color:  #C4C4C4;
 }
 html[class='dark'] .checkbox:checked,
 .checkbox[checked='true'],
@@ -51,7 +47,7 @@ html[class='dark'] .checkbox:checked,
 .checkbox:checked,
 .checkbox[checked='true'],
 .checkbox[aria-checked='true'] {
-  border-color: #5e5e5e;
+  border-color: #fff;
   background-image: linear-gradient(-45deg, transparent 65%, #fff 65.99%),
     linear-gradient(45deg, transparent 75%, #fff 75.99%),
     linear-gradient(-45deg, #fff 40%, transparent 40.99%),
@@ -110,7 +106,9 @@ html[class='dark'] .checkbox:checked,
 .rmdp-ep-arrow[direction='bottom'] > div {
   @apply dark:bg-transparent dark:border-dark-200  bg-white;
 }
-
+.rbc-current-time-indicator{
+  @apply hidden
+}
 .rbc-calendar {
   @apply rounded-md;
 }
@@ -167,3 +165,30 @@ div[class^='rbc-time']:not(.rbc-time-header),
 .fullscreen-enabled * .webQueue {
   @apply py-0 px-8  h-[90vh] max-h-[100vh];
 }
+.fullscreen .fullscreen-enabled {
+  @apply dark:bg-dark-100 bg-white
+}
+.quill > .ql-container > .ql-editor.ql-blank::before{
+@apply text-dark-300
+}
+.swiper{
+  @apply !z-0
+}
+
+html[class='dark']   div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range){
+  background-color: #1B1B1C !important;
+}
+html[class='light']   div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range){
+  background-color: #fff !important;
+}
+
+.rmdp-shadow{
+  @apply !shadow-none
+}
+
+.toggle-primary:checked, .toggle-primary[checked="true"], .toggle-primary[aria-checked=true]{
+  background-color:#fff;
+  --tglbg: #3031D9 !important;
+  border-color: #3031D9;
+}
+

@@ -4,10 +4,10 @@ import SingleOrderDetails from './single-order-details'
 
 function Orders() {
   return (
-    <main>
+    <section>
       <OrdersDetails />
       <SingleOrderDetails />
-    </main>
+    </section>
   )
 }
 

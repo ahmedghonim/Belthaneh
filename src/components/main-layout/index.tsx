@@ -3,6 +3,7 @@ import Drawer from './drawer'
 import MobileFooterBar from './mobile-footer-bar'
 import Header from './header'
 import Sidebar from 'components/main-layout/sidebar'
+import useScreen from 'hooks/useScreen'
 
 interface Props {
   children: React.ReactNode
@@ -10,6 +11,8 @@ interface Props {
 
 export default function MainLayout({ children }: Props) {
   const [open, setOpen] = useState(true)
+  const screen = useScreen()
+
   return (
     <div className="flex h-[100vh] relative">
       {/* SidBar */}
@@ -21,19 +24,19 @@ export default function MainLayout({ children }: Props) {
         <Sidebar open={open} setOpen={setOpen} />
       </div>
 
-      <div className="w-full relative overflow-auto">
+      <div className="w-full relative overflow-auto h-[100vh]">
         <div className="sticky top-0 z-50">
           <Header setOpen={setOpen} />
         </div>
 
         {/* View */}
-        <div className="pt-10 w-full sm:pe-8 sm:pb-8 pb-24 xs:px-6">
+        <div className="pt-10 w-full sm:pe-8 sm:pb-8 pb-24 xs:px-6 h-[calc(100%-90px)]">
           {children}
         </div>
       </div>
 
       {/* Drawer */}
-      <Drawer open={open} setOpen={setOpen} />
+      {screen === 'phone' ? <Drawer open={open} setOpen={setOpen} /> : null}
 
       {/* Footer Bar  */}
       <MobileFooterBar />

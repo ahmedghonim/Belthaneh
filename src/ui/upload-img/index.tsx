@@ -2,12 +2,19 @@ import React, { useRef } from 'react'
 
 interface Props {
   icon: SVGElement | any
-  buttonText: string
+  buttonText: string | React.ReactNode
   className?: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  name?: string
 }
 
-function UploadImg({ icon, buttonText, className = '', onChange }: Props) {
+function UploadImg({
+  name = '',
+  icon,
+  buttonText,
+  className = '',
+  onChange
+}: Props) {
   const filesInput = useRef<HTMLInputElement>(null)
 
   const uploadFun = () => {
@@ -21,14 +28,15 @@ function UploadImg({ icon, buttonText, className = '', onChange }: Props) {
     >
       <div className="grid place-items-center gap-3">
         {icon}
-        <p className="text-sm capitalize xs:text-dark-100  dark:xs:text-white sm:text-primary-100">
+        <div className="text-sm capitalize xs:text-dark-100  dark:xs:text-white sm:text-primary-100">
           {buttonText}
-        </p>
+        </div>
       </div>
       <input
         type="file"
         className="hidden"
         ref={filesInput}
+        name={name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       />
     </button>

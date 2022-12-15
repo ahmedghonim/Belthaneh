@@ -9,7 +9,7 @@ function WarshicStore({ open }: OpenProps) {
   return (
     <div
       className={`bg-[#3B4450] flex flex-col items-center gap-2 p-3 rounded-full ${
-        !open ? 'bg-transparent px-1 py-2' : ''
+        !open ? '!bg-transparent px-3 py-2' : ''
       }`}
     >
       <Button

@@ -9,10 +9,12 @@ const button = cva(
         true: '!bg-primary-100 !text-white  disabled:!opacity-25'
       },
       primaryBorder: {
-        true: '!border-primary-100 border !text-primary-100'
+        true: '!border-primary-100 border !bg-transparent !text-primary-100'
       },
       secondary: {
-        true: 'dark:!bg-secondary-200 !bg-secondary-100 border-2  dark:!border-secondary-100 !border-secondary-100 !text-white'
+        true: 'dark:!bg-secondary-200 !bg-secondary-100 border-2  dark:!border-secondary-100 !border-secondary-100 !text-white',
+        light:
+          'bg-secondary-100 border-2  dark:!border-secondary-100 !border-secondary-100 !text-white'
       },
       secondaryBorder: {
         true: '!border-secondary-100 border-2 dark:!text-white text-black hover:!bg-secondary-200  !bg-transparent'
@@ -47,6 +49,7 @@ interface Props {
   className?: CSSStyleSheet | any
   children?: React.ReactNode | any
   disabled?: boolean
+  id?: string
 }
 
 function Button({

@@ -8,6 +8,11 @@ import { FieldProps, Field } from 'formik'
 import Calendar from 'svg/calendar.svg'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import moment from 'moment'
+import 'moment/locale/ar'
+import 'moment/locale/en-GB'
+import gregorian_en from 'react-date-object/locales/gregorian_en'
+import gregorian_ar from 'react-date-object/locales/gregorian_ar'
+import { useRouter } from 'next/router'
 
 const DateInput: FC<
   CalendarProps &
@@ -21,6 +26,12 @@ const DateInput: FC<
 }: CalendarProps &
   DatePickerProps & { label?: string; name: string; isForm?: boolean }) => {
   const ref: React.MutableRefObject<any> = useRef(null)
+  const router = useRouter()
+  const currentLang = router.locale
+  let calendarLang = gregorian_en
+  if (currentLang === 'ar') {
+    calendarLang = gregorian_ar
+  }
 
   return isForm ? (
     <Field name={name}>
@@ -29,7 +40,7 @@ const DateInput: FC<
         form: { errors, touched, setFieldValue, values }
       }: FieldProps) => {
         return (
-          <div className="w-full">
+          <div className="w-full relative">
             {Boolean(label) && (
               <label
                 htmlFor={name}
@@ -43,6 +54,7 @@ const DateInput: FC<
             <DatePicker
               multiple={false}
               ref={ref}
+              locale={calendarLang}
               render={
                 <CustomCalendarButton
                   {...props}
@@ -53,8 +65,7 @@ const DateInput: FC<
                   }}
                 />
               }
-              format={'DD/MM/YYYY'}
-              containerClassName={`h-10 w-full  rounded-md border-dark-300 ${className}`}
+              containerClassName={`h-10 w-full  rounded-md border-dark-300  ${className}`}
               inputClass={`${
                 Boolean(touched[name]) && Boolean(errors[name])
                   ? 'border-error-100'
@@ -69,7 +80,7 @@ const DateInput: FC<
               {...field}
               name={name}
               onChange={(dateObject: DateObject) => {
-                setFieldValue(name, dateObject.format('DD/MM/YYYY'), true)
+                setFieldValue(name, dateObject, true)
               }}
             />
             {Boolean(touched[name]) && Boolean(errors[name]) && (
@@ -82,28 +93,29 @@ const DateInput: FC<
       }}
     </Field>
   ) : (
-    <DatePicker
-      multiple={false}
-      ref={ref}
-      render={
-        <CustomCalendarButton
-          className={className}
-          date={moment(props.value as string).format(
-            props.format ?? 'DD/MM/YYYY'
-          )}
-          placeholder={props?.placeholder}
-          onClick={() => {
-            ref?.current?.openCalendar()
-          }}
-        />
-      }
-      format={'DD/MM/YYYY'}
-      containerClassName={`h-10 w-full  rounded-md border-dark-300 ${className}`}
-      inputClass={'bg-transparent h-10 w-full px-2'}
-      className={'h-10 w-full '}
-      {...props}
-      name={name}
-    />
+    <div className="w-full relative">
+      <DatePicker
+        multiple={false}
+        ref={ref}
+        locale={calendarLang}
+        render={
+          <CustomCalendarButton
+            {...props}
+            className={className}
+            date={props.value as string}
+            placeholder={props?.placeholder}
+            onClick={() => {
+              ref?.current?.openCalendar()
+            }}
+          />
+        }
+        containerClassName={`h-10 w-full  rounded-md border-dark-300 ${className}`}
+        inputClass={'bg-transparent h-10 w-full px-2'}
+        className={'h-10 w-full '}
+        {...props}
+        name={name}
+      />
+    </div>
   )
 }
 export default DateInput
@@ -112,29 +124,39 @@ function CustomCalendarButton({
   date,
   onClick,
   placeholder,
-  className = ''
+  className = '',
+  format = 'DD/MM/YYYY'
 }: {
   placeholder?: string
-  date?: string
+  date: string
   onClick: () => void
   className?: string
+  format?: string
 }) {
+  const router = useRouter()
+  const currentLang = router.locale
   const [ssr, setSSR] = useState(true)
   useEffect(() => {
     setSSR(false)
   }, [])
 
+  const splitDate = (index: number) => date?.toString().split(',')[index]
+  const showDate = (index: number) =>
+    moment(splitDate(index))
+      .lang(currentLang === 'ar' ? 'ar' : 'en-GB')
+      .format(format)
   return (
     <div
-      className={`border h-10 w-full dark:bg-transparent border-dark-300 rounded-md flex gap-2 items-center ${className}`}
+      className={`border h-10 w-full dark:bg-transparent border-dark-300 rounded-md flex items-center ${className}`}
       onClick={onClick}
     >
       <Calendar className="stroke-dark-300 mx-2" />
       {!ssr && (
-        <span className="flex items-center h-full px-2">
-          {date?.toString() ?? (
-            <span className="text-dark-300">{placeholder}</span>
-          )}
+        <span className="flex items-center h-full">
+          {showDate(0) ?? <span className="text-dark-300">{placeholder}</span>}
+          {splitDate(1) !== undefined && showDate(1) !== 'Invalid date'
+            ? ' - ' + showDate(1)
+            : null}
         </span>
       )}
     </div>

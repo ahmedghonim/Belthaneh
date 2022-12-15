@@ -12,6 +12,9 @@ import WaitingFormModal, {
   WaitingFormModalProps
 } from 'components/booking/forms/waiting-form-modal'
 import { FullScreen, FullScreenHandle } from 'react-full-screen'
+import EndReport, {
+  EndReportModalProps
+} from './booking-header/end-report-modal'
 
 export interface BookingProps {
   waitingListData: WaitingListProps
@@ -20,6 +23,7 @@ export interface BookingProps {
   waitingFormModalData: WaitingFormModalProps
   bookingCalendarHeaderData: BookingCalendarHeaderProps
   handle: FullScreenHandle
+  endReportProps: EndReportModalProps
 }
 
 export default function Booking({
@@ -28,7 +32,8 @@ export default function Booking({
   calendarData,
   appointmentFormModalData,
   waitingFormModalData,
-  bookingCalendarHeaderData
+  bookingCalendarHeaderData,
+  endReportProps
 }: BookingProps) {
   return (
     <div>
@@ -46,6 +51,7 @@ export default function Booking({
           </div>
         </FullScreen>
       </BookingCalendarHeader>
+      <EndReport {...endReportProps} />
     </div>
   )
 }

@@ -70,7 +70,7 @@ const infoCards: any = [
 
 function StoreOverView() {
   return (
-    <section>
+    <section className="xs:pb-24">
       <InfoCards data={infoCards} />
       <BestSellingHead />
       <BestSelling data={bestSeelingData} />

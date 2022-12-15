@@ -3,9 +3,11 @@ import Input from 'ui/input'
 import Password from 'svg/password.svg'
 import Button from 'ui/button'
 import useTranslation from 'next-translate/useTranslation'
+import { useFormikContext } from 'formik'
 
 export default function PasswordForm() {
   const { t } = useTranslation('common')
+  const { submitForm } = useFormikContext()
 
   return (
     <div className="flex flex-col gap-5 flex-1 rounded-lg shadow-lg bg-white dark:bg-dark-200 p-4 pb-14">
@@ -59,11 +61,11 @@ export default function PasswordForm() {
         </ul>
       </div>
       <Button
-        type="submit"
-        primary
+        onClick={submitForm}
+        secondary
         size="small"
         center
-        className={'font-semibold w-36 self-end'}
+        className={'self-end xs:text-[10px]'}
       >
         {t('update')}
       </Button>

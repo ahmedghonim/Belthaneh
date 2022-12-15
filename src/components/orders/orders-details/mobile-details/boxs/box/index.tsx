@@ -2,7 +2,7 @@ import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import RoundedBox from 'ui/rounded-box'
 import DetailsBox from 'ui/details-box'
-import { OrdersDetailsType } from '../../../../orders-details'
+import { OrdersDetailsType } from 'components/orders/orders-details'
 import User from 'svg/user.svg'
 import RightAngle from 'svg/right-angle.svg'
 
@@ -19,8 +19,8 @@ function OrdersDetailsBox({
     <RoundedBox className="dark:bg-[#151518] mb-5">
       <div className=" bg-[#D4D6D9] flex justify-between items-center px-2 py-3 rounded-xl capitalize dark:bg-[#1E1E22] ">
         <div className="flex gap-3 items-center">
-          <User />
-          <div className="">
+          <User className="dark:fill-white fill-dark-100" />
+          <div>
             <p className="mb-1 font-medium text-dark-100 dark:text-white">
               {order}
             </p>
@@ -33,9 +33,9 @@ function OrdersDetailsBox({
               status === 'canceled' ? 'text-[#FD483C]' : 'text-green-600'
             }`}
           >
-            {status}
+            {status === 'canceled' ? t('Canceled') : t('Completed')}
           </p>
-          <RightAngle className="stroke-[#797979E0] scale-90" />
+          <RightAngle className="stroke-[#797979E0] scale-90 ltr:rotate-0 rtl:rotate-180" />
         </div>
       </div>
       <ul className="flex flex-col gap-4 p-3 ">

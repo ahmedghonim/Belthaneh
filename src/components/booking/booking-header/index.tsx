@@ -1,6 +1,6 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import Plus from 'svg/plus.svg'
+import Plus from 'svg/plus-square.svg'
 import Resize from 'svg/resize.svg'
 import Button from 'ui/button'
 import DateInputForm from 'ui/dateInput'
@@ -50,17 +50,17 @@ export function BookingCalendarHeader({
 }: BookingCalendarHeaderProps) {
   const { t } = useTranslation('common')
   const Header = () => (
-    <div className="flex sm:justify-end sm:gap-5 gap-4  justify-between">
+    <div className="flex sm:justify-end sm:gap-5 gap-0  justify-between">
       <Button
         primary
         onClick={addNewBooking}
-        className="flex-1 sm:flex-initial justify-center"
+        className="justify-center xs:text-xs"
       >
         <Plus />
         {t('Add_booking')}
       </Button>
       <Button
-        className="flex-1  sm:flex-initial justify-center"
+        className="justify-center xs:text-xs"
         primary
         onClick={addToWaitingList}
       >
@@ -90,9 +90,10 @@ export function BookingCalendarHeader({
       <div className="flex flex-col  sm:flex-row gap-4">
         <DateInputForm
           name={'date'}
-          value={date as Date}
+          value={date}
           onChange={handleChangeDate}
-          className="flex-1"
+          className="flex-1 w-[193px]"
+          format="ddd ll"
         />
         <Select
           className="flex-1 rounded-md max-w-md min-w-max"
@@ -106,7 +107,7 @@ export function BookingCalendarHeader({
           placeholder={t('select_employees')}
         />
         <Button
-          className="sm:block hidden"
+          className="sm:flex hidden"
           onClick={handleResizeScreen}
           secondary
         >

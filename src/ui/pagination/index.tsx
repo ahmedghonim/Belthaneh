@@ -37,7 +37,7 @@ const Pagination = ({
 
   useEffect(() => {
     setList((old: number[]) => {
-      const less = old?.find((index) => index + 1 === pageIndex) === -1
+      const less = old?.find((index) => index === pageIndex) === -1
       const more = old?.find((index) => index - 1 === pageIndex) === -1
 
       const paginationNum = Array.from(Array(count).keys()).filter(

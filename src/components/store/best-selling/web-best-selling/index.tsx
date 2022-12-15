@@ -36,7 +36,9 @@ function BestSellingTable({ data }: Props) {
             row.original.status === true ? 'text-green-600' : 'text-[#F92618]'
           }`}
         >
-          {row.original.status === true ? 'in stock' : 'out of stock'}
+          {`${
+            row.original.status === true ? t('available') : t('out_of_stock')
+          }`}
         </span>
       )
     }

@@ -5,7 +5,11 @@ import Add from 'svg/add.svg'
 import Input from 'ui/input'
 import Button from 'ui/button'
 
-function ProductsActions() {
+interface Props {
+  addProductFun: () => void
+}
+
+function ProductsActions({ addProductFun }: Props) {
   const { t } = useTranslation('common')
 
   return (
@@ -16,7 +20,11 @@ function ProductsActions() {
           placeholder={t('Start_typing_to_search_for_products')}
         />
       </div>
-      <Button className="justify-center w-44 hidden sm:flex" primary={true}>
+      <Button
+        className="justify-center w-44 hidden sm:flex"
+        primary={true}
+        onClick={addProductFun}
+      >
         <Add />
         <p className="capitalize">{t('add_product')}</p>
       </Button>

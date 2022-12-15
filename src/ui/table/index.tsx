@@ -94,7 +94,7 @@ const Table = <ColumnsType,>({
       <div>{t('loading')}</div>
     )
   ) : (
-    <div className="dak:bg-dark-200 bg-white rounded-lg h-full w-full flex-1 flex justify-center items-center ">
+    <div className="dark:bg-dark-200  bg-white rounded-lg h-full w-full flex-1 flex justify-center items-center ">
       <span className="text-lg">{noDataMessage}</span>
     </div>
   )

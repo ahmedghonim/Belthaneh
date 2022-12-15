@@ -13,9 +13,9 @@ export interface TextAreaProps
   EndComponent?: React.FC
 }
 
-const TextArea: FC<TextAreaProps & { isForm: boolean }> = ({
+const TextArea: FC<TextAreaProps & { isForm?: boolean }> = ({
   name,
-  isForm,
+  isForm = false,
   ...props
 }) => {
   return isForm ? (

@@ -17,6 +17,9 @@ function MobileAddImage() {
   }
   return (
     <>
+      <p className="capitalize dark:text-white text-dark-100 ">
+        {t('add_image')}
+      </p>
       <UploadBox
         icon={<Download className="dark:stroke-white stroke-dark-100" />}
         buttonText={t('drop_image_here_or_click_to_upload')}

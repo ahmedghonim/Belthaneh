@@ -69,7 +69,7 @@ const CustomInput: React.FC<InputProps> = ({
 
   const End = () => (
     <div
-      className="px-1 flex focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0"
+      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0  block z-10 top-9"
       id="end"
     >
       {EndComponent != null && <EndComponent />}
@@ -78,13 +78,13 @@ const CustomInput: React.FC<InputProps> = ({
 
   const Start = () => (
     <div
-      className="px-4px  focus:outline-none absolute items-center justify-end  ltr:left-0 rtl:right-0  block z-10"
+      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:left-0 rtl:right-0  block z-10"
       id="start"
     >
       {StartComponent != null && <StartComponent />}
     </div>
   )
-
+  const { className = '', ...otherProps } = props
   return (
     <div className="relative w-full justify-between">
       {Boolean(label) && (
@@ -99,6 +99,7 @@ const CustomInput: React.FC<InputProps> = ({
       )}
       <Start />
 
+      <End />
       <input
         name={name}
         id={name}
@@ -108,10 +109,9 @@ const CustomInput: React.FC<InputProps> = ({
         className={`w-full rounded-md h-10 border border-dark-300 
          ${error ? 'border-error-100' : ''} bg-transparent indent-4  ${
           type === 'password' ? 'pe-10' : ''
-        } placeholder:text-dark-300`}
-        {...props}
+        } placeholder:text-dark-300 ${className}`}
+        {...otherProps}
       />
-      <End />
 
       {type === 'password' && <PasswordEye />}
     </div>

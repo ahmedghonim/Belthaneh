@@ -26,7 +26,7 @@ function BookingsMobile({ bookings, employees }: BookingsMobileProps) {
         className="mySwiper "
       >
         {employees?.map((_item) => (
-          <SwiperSlide key={Math.random().toString()}>
+          <SwiperSlide key={_item.resourceId}>
             <div className="flex-1 px-2 dark:bg-dark-200 bg-white h-full sm:p-0 p-6 rounded-xl">
               <BookingCardMobile employee={_item} bookings={bookings} />
             </div>

@@ -5,7 +5,7 @@ import CollapseBtn from 'svg/collapse-btn.svg'
 import Logo from '../logo'
 import { OpenProps, SetOpenProps } from '../Types'
 
-function Sidebar({ open, setOpen }: OpenProps & SetOpenProps) {
+function Sidebar({ open = true, setOpen }: OpenProps & SetOpenProps) {
   return (
     <div
       className={`${
@@ -25,8 +25,8 @@ function Sidebar({ open, setOpen }: OpenProps & SetOpenProps) {
       {/* Logo and User Avatar */}
       <div
         className={`flex flex-col gap-4 ${
-          open ? '' : 'gap-0'
-        } h-full px-4 pb-4`}
+          open ? 'px-4' : 'gap-0 p-0 px-2'
+        } h-full pb-4`}
       >
         <div
           className={`${
@@ -38,7 +38,7 @@ function Sidebar({ open, setOpen }: OpenProps & SetOpenProps) {
 
         <UserInfo open={open} />
 
-        <Toolbar open={open} />
+        <Toolbar open={open} setOpen={setOpen} />
 
         <WarshicStore open={open} />
       </div>

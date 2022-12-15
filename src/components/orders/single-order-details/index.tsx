@@ -40,7 +40,7 @@ const orderMobileData: SingleOrderBoxType = {
   stock: 50,
   sold: 120,
   price: 60,
-  source: ''
+  source: 'https://placeimg.com/192/192/people'
 }
 
 // order dummy data
@@ -89,7 +89,7 @@ const updatesData: [OrderUpdatesDataType] = [
 
 function SingleOrderDetails() {
   return (
-    <section className="flex flex-wrap sm:flex-nowrap items-start gap-6 mt-9">
+    <section className="flex flex-wrap sm:flex-nowrap items-start gap-6 mt-9 xs:pb-24 pb-6">
       <LeftSideDetails
         orderMobileData={orderMobileData}
         orderWebData={orderWebData}

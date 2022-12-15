@@ -1,8 +1,8 @@
 import React from 'react'
+import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import RoundedBox from 'ui/rounded-box'
 import Card, { CardDataProps } from './card'
-import Image from 'next/image'
 
 type Product = CardDataProps & {
   source: string

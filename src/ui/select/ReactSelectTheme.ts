@@ -27,7 +27,7 @@ const ReactSelectTheme = (theme: string | 'dark' | 'light' | undefined) => ({
   }),
   singleValue: (base: any) => ({
     ...base,
-    color: theme === 'dark' ? '#FFFFFF' : '#1E1E1E'
+    color: theme === 'light' ? '#1E1E1E' : '#FFFFFF'
   }),
   option: (base: any, { isFocused }: { isFocused: boolean }) => {
     return {

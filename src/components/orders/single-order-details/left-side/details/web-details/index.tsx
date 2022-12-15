@@ -11,7 +11,6 @@ interface Props {
 
 function OrderDetailsTable({ coreData, items }: Props) {
   const { t } = useTranslation('common')
-
   const orderColumns = [
     {
       Header: t('common:product_code'),

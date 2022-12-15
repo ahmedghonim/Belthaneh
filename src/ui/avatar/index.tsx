@@ -18,7 +18,6 @@ const Avatar = ({ src = '', alt = '', className = '' }: Props) => {
           width={'0'}
           height={'0'}
           onLoad={() => src}
-          unoptimized
         />
       </div>
     </div>

@@ -29,7 +29,7 @@ function DetailsBox({
     >
       {withIcon === true ? <div>{icon}</div> : ''}
       {withLabel === true ? (
-        <span className={`block w-48  ${labelStyling}`}>{labelType}</span>
+        <span className={`block w-auto ${labelStyling}`}>{labelType}</span>
       ) : (
         ''
       )}

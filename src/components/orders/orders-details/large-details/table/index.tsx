@@ -1,15 +1,16 @@
 import React from 'react'
-import { Table } from 'ui'
-import { OrdersDetailsType } from '../..'
+import { Table, ThreeDots } from 'ui'
+import { OrdersDetailsType } from 'components/orders/orders-details'
 import useTranslation from 'next-translate/useTranslation'
 
 interface Props {
   data: OrdersDetailsType[]
 }
 
+// dummy data
+
 function OrdersDetailsTable({ data }: Props) {
   const { t } = useTranslation('common')
-  // dummy data
   const columns = [
     {
       Header: t('common:order_num'),
@@ -42,9 +43,14 @@ function OrdersDetailsTable({ data }: Props) {
               : 'text-[#F92618]'
           }`}
         >
-          {row.original.status}
+          {row.original.status === 'canceled' ? t('Canceled') : t('Completed')}
         </span>
       )
+    },
+    {
+      id: 'edit',
+      Header: '',
+      Cell: () => <ThreeDots onClick={() => {}} />
     }
   ]
   return (

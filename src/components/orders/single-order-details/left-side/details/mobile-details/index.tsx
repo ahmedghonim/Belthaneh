@@ -1,7 +1,7 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import RoundedBox from 'ui/rounded-box'
-import { SingleOrderBoxType } from '../../../../single-order-details'
+import { SingleOrderBoxType } from 'components/orders/single-order-details'
 import Image from 'next/image'
 
 function OrderDeatailsBox({
@@ -23,12 +23,12 @@ function OrderDeatailsBox({
           height="100"
           src={source}
           alt="product-image"
-          className="h-full"
+          className="h-full w-full"
         />
       </div>
       <div className="relative flex-1">
         <h2 className="font-medium text-base">{customer}</h2>
-        <div className="dark:text-dark-400 text-dark-100">
+        <div className="dark:text-dark-400 text-dark-100 xs:!text-xs">
           <p>
             {t('Brand_Name')}: {brand}
           </p>

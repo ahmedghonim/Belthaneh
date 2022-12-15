@@ -27,14 +27,18 @@ import { WaitingListItem } from 'components/booking/waiting-list/waiting-list-ta
 import { WaitingListCardProps } from 'components/booking/waiting-list/waiting-list-card'
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
+import moment from 'moment'
+import { useRouter } from 'next/router'
 
 export default function BookingController() {
+  const { push } = useRouter()
   const { t } = useTranslation('common')
   const [bookingsCalendar, setBookingsCalendar] = useState(
     calendarDataMock.bookingList
   )
   const [openAppointment, setOpenAppointment] = useState<boolean>(false)
   const [openWaitingList, setOpenWaitingList] = useState<boolean>(false)
+  const [openReportModal, setOpenReportModal] = useState<boolean>(false)
   const [currentHeaderData, setCurrentHeaderDate] = useState<Date>(new Date())
   const [currentBookingType, setCurrentBookingType] =
     useState<string>('calendar')
@@ -47,7 +51,15 @@ export default function BookingController() {
 
   const moveEvent = (props: any) => {
     const { event, start, end } = props
-    const updatedEvent = { ...event, start, end, resourceId: props.resourceId }
+    const updatedEvent = {
+      ...event,
+      start,
+      end,
+      resourceId: props.resourceId,
+      title: `${moment(start).format('hh:mm A')} - ${moment(end).format(
+        'hh:mm A'
+      )}`
+    }
     setBookingsCalendar((prevEvents) => {
       const filtered = prevEvents.filter((item) => item.id !== event.id)
       return [...filtered, updatedEvent]
@@ -61,6 +73,7 @@ export default function BookingController() {
     helpers?: FormikHelpers<any>
   ) => {
     console.log(value)
+    setOpenAppointment(false)
   }
   const handleCancelWaitingList = () => {
     setOpenWaitingList(false)
@@ -116,6 +129,14 @@ export default function BookingController() {
   ) => {
     setOpenWaitingList(true)
   }
+  const confirmEndReport = () => {
+    setOpenReportModal(false)
+
+    void push('/admin/booking/end-of-day')
+  }
+  const cancelEndReport = () => {
+    setOpenReportModal(false)
+  }
   const headerData: BookingCalendarHeaderProps = {
     date: currentHeaderData,
     employees,
@@ -127,7 +148,9 @@ export default function BookingController() {
     handleSelectEmployees,
     handleChangeDate: handleChangeDateHeader,
     handleResizeScreen,
-    handleReport: () => undefined
+    handleReport: () => {
+      setOpenReportModal(true)
+    }
   }
 
   const appointmentModalData: AppointmentFormModalProps = {
@@ -190,7 +213,12 @@ export default function BookingController() {
     bookingCalendarHeaderData: headerData,
     appointmentFormModalData: appointmentModalData,
     waitingFormModalData,
-    handle
+    handle,
+    endReportProps: {
+      openReportModal,
+      confirmEndReport,
+      cancelEndReport
+    }
   }
 
   return (

@@ -25,7 +25,12 @@ const text = cva(['dark:text-[#fff]', 'text-[#1A0A0A]'], {
   }
 })
 
-interface Props extends VariantProps<typeof text> {
+interface Props
+  extends VariantProps<typeof text>,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLSpanElement>,
+      HTMLSpanElement
+    > {
   children: string | React.ReactNode
   as?: React.ElementType
   className?: string

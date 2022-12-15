@@ -11,6 +11,17 @@ import Dropdown from './dropdown'
 import Tabs from './tabs'
 import Button from './button'
 import Chip from './chip'
+// import QuillInput from './quill-input'
+import Upload from './upload-img'
+// import dynamic from 'next/dynamic'
+import RoundedBox from './rounded-box'
+import ThreeDots from './three-dots'
+import InputPhoneForm from './input-phone-form'
+import TextArea from './text-area'
+import DetailsBox from './details-box'
+import CollapseCard from './collapse-card'
+import OrangeBlueBox from './orange-blue-box'
+
 export {
   Card,
   Text,
@@ -23,6 +34,15 @@ export {
   Dropdown,
   ToggleButton,
   Tabs,
+  Chip,
+  // QuillInput,
   Button,
-  Chip
+  Upload,
+  RoundedBox,
+  ThreeDots,
+  InputPhoneForm,
+  TextArea,
+  DetailsBox,
+  CollapseCard,
+  OrangeBlueBox
 }

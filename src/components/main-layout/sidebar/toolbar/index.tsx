@@ -1,7 +1,6 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
-import { OpenProps } from '../../Types'
+import React from 'react'
+import useTranslation from 'next-translate/useTranslation'
+import { OpenProps, SetOpenProps } from '../../Types'
 import Home from 'svg/home.svg'
 import Calender from 'svg/calender.svg'
 import Scan from 'svg/scan.svg'
@@ -12,124 +11,161 @@ import Discover from 'svg/discover.svg'
 import Chart from 'svg/chart.svg'
 import Users from 'svg/users.svg'
 import Work from 'svg/work.svg'
-import useTranslation from 'next-translate/useTranslation'
+import CollapseTree from './collapse-tree'
+import Tool from './tool'
 
-function Toolbar({ open }: OpenProps) {
+function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
+  const { t } = useTranslation('common')
+
   const tolaBarButton = [
     {
-      labelKey: 'dashboard',
+      label: 'dashboard',
       href: '/admin/dashboard',
       icon: <Home />
     },
     {
-      labelKey: 'booking',
+      label: 'booking',
       href: '/admin/booking',
       icon: <Calender />
     },
     {
-      labelKey: 'pos',
+      label: 'pos',
       href: '/admin/pos',
       icon: <Scan />
     },
     {
-      labelKey: 'store',
+      label: 'store',
       href: '/admin/store',
       icon: <Store />
     },
     {
-      labelKey: 'sales',
-      href: '/admin/sales',
-      icon: <Paper />
+      label: 'service',
+      href: '/admin/service',
+      icon: <Store />,
+      subMenu: [
+        {
+          label: 'service',
+          href: '/admin/service'
+        },
+        {
+          label: 'shop_services',
+          href: '/admin/service/shop-services'
+        },
+        {
+          label: 'packages',
+          href: '/admin/service/packages'
+        }
+      ]
     },
     {
-      labelKey: 'workplace',
+      label: 'products',
+      href: '/admin/products',
+      icon: <Store />,
+      subMenu: [
+        {
+          label: t('products'),
+          href: '/admin/products'
+        },
+        {
+          label: t('add_product'),
+          href: '/admin/products/add-product'
+        }
+      ]
+    },
+    {
+      label: t('accounting'),
+      href: '/admin/accounting',
+      icon: <Paper />,
+      subMenu: [
+        {
+          label: t('sales'),
+          href: '/admin/accounting'
+        },
+        {
+          label: t('expenses'),
+          href: '/admin/accounting/expenses'
+        },
+        {
+          label: t('purchases'),
+          href: '/admin/accounting/purchases'
+        }
+      ]
+    },
+    {
+      label: 'orders',
+      href: '/admin/orders',
+      icon: <Store />
+    },
+    {
+      label: 'workplace',
       href: '/admin/workplace',
       icon: <Boxes />
     },
     {
-      labelKey: 'client',
+      label: 'client',
       href: '/admin/client',
-      icon: <Users />
+      icon: <Users />,
+      subMenu: [
+        {
+          label: t('clients'),
+          href: '/admin/client'
+        },
+        {
+          label: t('comments'),
+          href: '/admin/client/comments'
+        },
+        {
+          label: t('chats'),
+          href: '/admin/client/chats'
+        },
+        {
+          label: t('messages'),
+          href: '/admin/client/messages'
+        },
+        {
+          label: t('forme'),
+          href: '/admin/client/forme'
+        }
+      ]
     },
     {
-      labelKey: 'online',
+      label: 'online',
       href: '/admin/online',
       icon: <Discover />
     },
     {
-      labelKey: 'report',
-      href: '/admin/report',
+      label: 'reports',
+      href: '/admin/reports',
       icon: <Chart />
     },
     {
-      labelKey: 'governmental',
+      label: 'inventory',
+      href: '/admin/inventory/products',
+      icon: <Discover />
+    },
+
+    {
+      label: 'governmental',
       href: '/admin/governmental',
       icon: <Work />
     }
   ]
+
   return (
-    <div className="flex flex-col h-full gap-2 overflow-auto pe-1.5">
-      {tolaBarButton.map((props) => (
-        <Tool key={props.href} toggle={open} {...props} />
-      ))}
+    <div className="flex flex-col h-full gap-2 overflow-y-auto pe-1.5">
+      {tolaBarButton.map((props) =>
+        props?.subMenu == null ? (
+          <Tool key={props.href} toggle={open} {...props} setOpen={setOpen} />
+        ) : (
+          <CollapseTree
+            key={props.href}
+            open={open}
+            {...props}
+            setOpen={setOpen}
+          />
+        )
+      )}
     </div>
-  )
-}
-
-interface ToolProps {
-  labelKey: string
-  icon: any
-  href: string
-  toggle: boolean
-  callback?: () => void
-}
-
-const Tool = ({ labelKey, icon, href, toggle, callback }: ToolProps) => {
-  const { t } = useTranslation('common')
-  const router = useRouter()
-  const isActive = router.asPath === href
-  const [mouseEnter, setMouseEnter] = useState(false)
-  return (
-    <Link href={href} className="w-full">
-      <span
-        onClick={() => {
-          callback?.()
-        }}
-        className={`
-          flex  text-dark-300 dark:text-white  gap-4 rounded-xl px-5 py-3 w-full
-          ${!toggle ? 'px-0' : ''}
-          ${isActive ? '!text-white !bg-primary-100' : ''}
-          ${mouseEnter ? 'text-primary-600 bg-primary-100 !text-white' : ''}
-        `}
-        onMouseEnter={() => setMouseEnter(true)}
-        onMouseLeave={() => setMouseEnter(false)}
-      >
-        <div
-          className={`
-            flex justify-center items-center  hover:dark:!text-[#fff]
-            ${!toggle ? 'ms-6' : ''}
-          `}
-        >
-          {React.cloneElement(icon, {
-            className: `stroke-dark-300 dark:stroke-white ${
-              mouseEnter ? '!stroke-[#fff]' : ''
-            } ${isActive ? 'stroke-[#fff]' : ''} `,
-            style: !toggle ? { transform: 'scale(1.25)' } : null
-          })}
-        </div>
-        {!toggle ? null : (
-          <span
-            className={`dark:!text-[#fff] ${
-              mouseEnter ? 'dark:!text-[#fff]' : ''
-            } ${
-              isActive ? 'text-[#fff]' : ''
-            }  whitespace-nowrap font-semibold capitalize text-center `}
-          >
-            {t(labelKey)}
-          </span>
-        )}
-      </span>
-    </Link>
   )
 }
 

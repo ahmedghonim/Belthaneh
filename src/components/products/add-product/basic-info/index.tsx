@@ -1,9 +1,12 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import TextAreaEditors from './text-area-editors'
-import InputForm from 'ui/input'
-import Button from 'ui/button'
 import { Form, Formik } from 'formik'
+import dynamic from 'next/dynamic'
+import { Input, Button } from 'ui'
+
+const QuillInput = dynamic(async () => await import('ui/quill-input'), {
+  ssr: false
+})
 
 interface FormValues {
   productName: string
@@ -25,7 +28,7 @@ function BasicInfo() {
   }
 
   // Submit button Functionality
-  const submitForm = (): void => {}
+  const submitForm = () => {}
 
   return (
     <section className="sm:dark:bg-[#1B1B1C] sm:bg-white sm:w-3/5 rounded-xl py-6 px-4">
@@ -36,14 +39,14 @@ function BasicInfo() {
         <Form className="flex justify-between flex-wrap xs:gap-2 gap-8 mt-8">
           <div className="flex xs:gap-2 gap-8 xs:flex-col w-full">
             <div className="flex-1">
-              <InputForm
+              <Input
                 name="productName"
                 label={t('Product_Name')}
                 placeholder={t('Enter_product_name')}
               />
             </div>
             <div className="flex-1">
-              <InputForm
+              <Input
                 name="brandName"
                 label={t('Brand_Name')}
                 placeholder={t('Enter_brand_name')}
@@ -52,14 +55,14 @@ function BasicInfo() {
           </div>
           <div className="flex gap-8 w-full">
             <div className="flex-1">
-              <InputForm
+              <Input
                 name="quantity"
                 label={t('Product_Quantity')}
                 type="number"
               />
             </div>
             <div className="flex-1">
-              <InputForm
+              <Input
                 name="price"
                 label={t('pricing')}
                 type="number"
@@ -68,23 +71,14 @@ function BasicInfo() {
             </div>
           </div>
           <div className="w-full">
-            <div>
-              <label
-                htmlFor="#product-description"
-                className="dark:text-white text-dark-100"
-              >
-                {t('Description')}
-              </label>
-            </div>
             <div className="rounded-md mt-2 xs:border border-dark-300">
-              <TextAreaEditors className="sm:hidden justify-center py-3 border-b-2 border-dark-300" />
-              <textarea
-                className="bg-transparent w-full resize-none py-3 px-5 sm:border border-dark-300 rounded-md text-dark-300 placeholder:text-sm placeholder:text-dark-300"
-                name="description"
-                id="product-description"
-                placeholder={t('Insert_text_here')}
-                rows={6}
-              ></textarea>
+              <QuillInput
+                name={'description'}
+                placeholder={t('Description')}
+                label={t('Description')}
+                isForm
+                className="[&>*.ql-container.ql-snow]:h-[161px]"
+              />
             </div>
           </div>
           <div className="xs:hidden w-full flex justify-end gap-8">

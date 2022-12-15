@@ -42,11 +42,7 @@ export default function QueueHeader({
       >
         {t('End_Of_The_Day_Report')}
       </Button>
-      <Button
-        className="sm:block hidden"
-        onClick={handleResizeScreen}
-        secondary
-      >
+      <Button className="sm:flex hidden" onClick={handleResizeScreen} secondary>
         <Resize />
       </Button>
     </div>
@@ -58,7 +54,8 @@ export default function QueueHeader({
         name={'date'}
         value={date as Date}
         onChange={handleChangeDate}
-        className="sm:flex-1 "
+        className="flex-1 w-[193px]"
+        format="ddd ll"
       />
       <Select
         className="sm:flex-1 rounded-md max-w-md "

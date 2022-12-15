@@ -1,14 +1,13 @@
 import { FieldProps, Field } from 'formik'
 import React from 'react'
 import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
 
 const InputPhoneForm = ({ label, name }: any) => {
   return (
     <Field name={name}>
       {({ field, form: { errors, touched, setFieldValue } }: FieldProps) => {
         return (
-          <div>
+          <div className="w-full">
             <label
               className=" block mb-2 text-sm  w-full text-dark-200 dark:text-white font-normal text-start"
               htmlFor={name}
