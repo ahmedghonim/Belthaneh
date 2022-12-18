@@ -22,7 +22,7 @@ export default function ServiceCard({
   const { t } = useTranslation('common')
 
   return (
-    <div className="flex dark:bg-dark-200 bg-white rounded-[10px] shadow-xl p-4 w-full">
+    <div className="flex dark:bg-dark-200 bg-white rounded-[10px] shadow-xl p-4 w-full relative">
       <div className="flex items-center">
         <Image
           src={img}
@@ -41,9 +41,9 @@ export default function ServiceCard({
           {description}
         </Text>
       </div>
-      <div className="flex flex-col justify-between  ltr:ml-auto rtl:mr-auto ">
+      <div className="flex flex-col justify-between  ltr:ml-auto rtl:mr-auto  ">
         <Text
-          className="card-title font-bold self-end"
+          className="card-title font-bold self-end w-max"
           secondary={'light'}
           size={'xs'}
         >

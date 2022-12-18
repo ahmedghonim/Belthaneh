@@ -68,7 +68,7 @@ export default function Pos({
     <>
       <div
         className={
-          'sm:fixed xs:flex sm:ltr:right-11 sm:rtl:left-11  h-[10vh] xs:justify-end '
+          'sm:fixed xs:flex sm:ltr:right-11 sm:rtl:left-11  pb-6  xs:justify-end '
         }
       >
         <Button

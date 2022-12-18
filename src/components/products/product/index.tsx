@@ -53,7 +53,7 @@ function StoreProducts() {
   }
 
   return (
-    <section className="xs:pb-24">
+    <section>
       <Button
         onClick={addProductButton}
         className="sm:hidden xs:!bg-transparent"

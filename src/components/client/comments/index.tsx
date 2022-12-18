@@ -36,7 +36,7 @@ function Comments() {
   const { t } = useTranslation('common')
 
   return (
-    <section className="xs:pb-24 pb-6">
+    <section className="pb-6">
       <section>
         <NavigatorTabs splitNum={3} />
       </section>

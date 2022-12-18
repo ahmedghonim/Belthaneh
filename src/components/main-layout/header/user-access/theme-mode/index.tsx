@@ -1,11 +1,14 @@
 import { useTheme } from 'next-themes'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LightIcon from 'svg/sun.svg'
 import DarkIcon from 'svg/dark-mode.svg'
 
 function ThemeMode() {
   const { theme, setTheme } = useTheme()
   const [isDark, setIsDark] = useState(true)
+  useEffect(() => {
+    setIsDark(theme !== 'dark')
+  }, [theme])
 
   return (
     <button

@@ -48,10 +48,9 @@ function Select({
               instanceId="long-value-select"
               options={options}
               styles={styles}
-              {...props}
               {...field}
-              name={name}
               {...props}
+              name={name}
               classNamePrefix={`select2-selection ${
                 Boolean(touched[name]) && Boolean(errors[name])
                   ? '!border-error-100'
@@ -61,6 +60,7 @@ function Select({
               onChange={(selectedOption: any) =>
                 setFieldValue(name, selectedOption.value)
               }
+              {...props}
             />
             {Boolean(touched[name]) && Boolean(errors[name]) && (
               <div className="text-error-100 text-sm text-start">

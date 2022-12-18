@@ -3,8 +3,7 @@ import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { Modal, Text } from 'ui'
-import Edit from 'svg/edit.svg'
-import Delete from 'svg/delete.svg'
+import Actions from 'components/common/actions'
 
 type status = 'outOfStock' | 'lowStock' | 'expired' | 'available'
 
@@ -52,13 +51,8 @@ export default function InventoryCard({
   const [openLargeImg, setOpenLargeImg] = useState(false)
   const { t } = useTranslation('common')
   const Action = () => (
-    <div className="absolute flex gap-0 top-0 rtl:left-[-1px] ltr:right-[-1px] bg-white p-[5px]   ltr:rounded-bl-[30px] rtl:rounded-br-[30px] justify-around  ">
-      <button onClick={handleEdit}>
-        <Edit className="stroke-secondary-100 scale-75" />
-      </button>
-      <button onClick={handleDelete}>
-        <Delete className="fill-secondary-100 scale-110" />
-      </button>
+    <div className="absolute flex gap-0 top-0 rtl:left-0 ltr:right-0 bg-white   ltr:rounded-bl-[15px] rtl:rounded-br-[15px] justify-around px-[6px] py-[2px]  ">
+      <Actions onDelete={handleDelete} onEdit={handleEdit} />{' '}
     </div>
   )
 
@@ -72,7 +66,7 @@ export default function InventoryCard({
   })
 
   const CardData = () => (
-    <div className="card bg-base-100 shadow-xl sm:w-[19%] w-full relative">
+    <div className="card bg-base-100 shadow-xl sm:w-[24%] w-full relative">
       <figure>
         <Image
           onClick={handleResizeScreen}

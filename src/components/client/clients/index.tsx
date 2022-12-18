@@ -16,7 +16,7 @@ function Clients() {
   const onCancelHandler = () => setShowForm(false)
 
   return (
-    <section className="relative xs:pb-24">
+    <section className="relative">
       <Actions setMethod={setShowForm} searchHandler={searchHandler} />
       <Data />
       {showForm ? (

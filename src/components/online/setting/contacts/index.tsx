@@ -9,7 +9,7 @@ export default function SettingContacts() {
     <div className="p-3 dark:bg-dark-200 bg-white rounded-md flex flex-col gap-2">
       <Text>{t('Contacts')}</Text>
       <div className="flex  items-end gap-4  w-full sm:flex-row flex-col">
-        <InputPhoneForm selected={'+966'} label={t('phone')} name={'phone'} />
+        <InputPhoneForm label={t('phone')} name={'phone'} />
         <Button primary>{t('add')}</Button>
       </div>
       <div className="flex  items-end gap-4 sm:flex-row flex-col">

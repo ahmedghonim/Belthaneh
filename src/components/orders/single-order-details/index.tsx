@@ -89,7 +89,7 @@ const updatesData: [OrderUpdatesDataType] = [
 
 function SingleOrderDetails() {
   return (
-    <section className="flex flex-wrap sm:flex-nowrap items-start gap-6 mt-9 xs:pb-24 pb-6">
+    <section className="flex flex-wrap sm:flex-nowrap items-start gap-6 mt-9 pb-6">
       <LeftSideDetails
         orderMobileData={orderMobileData}
         orderWebData={orderWebData}

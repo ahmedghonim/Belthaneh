@@ -34,5 +34,9 @@
   "online_setting": "Online Setting",
   "online_services": "Online Services",
   "online_instagram": "Online Instagram",
-  "admin_workplace": "Admin Workplace"
+  "admin_sales": "Admin Sales",
+  "admin_workplace": "Admin Workplace",
+  "service_memberships": "Services Memberships",
+  "memberships_create-membership": "Create Membership",
+  "_404": "Page Not Found"
 }

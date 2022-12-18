@@ -56,7 +56,7 @@ function ReportRouter() {
     }
   ]
   return (
-    <div className="space-y-3 pb-14 xs:pb-20">
+    <div className="space-y-3">
       {routesArray.map((data) => (
         <RouterCard key={data.label} {...data} />
       ))}

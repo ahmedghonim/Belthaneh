@@ -61,7 +61,7 @@ function POSReport() {
   ]
 
   return (
-    <div className="space-y-7 xs:pb-24">
+    <div className="space-y-7">
       <SearchHeader />
       <div className="xs:hidden">
         <Table columns={columns} data={data} />

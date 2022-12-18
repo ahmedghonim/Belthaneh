@@ -17,7 +17,7 @@ function ReportCards() {
             <Text className="!text-success-100">+0,94%</Text>
           </div>
           <div>
-            <WalletIcon />
+            <WalletIcon className="dark:fill-white fill-dark-100" />
           </div>
         </div>
       </Card>
@@ -38,7 +38,7 @@ function ReportCards() {
                 -0,94%
               </Text>
             </div>
-            <WalletIcon />
+            <WalletIcon className="dark:fill-white fill-dark-100" />
           </div>
         </div>
       </Card>

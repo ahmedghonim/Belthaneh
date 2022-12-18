@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Formik, Form, FormikHelpers } from 'formik'
 import useTranslation from 'next-translate/useTranslation'
 import Button from 'ui/button'
@@ -23,6 +22,7 @@ export interface FormValues {
   employee: FieldItem
   date: Date | null | string
   newUser: FormValuesCustomerForm | null
+  openCustomer: boolean
 }
 
 export interface AppointmentFormProps {
@@ -39,7 +39,8 @@ export const defaultValues = {
   employee: null,
   date: null,
   newUser: null,
-  send_sms: false
+  send_sms: false,
+  openCustomer: false
 }
 
 export default function AppointmentForm({
@@ -49,7 +50,6 @@ export default function AppointmentForm({
   customers,
   employees
 }: AppointmentFormProps) {
-  const [openCreateCustomer, setOpenCreateCustomer] = useState(false)
   const { t } = useTranslation('common')
   const buttonName = t('confirm')
   const getServices = (serviceValues: FieldItem[]) => {
@@ -76,10 +76,7 @@ export default function AppointmentForm({
                 placeholder={t('select_customer')}
               />
             </div>
-            <Button
-              onClick={() => setOpenCreateCustomer(!openCreateCustomer)}
-              primary
-            >
+            <Button onClick={() => setFieldValue('openCustomer', true)} primary>
               <span className="xs:hidden sm:inline-block">
                 {t('add_customer')}
               </span>
@@ -87,11 +84,11 @@ export default function AppointmentForm({
             </Button>
           </div>
 
-          {openCreateCustomer && (
+          {values.openCustomer && (
             <div className="w-full px-6 py-3">
               <CustomerForm
                 onSubmit={() => undefined}
-                handleCancel={() => setOpenCreateCustomer(false)}
+                handleCancel={() => setFieldValue('openCustomer', false)}
               />
             </div>
           )}
@@ -132,7 +129,7 @@ export default function AppointmentForm({
             />
           </div>
 
-          <span className="bg-primary-300 sm:bg-transparent p-4 flex justify-center">
+          <span className="bg-primary-300 sm:bg-transparent p-4 flex justify-center text-center">
             {t('the')} <>{getServices(values?.services)}</>
             {t('services_reschedule_to')}{' '}
             <>{moment(values?.date)?.format('MM/DD/YYYY HH:mm:ss')}</>{' '}

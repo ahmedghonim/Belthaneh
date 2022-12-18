@@ -110,7 +110,7 @@ const CollapseTree = ({
                     : 'dark:bg-dark-200 bg-white'
                 } hover:!bg-secondary-100 !px-3 w-[130px]`}
               >
-                {subMenu[0].label}
+                {t(subMenu[0].label) ?? subMenu[0].label}
               </Button>
             </div>
           </Link>

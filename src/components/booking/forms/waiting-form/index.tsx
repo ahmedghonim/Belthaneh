@@ -58,8 +58,6 @@ export default function WaitingForm({
           name="phone"
           label={`${t('phone')}*`}
           placeholder={t('phone_number')}
-          onSelect={() => undefined}
-          selected={'+966'}
         />
         <Input
           isForm

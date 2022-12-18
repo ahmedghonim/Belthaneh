@@ -179,7 +179,7 @@ function POS() {
         subTitle: 'Essential Features',
         oldPrice: 59.99,
         price: 53.99,
-        handleAdd: () => undefined,
+        onClickAdd: () => undefined,
         body: (
           <div className="flex flex-col gap-[13px]">
             <div className="flex-1 flex gap-2 items-center">
@@ -218,7 +218,7 @@ function POS() {
         subTitle: 'Advanced Features',
         oldPrice: 120.99,
         price: 109.99,
-        handleAdd: () => undefined,
+        onClickAdd: () => undefined,
         body: (
           <div className="flex flex-col gap-[13px]">
             <div className="flex-1 flex gap-2 items-center">

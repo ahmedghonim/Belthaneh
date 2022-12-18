@@ -3,7 +3,7 @@
   "admin_reports": "التقارير",
   "employees": "الموظفين",
   "admin_dashboard": "لوحة التحكم",
-  "admin_booking": "الحجزات",
+  "admin_booking": "قائمة الانتظار",
   "reports_sales": "تقرير المبيعات",
   "reports_services": "تقرير الخدمات",
   "reports_employees": "تقرير الموظفين",
@@ -34,5 +34,9 @@
   "online_setting": "إعداد عبر الإنترنت",
   "online_services": "خدمات عبر الانترنت",
   "online_instagram": "موقع الانستقرام",
-  "admin_workplace": "مكان عمل المشرف"
+  "admin_sales": "مبيعات المشرف",
+  "admin_workplace": "مكان عمل المشرف",
+  "service_memberships": "خدمات العضوية",
+  "memberships_create-membership": "انشاء عضوية",
+  "_404": "الصفحة غير موجودة"
 }

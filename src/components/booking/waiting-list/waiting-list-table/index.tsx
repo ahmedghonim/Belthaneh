@@ -53,7 +53,7 @@ export default function WaitingListTable({
       <Table
         columns={columns}
         data={waitingList}
-        noDataMessage={'No Data to show'}
+        noDataMessage={t('no_data_to_show')}
       />
     </div>
   )

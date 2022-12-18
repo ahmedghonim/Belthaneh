@@ -107,7 +107,7 @@ export default function InvoiceForm({
           </>
         )}
       </div>
-      <div className="sticky sm:hidden bottom-[8vh] pt-16 w-full">
+      <div className="sticky sm:hidden bottom-[-5vh] pt-5 w-full">
         {formik.values.currentStep === null && (
           <Button
             onClick={handleCheckout}

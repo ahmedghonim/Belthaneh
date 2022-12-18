@@ -103,7 +103,7 @@ const boxData: OrdersDetailsType[] = [
 
 function OrdersDetails() {
   return (
-    <section className="xs:pb-24">
+    <section>
       <div>
         <WebOrdersActions />
         <OrdersDetailsTable data={tableData} />

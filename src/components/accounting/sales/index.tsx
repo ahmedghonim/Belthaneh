@@ -92,7 +92,7 @@ function Sales() {
   }
 
   return (
-    <div className="flex flex-col gap-5 xs:pb-24">
+    <div className="flex flex-col gap-5">
       <SearchForm onSubmit={onSubmit} />
       <SalesInvoices data={data} returnFun={setReturnInvoice} />
       <RefundForm

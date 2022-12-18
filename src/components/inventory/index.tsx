@@ -14,6 +14,9 @@ import ConfirmDeleteModal, {
   ConfirmDeleteModalProps
 } from 'components/common/confirm-delete'
 import Plus from 'svg/plus.svg'
+import CategoryFormModal, {
+  CategoryFormModalProps
+} from './category-form-modal'
 
 export interface InventoryProps {
   categories: ChipProps[]
@@ -23,6 +26,7 @@ export interface InventoryProps {
   inventoryListProps: InventoryListProps
   openForm?: boolean
   deletePropsData: ConfirmDeleteModalProps
+  categoryFormModalData: CategoryFormModalProps
 }
 
 export default function Inventory({
@@ -32,7 +36,8 @@ export default function Inventory({
   handleAddProduct,
   formProps,
   inventoryListProps,
-  deletePropsData
+  deletePropsData,
+  categoryFormModalData
 }: InventoryProps) {
   const { push, asPath } = useRouter()
   const { t } = useTranslation('common')
@@ -111,6 +116,7 @@ export default function Inventory({
       <Footer />
       <InventoryModalForm {...formProps} open={openForm} />
       <ConfirmDeleteModal {...deletePropsData} />
+      <CategoryFormModal {...categoryFormModalData} />
     </div>
   )
 }

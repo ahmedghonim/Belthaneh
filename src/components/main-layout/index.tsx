@@ -4,12 +4,13 @@ import MobileFooterBar from './mobile-footer-bar'
 import Header from './header'
 import Sidebar from 'components/main-layout/sidebar'
 import useScreen from 'hooks/useScreen'
+import { useRouter } from 'next/router'
 
 interface Props {
   children: React.ReactNode
 }
 
-export default function MainLayout({ children }: Props) {
+function MainLayout({ children }: Props) {
   const [open, setOpen] = useState(true)
   const screen = useScreen()
 
@@ -30,7 +31,7 @@ export default function MainLayout({ children }: Props) {
         </div>
 
         {/* View */}
-        <div className="pt-10 w-full sm:pe-8 sm:pb-8 pb-24 xs:px-6 h-[calc(100%-90px)]">
+        <div className="pt-10 w-full sm:pe-8 sm:pb-8 pb-20 xs:px-6 h-[calc(100%-90px)] overflow-y-auto">
           {children}
         </div>
       </div>
@@ -42,4 +43,27 @@ export default function MainLayout({ children }: Props) {
       <MobileFooterBar />
     </div>
   )
+}
+
+function LayoutProvider({ children }: Props): JSX.Element {
+  const router = useRouter()
+
+  return !disableLayoutFor(router.asPath) ? (
+    <MainLayout>{children}</MainLayout>
+  ) : (
+    <>{children}</>
+  )
+}
+
+export default LayoutProvider
+
+const disableLayoutFor = (url: string) => {
+  return [
+    /^(\/(ar|en))?\/login/,
+    /^(\/(ar|en))?\/signup/,
+    /^(\/(ar|en))?\/reset-password/,
+    /^(\/(ar|en))?\/forget-password/,
+    /^(\/(ar|en))?\/recovery-password/,
+    /^(\/(ar|en))?\/online/
+  ].some((fullPageRegex) => fullPageRegex.test(url))
 }

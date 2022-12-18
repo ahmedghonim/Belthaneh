@@ -117,7 +117,8 @@ export default function BookingController() {
         hour: 'numeric',
         minute: 'numeric'
       }),
-      newUser: null
+      newUser: null,
+      openCustomer: false
     })
     setOpenAppointment(true)
   }

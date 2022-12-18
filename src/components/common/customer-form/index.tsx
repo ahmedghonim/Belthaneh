@@ -1,12 +1,8 @@
 import { Formik, Form, FormikHelpers } from 'formik'
 import useTranslation from 'next-translate/useTranslation'
 import Button from 'ui/button'
-import DateInputForm from 'ui/dateInput'
-import Input from 'ui/input'
-import InputPhoneForm from 'ui/input-phone-form'
-import Select, { Options } from 'ui/select'
-import TextAreaForm from 'ui/text-area'
 import * as Yup from 'yup'
+import CustomerFormItems from './form-items'
 
 export interface FormValuesCustomerForm {
   phone: string
@@ -33,7 +29,7 @@ const defaultValues = {
   email: '',
   gender: '',
   message: '',
-  phoneCountry: '+966',
+  phoneCountry: '',
   dob: null
 }
 
@@ -46,10 +42,6 @@ export default function CustomerForm({
   onSubmit
 }: CustomerFormProps): JSX.Element {
   const { t } = useTranslation('common')
-  const genderList: Options[] = [
-    { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' }
-  ]
   const validationSchema = Yup.object({
     name: Yup.string()
       .max(15, t('name_msg_validation'))
@@ -69,80 +61,20 @@ export default function CustomerForm({
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      {({
-        values,
-        setFieldValue
-      }: {
-        values: FormValuesCustomerForm
-      } & FormikHelpers<FormValuesCustomerForm>) => (
-        <Form className="flex flex-col gap-4">
-          <InputPhoneForm
-            name="phone"
-            label={`${t('phone')}*`}
-            placeholder={t('phone_number')}
-            onSelect={() => undefined}
-            selected={'+966'}
-          />
-          <span className="flex flex-col sm:flex-row gap-4">
-            <Input
-              isForm
-              name="name"
-              label={`${t('name')}*`}
-              placeholder={t('name')}
-            />
-            <Input
-              isForm
-              name="email"
-              label={t('email')}
-              placeholder={t('email')}
-            />
-          </span>
-          <span className="flex flex-col sm:flex-row gap-4">
-            <div className="relative w-full justify-between">
-              <label
-                htmlFor={'gender'}
-                className={
-                  ' text-start block mb-2 text-sm  w-full text-dark-200 dark:text-white font-normal'
-                }
-              >
-                {t('gender')}
-              </label>
-              <Select
-                onChange={(val) => setFieldValue('gender', val)}
-                value={values.gender}
-                name={'gender'}
-                options={genderList}
-                className="w-full text-start"
-                placeholder={t('select_gender')}
-              />
-            </div>
-            <DateInputForm
-              name="dob"
-              label={t('dob')}
-              placeholder={t('dob')}
-              isForm
-            />
-          </span>
-          <TextAreaForm
-            name="message"
-            label={t('message')}
-            placeholder={t('Type_anything')}
-            rows={4}
-            isForm
-          />
-          <div className="flex gap-4 justify-end">
-            <Button
-              onClick={handleCancel}
-              className={'dark:text-white text-dark-300 bg-transparent'}
-            >
-              {t('cancel')}
-            </Button>
-            <Button type="submit" primary>
-              {buttonName}
-            </Button>
-          </div>
-        </Form>
-      )}
+      <Form className="flex flex-col gap-4">
+        <CustomerFormItems />
+        <div className="flex gap-4 justify-end">
+          <Button
+            onClick={handleCancel}
+            className={'dark:text-white text-dark-300 bg-transparent'}
+          >
+            {t('cancel')}
+          </Button>
+          <Button type="submit" primary>
+            {buttonName}
+          </Button>
+        </div>
+      </Form>
     </Formik>
   )
 }

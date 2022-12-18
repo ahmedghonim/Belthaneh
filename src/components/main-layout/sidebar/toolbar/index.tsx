@@ -10,7 +10,6 @@ import Boxes from 'svg/boxes.svg'
 import Discover from 'svg/discover.svg'
 import Chart from 'svg/chart.svg'
 import Users from 'svg/users.svg'
-import Work from 'svg/work.svg'
 import CollapseTree from './collapse-tree'
 import Tool from './tool'
 
@@ -39,40 +38,6 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
       icon: <Store />
     },
     {
-      label: 'service',
-      href: '/admin/service',
-      icon: <Store />,
-      subMenu: [
-        {
-          label: 'service',
-          href: '/admin/service'
-        },
-        {
-          label: 'shop_services',
-          href: '/admin/service/shop-services'
-        },
-        {
-          label: 'packages',
-          href: '/admin/service/packages'
-        }
-      ]
-    },
-    {
-      label: 'products',
-      href: '/admin/products',
-      icon: <Store />,
-      subMenu: [
-        {
-          label: t('products'),
-          href: '/admin/products'
-        },
-        {
-          label: t('add_product'),
-          href: '/admin/products/add-product'
-        }
-      ]
-    },
-    {
       label: t('accounting'),
       href: '/admin/accounting',
       icon: <Paper />,
@@ -90,11 +55,6 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
           href: '/admin/accounting/purchases'
         }
       ]
-    },
-    {
-      label: 'orders',
-      href: '/admin/orders',
-      icon: <Store />
     },
     {
       label: 'workplace',
@@ -139,16 +99,55 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
       icon: <Chart />
     },
     {
-      label: 'inventory',
-      href: '/admin/inventory/products',
-      icon: <Discover />
+      label: 'service',
+      href: '/admin/service',
+      icon: <Store />,
+      subMenu: [
+        {
+          label: 'shop_services',
+          href: '/admin/service/shop-services'
+        },
+        {
+          label: 'packages',
+          href: '/admin/service/packages'
+        },
+        {
+          label: 'memberships',
+          href: '/admin/service/memberships'
+        }
+      ]
+    },
+    {
+      label: 'products',
+      href: '/admin/products',
+      icon: <Store />,
+      subMenu: [
+        {
+          label: t('products'),
+          href: '/admin/products'
+        },
+        {
+          label: t('add_product'),
+          href: '/admin/products/add-product'
+        }
+      ]
+    },
+    {
+      label: 'orders',
+      href: '/admin/orders',
+      icon: <Store />
     },
 
     {
-      label: 'governmental',
-      href: '/admin/governmental',
-      icon: <Work />
+      label: 'inventory',
+      href: '/admin/inventory/products',
+      icon: <Discover />
     }
+    // {
+    //   label: 'governmental',
+    //   href: '/admin/governmental',
+    //   icon: <Work />
+    // }
   ]
 
   return (

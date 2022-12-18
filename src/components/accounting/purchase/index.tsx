@@ -58,7 +58,7 @@ function Purchase() {
   }
 
   return (
-    <section className="flex flex-col gap-10 xs:pb-24">
+    <section className="flex flex-col gap-10">
       <div className="flex flex-wrap xs:justify-end gap-4">
         <div className="xs-w-full flex-1">
           <SearchForm onSubmit={onSubmit} />

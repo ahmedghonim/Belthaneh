@@ -45,7 +45,7 @@ function Messages() {
   }
 
   return (
-    <section className="relative xs:pb-24">
+    <section className="relative">
       <MessagesActions messagesNum={messagesData} />
       <MessagesBoxs onClickFun={showFormFun} formDir={changeDir} />
       <FrontPopUp onCancel={hideFormFun} {...showForm} formDir={formDir} />

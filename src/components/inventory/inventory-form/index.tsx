@@ -60,7 +60,6 @@ export default function InventoryForm({
   measures
 }: InventoryFormProps) {
   const { t } = useTranslation('common')
-  const buttonName = t('add_inventory')
   const { ssr } = useSSR()
   const validationSchema = Yup.object({
     productName: Yup.string().required(t('Required')),
@@ -83,6 +82,10 @@ export default function InventoryForm({
       .transform((curr, orig) => (orig === '' ? null : curr))
       .required(t('Required'))
   })
+  const buttonName =
+    initialValues != null && Object.keys(initialValues)?.length > 0
+      ? t('edit_inventory')
+      : t('add_inventory')
 
   return ssr ? (
     <Formik

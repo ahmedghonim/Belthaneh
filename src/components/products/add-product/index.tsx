@@ -4,7 +4,7 @@ import BasicInfo from './basic-info'
 
 function AddProducts() {
   return (
-    <section className="flex flex-col sm:flex-row items-start xs:gap-2 gap-6 xs:pb-24">
+    <section className="flex flex-col sm:flex-row items-start xs:gap-2 gap-6">
       <BasicInfo />
       <AddImages />
     </section>

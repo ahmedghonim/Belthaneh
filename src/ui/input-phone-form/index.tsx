@@ -1,13 +1,28 @@
 import { FieldProps, Field } from 'formik'
 import React from 'react'
-import PhoneInput from 'react-phone-input-2'
+import PhoneInput, { PhoneInputProps } from 'react-phone-input-2'
+import Search from 'svg/search.svg'
+interface Props extends PhoneInputProps {
+  label: string
+  name: string
+  showSearch?: boolean
+}
 
-const InputPhoneForm = ({ label, name }: any) => {
+const InputPhoneForm = ({ label, name, showSearch, ...props }: Props) => {
+  const End = () => (
+    <div
+      className="px-[4px] w-[34px] focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0  block z-10 top-9"
+      id="end"
+    >
+      {showSearch != null && <Search className="fill-dark-300" />}
+    </div>
+  )
+
   return (
     <Field name={name}>
       {({ field, form: { errors, touched, setFieldValue } }: FieldProps) => {
         return (
-          <div className="w-full">
+          <div className="w-full relative">
             <label
               className=" block mb-2 text-sm  w-full text-dark-200 dark:text-white font-normal text-start"
               htmlFor={name}
@@ -15,6 +30,7 @@ const InputPhoneForm = ({ label, name }: any) => {
               {label}
             </label>
             <PhoneInput
+              {...props}
               dropdownStyle={{
                 background: 'dark:bg-dark-100'
               }}
@@ -41,6 +57,7 @@ const InputPhoneForm = ({ label, name }: any) => {
                 <>{errors[name]}</>
               </div>
             )}
+            <End />
           </div>
         )
       }}

@@ -4,19 +4,23 @@ import React from 'react'
 import { Tabs, Button, Select } from 'ui'
 import { TabProps } from 'ui/tabs/types'
 import PlusSquareIcon from 'svg/plus-square.svg'
+import PlusIcon from 'svg/plus.svg'
 
-function Navigation() {
+export interface NavigationProps {
+  handleAddService?: () => void
+  handleAddPackage?: () => void
+  handleAddMembership?: () => void
+}
+
+function Navigation({
+  handleAddService,
+  handleAddPackage,
+  handleAddMembership
+}: NavigationProps) {
   const { t } = useTranslation('common')
   const { push, asPath } = useRouter()
   const isActive = (path: string): boolean => asPath.split('/')[3] === path
   const tabs: TabProps[] = [
-    {
-      isActive: isActive('home-services'),
-      label: t('home_services'),
-      onClick: async () => {
-        await push('home-services')
-      }
-    },
     {
       isActive: isActive('shop-services'),
       label: t('shop_services'),
@@ -24,6 +28,13 @@ function Navigation() {
         await push('shop-services')
       }
     },
+    // {
+    //   isActive: isActive('home-services'),
+    //   label: t('home_services'),
+    //   onClick: async () => {
+    //     await push('home-services')
+    //   }
+    // },
     {
       isActive: isActive('packages'),
       label: t('packages'),
@@ -32,10 +43,10 @@ function Navigation() {
       }
     },
     {
-      isActive: isActive('membership'),
-      label: t('membership'),
+      isActive: isActive('memberships'),
+      label: t('memberships'),
       onClick: async () => {
-        await push('membership')
+        await push('memberships')
       }
     }
   ]
@@ -58,6 +69,12 @@ function Navigation() {
       value: 'membership'
     }
   ]
+  const addButtons: any = {
+    packages: { title: t('add_package'), onClick: handleAddPackage },
+    memberships: { title: t('membership'), onClick: handleAddMembership },
+    'shop-services': { title: t('add_new_service'), onClick: handleAddService }
+  }
+  const currentPath: string = asPath.split('/')[3] ?? 'shop-services'
 
   return (
     <div className="flex justify-between">
@@ -72,8 +89,14 @@ function Navigation() {
           }}
         />
       </div>
-      <Button primary>
-        <PlusSquareIcon /> <span className="xs:hidden">{t('add_package')}</span>
+      <Button
+        primary
+        className={'py-[5px] px-[23px]'}
+        onClick={addButtons[currentPath].onClick}
+      >
+        <PlusIcon className="sm:hidden" />{' '}
+        <PlusSquareIcon className="xs:hidden" />
+        <span className="xs:hidden">{addButtons[currentPath].title}</span>
       </Button>
     </div>
   )

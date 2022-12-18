@@ -22,7 +22,7 @@ const personalData: PersonalDataType = {
 function Profile() {
   const { t } = useTranslation('common')
   return (
-    <section className="xs:pb-24 pb-6">
+    <section className="pb-6">
       <section className="flex xs:flex-col gap-5">
         <div className="flex-1">
           <PersonalData data={personalData} />

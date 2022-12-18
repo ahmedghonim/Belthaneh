@@ -1,79 +1,41 @@
-import React, { useState } from 'react'
 import Navigation from '../navigation'
-import ServicesCards from './services-cards'
-import useTranslation from 'next-translate/useTranslation'
-import HairIcon from 'svg/hair.svg'
 import { Chip } from 'ui'
+import Services, { ServicesProps } from './services'
+import { ChipProps } from 'ui/chip'
+import ServiceFormModal, {
+  ServiceFormModalProps
+} from '../modals/service-form-modal'
+import CategoryFormModal, {
+  CategoryFormModalProps
+} from '../modals/category-form-modal'
 
-function ShopServices() {
-  const { t } = useTranslation('common')
-  const [currentCategory, setCurrentCategory] = useState<number>(0)
-  const category = [
-    {
-      label: t('waxing'),
-      isActive: currentCategory === 0,
-      onClick: () => {
-        setCurrentCategory(0)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 1 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
-    },
-    {
-      label: t('waxing'),
-      isActive: currentCategory === 1,
-      onClick: () => {
-        setCurrentCategory(1)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 1 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
-    },
-    {
-      label: t('waxing'),
-      isActive: currentCategory === 2,
-      onClick: () => {
-        setCurrentCategory(2)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 2 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
-    },
-    {
-      label: t('waxing'),
-      isActive: currentCategory === 3,
-      onClick: () => {
-        setCurrentCategory(3)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 3 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
-    }
-  ]
+interface ShopServicesProps {
+  services: ServicesProps['list']
+  categories: ChipProps[]
+  handleAddCategory: () => void
+  handleAddService: () => void
+  serviceFormModalData: ServiceFormModalProps
+  categoryFormModalData: CategoryFormModalProps
+}
+
+function ShopServices({
+  services,
+  categories,
+  handleAddCategory,
+  handleAddService,
+  serviceFormModalData,
+  categoryFormModalData
+}: ShopServicesProps) {
   return (
     <div className="space-y-5">
       {/* navigation buttons and Add Service */}
-      <Navigation />
+      <Navigation handleAddService={handleAddService} />
       {/* Category and Add Category */}
-      <Chip list={category} handleAddCategory={() => {}} />
+      <Chip list={categories} handleAddCategory={handleAddCategory} />
       {/* Services */}
-      <ServicesCards />
+      <Services list={services} />
+      <ServiceFormModal {...serviceFormModalData} />
+      <CategoryFormModal {...categoryFormModalData} />
     </div>
   )
 }

@@ -7,7 +7,7 @@ import Dropdown, { Options } from 'ui/dropdown'
 import LangIcon from 'svg/lang.svg'
 
 function LangMod() {
-  const { push } = useRouter()
+  const { push, pathname, asPath, query } = useRouter()
   const { t } = useTranslation()
 
   const langList: Options[] = [
@@ -15,14 +15,14 @@ function LangMod() {
       label: t('common:ar'),
       icon: <ArIcon />,
       onClick: () => {
-        void push('', '', { locale: 'ar' })
+        void push({ pathname, query }, asPath, { locale: 'ar' })
       }
     },
     {
       label: t('common:en'),
       icon: <EnIcon />,
       onClick: () => {
-        void push('', '', { locale: 'en' })
+        void push({ pathname, query }, asPath, { locale: 'en' })
       }
     }
   ]
