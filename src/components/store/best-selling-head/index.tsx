@@ -8,11 +8,11 @@ function BestSellingHead() {
 
   const { t } = useTranslation('common')
   return (
-    <div className="mt-10">
-      <div className="sm:flex justify-between mb-5">
-        <h2 className="dark:text-white text-dark-100 font-bold text-md flex-1 xs:mb-3">
-          {t('Best_selling_products')}
-        </h2>
+    <div className="sm:flex justify-between mb-5 mt-10 w-full items-center">
+      <h2 className="dark:text-white text-dark-100 font-bold text-md xs:mb-3">
+        {t('Best_selling_products')}
+      </h2>
+      <div>
         <DateInput
           name="dateInput"
           className="sm:w-80"
