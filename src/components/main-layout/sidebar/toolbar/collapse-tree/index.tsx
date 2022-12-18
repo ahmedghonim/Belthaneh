@@ -4,7 +4,6 @@ import ArrowIcon from 'svg/arrow.svg'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { Button } from 'ui'
-import Link from 'next/link'
 import useScreen from 'hooks/useScreen'
 
 const CollapseTree = ({
@@ -96,46 +95,44 @@ const CollapseTree = ({
         }`}
       >
         {subMenu?.length !== 0 && (
-          <Link href={subMenu[0].href} className="w-full">
-            <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0  pt-2 rounded-e-none border-white rounded-lg h-6 w-28">
-              <Button
-                onClick={() => {
-                  screen === 'phone' && setOpen(true)
-                }}
-                rounded="full"
-                size="xSmall"
-                className={`${
-                  router.asPath === href
-                    ? '!bg-secondary-100 '
-                    : 'dark:bg-dark-200 bg-white'
-                } hover:!bg-secondary-100 !px-3 w-[130px]`}
-              >
-                {t(subMenu[0].label) ?? subMenu[0].label}
-              </Button>
-            </div>
-          </Link>
+          <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0  pt-2 rounded-e-none border-white rounded-lg h-6 w-28">
+            <Button
+              onClick={() => {
+                void router.push(subMenu[0].href)
+                screen === 'phone' && setOpen(true)
+              }}
+              rounded="full"
+              size="xSmall"
+              className={`${
+                router.asPath === href
+                  ? '!bg-secondary-100 '
+                  : 'dark:bg-dark-200 bg-white'
+              } hover:!bg-secondary-100 !px-3 w-[130px]`}
+            >
+              {t(subMenu[0].label) ?? subMenu[0].label}
+            </Button>
+          </div>
         )}
         {subMenu.map(({ label, href }, index) => {
           return (
             index !== 0 && (
-              <Link href={href} className="w-full">
-                <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0 pt-6 rounded-e-none border-whit rounded-lg h-10 w-28">
-                  <Button
-                    onClick={() => {
-                      screen === 'phone' && setOpen(true)
-                    }}
-                    rounded="full"
-                    size="xSmall"
-                    className={`${
-                      router.asPath === href
-                        ? '!bg-secondary-100 '
-                        : 'dark:bg-dark-200 bg-white'
-                    } hover:!bg-secondary-100 w-[130px] !px-3`}
-                  >
-                    {t(label) ?? label}
-                  </Button>
-                </div>
-              </Link>
+              <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0 pt-6 rounded-e-none border-whit rounded-lg h-10 w-28">
+                <Button
+                  onClick={() => {
+                    void router.push(href)
+                    screen === 'phone' && setOpen(true)
+                  }}
+                  rounded="full"
+                  size="xSmall"
+                  className={`${
+                    router.asPath === href
+                      ? '!bg-secondary-100 '
+                      : 'dark:bg-dark-200 bg-white'
+                  } hover:!bg-secondary-100 w-[130px] !px-3`}
+                >
+                  {t(label) ?? label}
+                </Button>
+              </div>
             )
           )
         })}
