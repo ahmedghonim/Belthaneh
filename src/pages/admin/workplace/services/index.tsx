@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import useTranslation from 'next-translate/useTranslation'
-import HairIcon from 'svg/hair.svg'
+import { services } from 'components/pos/services/index.mock'
 import ShopServices from 'components/services/shop-services'
-import { services } from 'components/services/shop-services/index.mock'
+import useTranslation from 'next-translate/useTranslation'
 import Head from 'next/head'
+import { useState } from 'react'
+import HairIcon from 'svg/hair.svg'
 
-function ShopServicesController() {
+function ServicesController() {
   const { t } = useTranslation('common')
   const [currentCategory, setCurrentCategory] = useState<number>(0)
   const [openServiceModalForm, setOpenServiceModalForm] = useState(false)
@@ -143,4 +143,4 @@ function ShopServicesController() {
   )
 }
 
-export default ShopServicesController
+export default ServicesController

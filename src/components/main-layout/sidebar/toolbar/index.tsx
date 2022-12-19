@@ -1,5 +1,4 @@
 import React from 'react'
-import useTranslation from 'next-translate/useTranslation'
 import { OpenProps, SetOpenProps } from '../../Types'
 import Home from 'svg/home.svg'
 import Calender from 'svg/calender.svg'
@@ -14,8 +13,6 @@ import CollapseTree from './collapse-tree'
 import Tool from './tool'
 
 function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
-  const { t } = useTranslation('common')
-
   const tolaBarButton = [
     {
       label: 'dashboard',
@@ -35,23 +32,37 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
     {
       label: 'store',
       href: '/admin/store',
-      icon: <Store />
+      icon: <Store />,
+      subMenu: [
+        {
+          label: 'over_view',
+          href: '/admin/store'
+        },
+        {
+          label: 'orders',
+          href: '/admin/store/orders'
+        },
+        {
+          label: 'products',
+          href: '/admin/store/products'
+        }
+      ]
     },
     {
-      label: t('accounting'),
+      label: 'accounting',
       href: '/admin/accounting',
       icon: <Paper />,
       subMenu: [
         {
-          label: t('sales'),
+          label: 'sales',
           href: '/admin/accounting'
         },
         {
-          label: t('expenses'),
+          label: 'expenses',
           href: '/admin/accounting/expenses'
         },
         {
-          label: t('purchases'),
+          label: 'purchases',
           href: '/admin/accounting/purchases'
         }
       ]
@@ -59,7 +70,21 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
     {
       label: 'workplace',
       href: '/admin/workplace',
-      icon: <Boxes />
+      icon: <Boxes />,
+      subMenu: [
+        {
+          label: 'services',
+          href: '/admin/workplace/services'
+        },
+        {
+          label: 'inventory',
+          href: '/admin/workplace/inventory'
+        },
+        {
+          label: 'employees',
+          href: '/admin/workplace/employees'
+        }
+      ]
     },
     {
       label: 'client',
@@ -67,23 +92,23 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
       icon: <Users />,
       subMenu: [
         {
-          label: t('clients'),
+          label: 'clients',
           href: '/admin/client'
         },
         {
-          label: t('comments'),
+          label: 'comments',
           href: '/admin/client/comments'
         },
         {
-          label: t('chats'),
+          label: 'chats',
           href: '/admin/client/chats'
         },
         {
-          label: t('messages'),
+          label: 'messages',
           href: '/admin/client/messages'
         },
         {
-          label: t('forme'),
+          label: 'forme',
           href: '/admin/client/forme'
         }
       ]
@@ -97,57 +122,7 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
       label: 'reports',
       href: '/admin/reports',
       icon: <Chart />
-    },
-    {
-      label: 'service',
-      href: '/admin/service',
-      icon: <Store />,
-      subMenu: [
-        {
-          label: 'shop_services',
-          href: '/admin/service/shop-services'
-        },
-        {
-          label: 'packages',
-          href: '/admin/service/packages'
-        },
-        {
-          label: 'memberships',
-          href: '/admin/service/memberships'
-        }
-      ]
-    },
-    {
-      label: 'products',
-      href: '/admin/products',
-      icon: <Store />,
-      subMenu: [
-        {
-          label: t('products'),
-          href: '/admin/products'
-        },
-        {
-          label: t('add_product'),
-          href: '/admin/products/add-product'
-        }
-      ]
-    },
-    {
-      label: 'orders',
-      href: '/admin/orders',
-      icon: <Store />
-    },
-
-    {
-      label: 'inventory',
-      href: '/admin/inventory/products',
-      icon: <Discover />
     }
-    // {
-    //   label: 'governmental',
-    //   href: '/admin/governmental',
-    //   icon: <Work />
-    // }
   ]
 
   return (

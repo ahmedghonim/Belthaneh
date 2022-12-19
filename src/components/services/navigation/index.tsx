@@ -19,46 +19,37 @@ function Navigation({
 }: NavigationProps) {
   const { t } = useTranslation('common')
   const { push, asPath } = useRouter()
-  const isActive = (path: string): boolean => asPath.split('/')[3] === path
+  const isActive = (path: string): boolean =>
+    asPath.split('/').reverse()[0] === path
+
   const tabs: TabProps[] = [
     {
-      isActive: isActive('shop-services'),
-      label: t('shop_services'),
+      isActive: isActive('services'),
+      label: t('services'),
       onClick: async () => {
-        await push('shop-services')
+        await push('/admin/workplace/services')
       }
     },
-    // {
-    //   isActive: isActive('home-services'),
-    //   label: t('home_services'),
-    //   onClick: async () => {
-    //     await push('home-services')
-    //   }
-    // },
     {
       isActive: isActive('packages'),
       label: t('packages'),
       onClick: async () => {
-        await push('packages')
+        await push('/admin/workplace/services/packages')
       }
     },
     {
       isActive: isActive('memberships'),
       label: t('memberships'),
       onClick: async () => {
-        await push('memberships')
+        await push('/admin/workplace/services/memberships')
       }
     }
   ]
 
   const categoryOptions = [
     {
-      label: t('home_services'),
-      value: 'home-services'
-    },
-    {
-      label: t('shop_services'),
-      value: 'shop-services'
+      label: t('services'),
+      value: 'services'
     },
     {
       label: t('packages'),
@@ -69,12 +60,14 @@ function Navigation({
       value: 'membership'
     }
   ]
+
   const addButtons: any = {
     packages: { title: t('add_package'), onClick: handleAddPackage },
     memberships: { title: t('membership'), onClick: handleAddMembership },
-    'shop-services': { title: t('add_new_service'), onClick: handleAddService }
+    services: { title: t('add_new_service'), onClick: handleAddService }
   }
-  const currentPath: string = asPath.split('/')[3] ?? 'shop-services'
+  const currentPath: string = asPath.split('/')[3] ?? 'services'
+  console.log(currentPath)
 
   return (
     <div className="flex justify-between">
