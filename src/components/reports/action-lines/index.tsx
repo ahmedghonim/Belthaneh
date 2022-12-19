@@ -1,4 +1,3 @@
-import useSSR from 'hooks/useSSR'
 import moment from 'moment'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
@@ -16,7 +15,7 @@ interface ActionLinesProps {
 }
 export default function ActionLines({ items }: ActionLinesProps) {
   const { t } = useTranslation('common')
-  const { ssr } = useSSR()
+
   const initialValue: { [key: string]: ActionLineItem[] } = {}
   const groupByDate = items.reduce((acc, current) => {
     const currentDate: string = moment(current.date).format('DD/MM/YYYY')
@@ -44,24 +43,21 @@ export default function ActionLines({ items }: ActionLinesProps) {
     }
   }
 
-  const CardInfo = ({ date, name, action, id }: ActionLineItem) =>
-    ssr ? (
-      <div key={id}>
-        <div className="flex flex-col gap-[10px] px-4 py-2 dark:bg-dark-200 bg-white rounded-[10px] justify-between">
-          <Text className="flex-1 font-bold" size={'sm'}>
-            {name}
+  const CardInfo = ({ date, name, action, id }: ActionLineItem) => (
+    <div key={id}>
+      <div className="flex flex-col gap-[10px] px-4 py-2 dark:bg-dark-200 bg-white rounded-[10px] justify-between">
+        <Text className="flex-1 font-bold" size={'sm'}>
+          {name}
+        </Text>
+        <div className="flex justify-between">
+          <Text className="text-[10px]">{action}</Text>
+          <Text className="text-[10px] font-bold">
+            {moment(date).format('hh:mm A')}
           </Text>
-          <div className="flex justify-between">
-            <Text className="text-[10px]">{action}</Text>
-            <Text className="text-[10px] font-bold">
-              {moment(date).format('hh:mm A')}
-            </Text>
-          </div>
         </div>
       </div>
-    ) : (
-      <></>
-    )
+    </div>
+  )
 
   const Date = ({
     date,

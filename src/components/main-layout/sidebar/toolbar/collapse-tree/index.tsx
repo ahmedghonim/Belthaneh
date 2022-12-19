@@ -95,7 +95,7 @@ const CollapseTree = ({
         }`}
       >
         {subMenu?.length !== 0 && (
-          <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0  pt-2 rounded-e-none border-white rounded-lg h-6 w-28">
+          <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0  pt-2 rounded-e-none dark:border-white rounded-lg h-6 w-28">
             <Button
               onClick={() => {
                 void router.push(subMenu[0].href)
@@ -116,7 +116,7 @@ const CollapseTree = ({
         {subMenu.map(({ label, href }, index) => {
           return (
             index !== 0 && (
-              <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0 pt-6 rounded-e-none border-whit rounded-lg h-10 w-28">
+              <div className="ms-12 border-2 ps-2 border-t-0 rounded-t-none border-e-0 pt-6 rounded-e-none dark:border-white rounded-lg h-10 w-28">
                 <Button
                   onClick={() => {
                     void router.push(href)
