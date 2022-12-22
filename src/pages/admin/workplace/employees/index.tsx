@@ -26,7 +26,7 @@ export default function Employees() {
         void push(`/admin/employee/${_item.id}/edit-employee/`)
       },
       handleViewProfile: () => {
-        void push(`/admin/employee/${_item.id}`)
+        void push(`/admin/employee/${_item.id}/total-booking`)
       }
     }
   })
