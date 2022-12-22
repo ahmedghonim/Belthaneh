@@ -24,7 +24,7 @@ function TestimonialBox({
           return (
             <Star
               key={starNum}
-              className={`fill-[#F97E4E] ${
+              className={`fill-secondary-100 ${
                 starNum > stars ? 'opacity-25' : ''
               }`}
             />

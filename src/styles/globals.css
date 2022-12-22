@@ -78,7 +78,7 @@ html[class='dark'] .checkbox:checked,
 .sd {
   @apply dark:text-white;
 }
-.rmdp-header-values {
+.rmdp-header-values, .rmdp-time-picker div .rmdp-am , .rmdp-time-picker div .rmdp-pm {
   @apply dark:text-white;
 }
 .react-tel-input .selected-flag .arrow {

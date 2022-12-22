@@ -51,7 +51,7 @@ export default function InventoryCard({
   const [openLargeImg, setOpenLargeImg] = useState(false)
   const { t } = useTranslation('common')
   const Action = () => (
-    <div className="absolute flex gap-0 top-0 rtl:left-0 ltr:right-0 bg-white   ltr:rounded-bl-[15px] rtl:rounded-br-[15px] justify-around px-[6px] py-[2px]  ">
+    <div className="absolute flex gap-0 top-0 rtl:left-0 ltr:right-0 dark:bg-white bg-secondary-100   ltr:rounded-bl-[15px] rtl:rounded-br-[15px] justify-around px-[6px] py-[2px]  ">
       <Actions onDelete={handleDelete} onEdit={handleEdit} />{' '}
     </div>
   )

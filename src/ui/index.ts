@@ -21,6 +21,7 @@ import TextArea from './text-area'
 import DetailsBox from './details-box'
 import CollapseCard from './collapse-card'
 import OrangeBlueBox from './orange-blue-box'
+import WavyChart from './wavy-chart'
 
 export {
   Card,
@@ -44,5 +45,6 @@ export {
   TextArea,
   DetailsBox,
   CollapseCard,
-  OrangeBlueBox
+  OrangeBlueBox,
+  WavyChart
 }

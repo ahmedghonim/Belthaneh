@@ -47,11 +47,11 @@ export default function Inventory({
   }
   const tabs = [
     {
-      isActive: isActive('/admin/inventory/products'),
-      value: '/admin/inventory/products',
+      isActive: isActive('/admin/workplace/inventory'),
+      value: '/admin/workplace/inventory',
       label: t('products'),
       onClick: async () => {
-        await push('/admin/inventory/products')
+        await push('/admin/workplace/inventory')
       }
     },
     {

@@ -4,7 +4,7 @@ import PersonalData from './personal-data'
 import Boxs from './boxs'
 import History from './history'
 import { Card, Text } from 'ui'
-import Chart from './chart'
+import ClientChart from './chart'
 import { PersonalDataType } from 'components/client/client-profile/types'
 
 // personal dummy data
@@ -19,6 +19,38 @@ const personalData: PersonalDataType = {
   notes: 'she like coffee and red nails'
 }
 
+// chart data
+const chartData = [
+  {
+    name: 'Jan',
+    uv: 0
+  },
+  {
+    name: 'Feb',
+    uv: 40
+  },
+  {
+    name: 'Mar',
+    uv: 30
+  },
+  {
+    name: 'Apr',
+    uv: 50
+  },
+  {
+    name: 'May',
+    uv: 40
+  },
+  {
+    name: 'Jun',
+    uv: 60
+  },
+  {
+    name: 'Jul',
+    uv: 45
+  }
+]
+
 function Profile() {
   const { t } = useTranslation('common')
   return (
@@ -28,7 +60,7 @@ function Profile() {
           <PersonalData data={personalData} />
         </div>
         <Card className="flex-1 overflow-hidden px-2">
-          <Chart />
+          <ClientChart data={chartData} xAxisTicksCount={7} />
         </Card>
       </section>
       <section>

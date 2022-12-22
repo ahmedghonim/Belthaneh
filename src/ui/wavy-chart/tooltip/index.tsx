@@ -1,7 +1,11 @@
 import React from 'react'
-import { ChartToolTipType } from 'components/client/client-profile/types'
 
-function ToolTipFC({ active, payload }: ChartToolTipType) {
+interface ChartToolTipProps {
+  active: boolean
+  payload: any
+}
+
+function ToolTipFC({ active, payload }: ChartToolTipProps) {
   return (
     <>
       {active ? (

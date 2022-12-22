@@ -1,11 +1,11 @@
 import { FieldProps, Field } from 'formik'
 import React, { FC } from 'react'
 
-const CheckBox: FC<CheckBoxProps & { isForm: boolean }> = ({
+const CheckBox: FC<CheckBoxProps & { isForm?: boolean }> = ({
   name,
-  isForm,
+  isForm = false,
   ...props
-}: CheckBoxProps & { isForm: boolean }) => {
+}: CheckBoxProps & { isForm?: boolean }) => {
   return isForm ? (
     <Field name={name}>
       {({ field, form: { errors, touched } }: FieldProps) => {

@@ -3,7 +3,7 @@ import RightArrow from 'public/img/arrows/right-arrow.svg'
 import useScreen from 'hooks/useScreen'
 import Button from 'ui/button'
 
-interface PaginationProps {
+export interface PaginationProps {
   lang: string
   count: number
   previousPage: () => void

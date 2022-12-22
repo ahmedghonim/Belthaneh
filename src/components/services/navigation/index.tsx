@@ -67,7 +67,6 @@ function Navigation({
     services: { title: t('add_new_service'), onClick: handleAddService }
   }
   const currentPath: string = asPath.split('/')[3] ?? 'services'
-  console.log(currentPath)
 
   return (
     <div className="flex justify-between">
@@ -84,11 +83,11 @@ function Navigation({
       </div>
       <Button
         primary
-        className={'py-[5px] px-[23px]'}
         onClick={addButtons[currentPath].onClick}
+        className="sm:px-5 sm:py-2 !px-4 !py-[6px] justify-center"
       >
         <PlusIcon className="sm:hidden" />{' '}
-        <PlusSquareIcon className="xs:hidden" />
+        <PlusSquareIcon className="xs:hidden" />{' '}
         <span className="xs:hidden">{addButtons[currentPath].title}</span>
       </Button>
     </div>

@@ -1,0 +1,80 @@
+export const employees = [
+  {
+    name: 'Bassma Saad',
+    id: '1',
+    rating: 5,
+    subTitle: 'hair style',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'high',
+    isAttendant: false
+  },
+  {
+    name: 'Zeinab Saleh',
+    id: '0',
+    rating: 3,
+    subTitle: 'hair cutter',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'med',
+    isAttendant: true
+  },
+  {
+    name: 'Batol Mounir',
+    id: '2',
+    rating: 3,
+    subTitle: 'hair coloring',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'low',
+    isAttendant: true
+  },
+  {
+    name: 'Batol Mounir',
+    id: '4',
+    rating: 3,
+    subTitle: 'hair coloring',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'low',
+    isAttendant: true
+  },
+  {
+    name: 'Batol Mounir',
+    id: '5',
+    rating: 3,
+    subTitle: 'hair coloring',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'low',
+    isAttendant: true
+  },
+  {
+    name: 'Batol Mounir',
+    id: '6',
+    rating: 3,
+    subTitle: 'hair coloring',
+    img: 'https://www.pngmart.com/files/3/Beautiful-Girl-PNG-File.png',
+    handleLeave: () => undefined,
+    handleViewProfile: () => undefined,
+    handleEdit: () => undefined,
+    handleDelete: () => undefined,
+    performance: 'low',
+    isAttendant: true
+  }
+]

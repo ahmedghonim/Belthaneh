@@ -12,7 +12,7 @@ export default function MembershipMobileCard({
   status
 }: MembershipViewItem) {
   const { t } = useTranslation('common')
-  const InfoRecord = ({
+  const RecordInfo = ({
     label,
     value
   }: {
@@ -32,16 +32,16 @@ export default function MembershipMobileCard({
         <Text>{invoiceNo}</Text>
       </div>
       <div className="flex flex-col px-4 py-[10px] gap-1 ">
-        <InfoRecord label={t('phone_number')} value={phone} />
-        <InfoRecord
+        <RecordInfo label={t('phone_number')} value={phone} />
+        <RecordInfo
           label={t('joinDate')}
           value={moment(joinDate).format('DD/MM/YYYY')}
         />
-        <InfoRecord
+        <RecordInfo
           label={t('expireDate')}
           value={moment(expireDate).format('DD/MM/YYYY')}
         />
-        <InfoRecord
+        <RecordInfo
           label={t('state')}
           value={
             status === 'active' ? (

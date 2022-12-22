@@ -8,6 +8,9 @@ const text = cva(['dark:text-[#fff]', 'text-[#1A0A0A]'], {
     white: {
       true: '!text-white'
     },
+    dark: {
+      true: '!text-dark-100'
+    },
     danger: {
       true: '!text-error-200'
     },

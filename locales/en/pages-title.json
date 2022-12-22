@@ -43,5 +43,10 @@
   "admin_workplace": "Admin Workplace",
   "service_memberships": "Services Memberships",
   "memberships_create-membership": "Create Membership",
-  "_404": "Page Not Found"
+  "_404": "Page Not Found",
+  "workplace_employees": "Workplace Employees",
+  "employee_permissions": "Employees Permissions",
+  "employee_commissions": "Employees Commissions",
+  "workplace_inventory": "Workplace Inventory",
+  "employee_add-employee": "Add Employee"
 }

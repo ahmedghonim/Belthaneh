@@ -5,6 +5,8 @@ import Header from './header'
 import Sidebar from 'components/main-layout/sidebar'
 import useScreen from 'hooks/useScreen'
 import { useRouter } from 'next/router'
+import EmployeeLayout from 'components/employees/employee-layout'
+import { employees } from 'components/employees/home/employee-list/index.mock'
 
 interface Props {
   children: React.ReactNode
@@ -13,7 +15,14 @@ interface Props {
 function MainLayout({ children }: Props) {
   const [open, setOpen] = useState(true)
   const screen = useScreen()
-
+  const router = useRouter()
+  const formattedEmployee = {
+    ...employees[0],
+    handleLeave: undefined,
+    handleViewProfile: undefined,
+    handleEdit: undefined,
+    handleDelete: undefined
+  }
   return (
     <div className="flex h-[100vh] relative">
       {/* SidBar */}
@@ -32,7 +41,14 @@ function MainLayout({ children }: Props) {
 
         {/* View */}
         <div className="pt-10 w-full sm:pe-8 sm:pb-8 pb-20 xs:px-6 h-[calc(100%-90px)] overflow-y-auto">
-          {children}
+          {/* {children} */}
+          {disableLayoutForEmployee(router.asPath) ? (
+            <EmployeeLayout employeeCardData={formattedEmployee}>
+              {children}
+            </EmployeeLayout>
+          ) : (
+            children
+          )}
         </div>
       </div>
 
@@ -65,5 +81,10 @@ const disableLayoutFor = (url: string) => {
     /^(\/(ar|en))?\/forget-password/,
     /^(\/(ar|en))?\/recovery-password/,
     /^(\/(ar|en))?\/online/
+  ].some((fullPageRegex) => fullPageRegex.test(url))
+}
+const disableLayoutForEmployee = (url: string) => {
+  return [
+    /^(\/(ar|en))?\/admin\/employee\/((?!add-employee|([0-9]*[0-9]*)\/edit-employee).*?)/
   ].some((fullPageRegex) => fullPageRegex.test(url))
 }

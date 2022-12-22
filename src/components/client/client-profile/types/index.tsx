@@ -45,9 +45,9 @@ export interface OrdersTableType {
   status: string
 }
 
-export interface ChartToolTipType {
-  active: boolean
-  payload: any
+export interface ChartPrpos {
+  data: any[]
+  xAxisTicksCount: number
 }
 
 export interface Invoice {

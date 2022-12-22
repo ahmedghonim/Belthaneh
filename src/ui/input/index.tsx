@@ -61,7 +61,7 @@ const CustomInput: React.FC<InputProps> = ({
   const PasswordEye = () => (
     <button
       onClick={handleShowPassword}
-      className="px-1 flex focus:outline-none absolute items-center justify-end top-[12px] ltr:right-2 rtl:left-2 "
+      className="px-1 flex focus:outline-none absolute items-center justify-end top-10 ltr:right-2 rtl:left-2 "
     >
       <Lock className="fill-black dark:fill-white" />
     </button>
@@ -69,7 +69,7 @@ const CustomInput: React.FC<InputProps> = ({
 
   const End = () => (
     <div
-      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0  block z-10 top-9"
+      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0  block z-10 top-[9px]"
       id="end"
     >
       {EndComponent != null && <EndComponent />}
@@ -78,7 +78,7 @@ const CustomInput: React.FC<InputProps> = ({
 
   const Start = () => (
     <div
-      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:left-0 rtl:right-0  block z-10"
+      className="px-[4px]  focus:outline-none absolute items-center justify-end  ltr:left-0 rtl:right-0  block z-10 top-[9px]"
       id="start"
     >
       {StartComponent != null && <StartComponent />}

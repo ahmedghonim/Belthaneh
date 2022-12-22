@@ -92,7 +92,7 @@ function Dashboard() {
       <div className="flex gap-3 xs:flex-col">
         <CardInfo
           className="!bg-primary-100 text-white"
-          title={t('total_booking')}
+          title={t('total-booking')}
           total={100}
           progress={40}
           percentage={17}

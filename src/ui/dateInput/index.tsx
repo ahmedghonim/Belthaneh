@@ -9,7 +9,6 @@ import Calendar from 'svg/calendar.svg'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import moment from 'moment'
 import 'moment/locale/ar'
-// import 'moment/locale/en-GB'
 import gregorian_en from 'react-date-object/locales/gregorian_en'
 import gregorian_ar from 'react-date-object/locales/gregorian_ar'
 import { useRouter } from 'next/router'
@@ -32,7 +31,6 @@ const DateInput: FC<
   if (currentLang === 'ar') {
     calendarLang = gregorian_ar
   }
-
   return isForm ? (
     <Field name={name}>
       {({
@@ -80,7 +78,10 @@ const DateInput: FC<
               {...field}
               name={name}
               onChange={(dateObject: DateObject) => {
-                setFieldValue(name, dateObject, true)
+                if (props?.onChange !== undefined) props?.onChange?.(dateObject)
+                else {
+                  setFieldValue(name, dateObject)
+                }
               }}
             />
             {Boolean(touched[name]) && Boolean(errors[name]) && (
@@ -141,10 +142,18 @@ function CustomCalendarButton({
   }, [])
 
   const splitDate = (index: number) => date?.toString().split(',')[index]
-  const showDate = (index: number) =>
-    moment(splitDate(index))
-      .lang(currentLang === 'ar' ? 'ar' : 'en-GB')
+  const showDate = (index: number) => {
+    const formattedDate = moment(splitDate(index))
+      .locale(currentLang === 'ar' ? 'ar' : 'en-GB')
       .format(format)
+    if (formattedDate === 'Invalid date') {
+      return moment(splitDate(index), format)
+        .locale(currentLang === 'ar' ? 'ar' : 'en-GB')
+        .format(format)
+    }
+    return formattedDate
+  }
+
   return (
     <div
       className={`border h-10 w-full dark:bg-transparent border-dark-300 rounded-md flex items-center ${className}`}

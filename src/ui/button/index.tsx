@@ -29,10 +29,10 @@ const button = cva(
         full: '!rounded-full'
       },
       size: {
-        xSmall: ['[&>span]:text-sm', 'px-2', 'py-1', 'h-fit'],
-        small: ['[&>span]:text-sm', 'px-2', 'py-2', 'h-fit'],
-        medium: ['[&>span]:text-md', 'h-10', 'px-3'],
-        large: '[&>span]:text-base h-12 font-bold'
+        xSmall: ['text-sm', 'px-2', 'py-1', 'h-fit'],
+        small: ['text-sm', 'px-2', 'py-2', 'h-fit'],
+        medium: ['text-md', '!px-10'],
+        large: 'text-lg h-12 font-bold'
       }
     },
     defaultVariants: {
