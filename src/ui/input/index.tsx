@@ -61,7 +61,7 @@ const CustomInput: React.FC<InputProps> = ({
   const PasswordEye = () => (
     <button
       onClick={handleShowPassword}
-      className="px-1 flex focus:outline-none absolute items-center justify-end top-10 ltr:right-2 rtl:left-2 "
+      className="px-1 flex focus:outline-none absolute items-center justify-end top-[9px] ltr:right-2 rtl:left-2 "
     >
       <Lock className="fill-black dark:fill-white" />
     </button>
