@@ -44,7 +44,7 @@ export default function Dropdown({
         <Menu.Items
           className={`absolute ${className} ${
             lang === 'ar' ? 'left-0' : 'right-0'
-          }  mt-2 z-50 origin-top-right divide-y divide-gray-100 rounded-md whitespace-nowrap bg-dark-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          }  mt-2 z-50 origin-top-right divide-y divide-gray-100 rounded-md whitespace-nowrap dark:bg-dark-200 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
         >
           <div className="px-1 py-1 ">
             {options?.map(({ label, icon, onClick }) => (
@@ -52,7 +52,9 @@ export default function Dropdown({
                 {({ active }) => (
                   <button
                     className={`flex gap-4 ${
-                      active ? 'bg-primary-100 text-white' : 'text-white'
+                      active
+                        ? 'bg-primary-100 text-white'
+                        : 'dark:text-white text-black'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm `}
                     onClick={onClick}
                   >

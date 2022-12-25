@@ -4,7 +4,6 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   ResponsiveContainer,
   Brush
 } from 'recharts'
@@ -69,7 +68,6 @@ const BarChart = () => {
         }}
         barSize={15}
       >
-        <CartesianGrid strokeDasharray="3 0" />
         <XAxis dataKey="name" />
         <YAxis />
         <Brush dataKey="name" height={30} stroke="#F97E4E" />

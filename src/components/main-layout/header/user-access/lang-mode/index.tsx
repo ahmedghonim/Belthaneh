@@ -29,7 +29,13 @@ function LangMod() {
 
   return (
     <Dropdown
-      icon={<LangIcon className="stroke-[#797979E0] dark:stroke-[#ffff]" />}
+      icon={
+        <LangIcon
+          width={12}
+          height={12}
+          className="fill-[#797979E0] scale-125 dark:fill-[#ffff]"
+        />
+      }
       options={langList}
     />
   )

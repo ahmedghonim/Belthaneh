@@ -51,7 +51,13 @@ function Dashboard() {
     },
     {
       Header: t('action'),
-      Cell: () => <TableActions />
+      Cell: ({ row }: { row: any }) => (
+        <TableActions
+          onShow={async () => {}}
+          onDelete={() => {}}
+          onEdit={() => {}}
+        />
+      )
     }
   ]
 

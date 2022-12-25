@@ -31,7 +31,7 @@ const button = cva(
       size: {
         xSmall: ['text-sm', 'px-2', 'py-1', 'h-fit'],
         small: ['text-sm', 'px-2', 'py-2', 'h-fit'],
-        medium: ['text-md', '!px-10'],
+        medium: ['text-md', 'h-10', 'px-3'],
         large: 'text-lg h-12 font-bold'
       }
     },
