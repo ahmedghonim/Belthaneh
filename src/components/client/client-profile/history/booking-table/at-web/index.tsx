@@ -71,7 +71,7 @@ function WebClientBookings({ data }: Props) {
     {
       id: 'show-reciept',
       Header: '',
-      Cell: () => <TableActions onShow={showInvoiceFun} />
+      Cell: () => <TableActions onView={showInvoiceFun} />
     }
   ]
 

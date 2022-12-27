@@ -27,7 +27,7 @@ export interface BookingItem {
   services: KeyLabelItem[]
   employee: KeyLabelItem
   resourceId: string
-  customer: KeyLabelItem
+  client: KeyLabelItem
   phone: string
   status: 'paid' | 'notPaid' | 'fromApp'
   handleEdit: () => void

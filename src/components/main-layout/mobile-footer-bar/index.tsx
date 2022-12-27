@@ -7,7 +7,7 @@ import RoutingButton from './routing-button'
 
 function MobileFooterBar() {
   return (
-    <div className="absolute text-xs h-[70px] left-2 right-2 dark:bg-dark-200 bg-white bottom-0 sm:hidden flex items-center justify-around rounded-full">
+    <div className="absolute z-40 text-xs h-[70px] left-2 right-2 dark:bg-dark-200 bg-white bottom-0 sm:hidden flex items-center justify-around rounded-full">
       <RoutingButton
         label="home"
         href="/admin/dashboard"

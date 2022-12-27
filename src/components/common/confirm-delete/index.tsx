@@ -19,17 +19,19 @@ export default function ConfirmDeleteModal({
     <Modal
       open={open}
       onClose={onCancel}
-      className="h-48 w-1/4"
+      className="w-1/4"
       wrapperClassName="!p-4"
     >
-      <h3>{t('delete_msg')}</h3>
-      <div className="flex pt-7 justify-start gap-5 w-full">
-        <Button onClick={onSubmit} primary>
-          {t('submit')}
-        </Button>
-        <Button onClick={onCancel} className="bg-transparent">
-          {t('cancel')}
-        </Button>
+      <div className="flex flex-col justify-between">
+        <h3>{t('delete_msg')}</h3>
+        <div className="flex pt-7 justify-start gap-5 w-full">
+          <Button onClick={onSubmit} primary>
+            {t('yes')}
+          </Button>
+          <Button onClick={onCancel} className="bg-transparent">
+            {t('no')}
+          </Button>
+        </div>
       </div>
     </Modal>
   )

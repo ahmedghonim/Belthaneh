@@ -37,7 +37,7 @@ function ExpensesWebView({ data, onEdit }: ExpensesInvoicesPropsType) {
       Header: t('action'),
       Cell: () => (
         <TableActions
-          onShow={() => onShowFun}
+          onView={() => onShowFun}
           onEdit={onEdit}
           onDelete={() => onDeleteFun}
         />

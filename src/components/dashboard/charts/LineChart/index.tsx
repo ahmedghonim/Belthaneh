@@ -4,7 +4,6 @@ import {
   XAxis,
   YAxis,
   ResponsiveContainer,
-  CartesianGrid,
   Brush
 } from 'recharts'
 const data = [
@@ -64,7 +63,8 @@ const LineChart = () => (
       style={{ direction: 'ltr' }}
       data={data}
       margin={{
-        top: 20
+        top: 20,
+        right: 20
       }}
       barSize={20}
     >
@@ -79,7 +79,6 @@ const LineChart = () => (
         dot
         color="red"
       />
-      <CartesianGrid strokeDasharray="1 0" />
     </Chart>
   </ResponsiveContainer>
 )

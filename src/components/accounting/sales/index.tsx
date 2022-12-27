@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import SalesInvoices from './sales-invoices'
 import SearchForm from 'components/accounting/serach-form'
-import RefundForm from './refund-form'
 import {
   RecieptItemsType,
   SalesInfoType
 } from 'components/accounting/sales/type'
+import RefundForm from 'components/common/refund-form'
 function Sales() {
   const [returnInvoice, setReturnInvoice] = useState<boolean>(false)
 
@@ -98,7 +98,7 @@ function Sales() {
       <RefundForm
         data={refundData}
         show={returnInvoice}
-        formControler={setReturnInvoice}
+        onClose={setReturnInvoice}
       />
     </div>
   )

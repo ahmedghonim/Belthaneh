@@ -17,9 +17,13 @@ function SocialPlatforms({
       <ul className="flex items-center gap-3">
         {facebook !== undefined ? (
           <li>
-            <a href={facebook} aria-label="Facebook link">
+            <a
+              href={facebook}
+              aria-label="Facebook link"
+              className="[&:hover>.icon]:fill-secondary-100 [&:hover>.icon]:scale-100"
+            >
               <Facebook
-                className="scale-75"
+                className="icon scale-75 duration-200"
                 fill={fill === undefined ? '#F97E4E' : fill}
               />
             </a>
@@ -29,9 +33,13 @@ function SocialPlatforms({
         )}
         {instagram !== undefined ? (
           <li>
-            <a href={instagram} aria-label="Instagram link">
+            <a
+              href={instagram}
+              aria-label="Instagram link"
+              className="[&:hover>.icon]:fill-secondary-100 [&:hover>.icon]:scale-100"
+            >
               <Instagram
-                className="scale-75"
+                className="icon scale-75 duration-200"
                 fill={fill === undefined ? '#F97E4E' : fill}
               />
             </a>
@@ -41,9 +49,13 @@ function SocialPlatforms({
         )}
         {twitter !== undefined ? (
           <li>
-            <a href={twitter} aria-label="Twitter link">
+            <a
+              href={twitter}
+              aria-label="Twitter link"
+              className="[&:hover>.icon]:fill-secondary-100 [&:hover>.icon]:scale-100"
+            >
               <Twitter
-                className="scale-75"
+                className="icon scale-75 duration-200"
                 fill={fill === undefined ? '#F97E4E' : fill}
               />
             </a>

@@ -2,18 +2,20 @@ import React from 'react'
 import Eye from 'svg/eye.svg'
 import Edit from 'svg/edit.svg'
 import Trash from 'svg/trash.svg'
+import Return from 'svg/return.svg'
 
 export interface Props {
-  onShow?: () => void
+  onView?: () => void
   onEdit?: () => void
   onDelete?: () => void
+  onReturn?: () => void
 }
 
-function TableActions({ onShow, onEdit, onDelete }: Props) {
+function TableActions({ onView, onEdit, onDelete, onReturn }: Props) {
   return (
     <div className="flex justify-evenly">
-      {onShow !== undefined ? (
-        <span className="cursor-pointer" onClick={onShow}>
+      {onView !== undefined ? (
+        <span className="cursor-pointer" onClick={onView}>
           <Eye className="stroke-black dark:stroke-white" />
         </span>
       ) : null}
@@ -27,6 +29,12 @@ function TableActions({ onShow, onEdit, onDelete }: Props) {
       {onDelete !== undefined ? (
         <span className="cursor-pointer" onClick={onDelete}>
           <Trash />
+        </span>
+      ) : null}
+
+      {onReturn !== undefined ? (
+        <span className="cursor-pointer" onClick={onReturn}>
+          <Return className="dark:fill-light-200 fill-dark-100 mt-1" />
         </span>
       ) : null}
     </div>

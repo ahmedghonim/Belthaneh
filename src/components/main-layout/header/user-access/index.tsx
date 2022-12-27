@@ -25,7 +25,7 @@ function UserAccess() {
 
         <Bell className="stroke-[#797979E0] dark:stroke-[#ffff]" />
         <Link className="xs:hidden" href="/admin/setting">
-          <Setting className="xs:hidden stroke-[#797979E0] dark:stroke-[#ffff]" />
+          <Setting className="xs:hidden stroke-[#797979E0] dark:stroke-[#ffff] scale-110" />
         </Link>
 
         {/* theme mode  */}

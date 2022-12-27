@@ -4,7 +4,7 @@ import Description from './description'
 import Catalog from './catalog'
 import GitInTouch from './get-in-touch'
 import SalonTestimonials from './testimonials'
-import Footer from './footer'
+import Footer from '../common/footer'
 import {
   SalonCoverType,
   SalaonDescription,

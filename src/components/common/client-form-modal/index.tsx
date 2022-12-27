@@ -1,9 +1,7 @@
 import React from 'react'
 import Modal from 'ui/modal'
 import useTranslation from 'next-translate/useTranslation'
-import CustomerForm, {
-  CustomerFormProps
-} from 'components/common/customer-form'
+import CustomerForm, { CustomerFormProps } from 'components/common/client-form'
 
 export default function CustomerFormModal({
   handleCancel,

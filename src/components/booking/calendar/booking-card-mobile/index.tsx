@@ -38,13 +38,13 @@ export default function BookingCardMobile({
   bookings,
   employee
 }: BookingCardMobileProps) {
-  const Body = ({ services, customer, phone, title }: BookingItem) => (
+  const Body = ({ services, client, phone, title }: BookingItem) => (
     <div className="flex flex-col gap-1 p-2">
       <span className="text-xs text-white font-semibold">{title}</span>
       <span className="text-xs text-white font-semibold">
         {services?.map((_item) => _item.label)?.join(',')}
       </span>
-      <span className="text-xs text-white font-semibold">{customer.label}</span>
+      <span className="text-xs text-white font-semibold">{client.label}</span>
       <span className="text-xs text-white font-semibold">{phone}</span>
     </div>
   )

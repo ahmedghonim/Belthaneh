@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply dark:bg-dark-100 bg-light-200 dark:text-white text-dark-300;
+  @apply dark:bg-dark-100 bg-light-200 dark:text-white text-black;
 }
 .table:where(:not(.table-zebra))
   :where(thead, tbody, tfoot)
@@ -13,7 +13,9 @@ body {
   --tw-border-opacity: 1;
   border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
 }
-
+.css-14el2xx-placeholder {
+  white-space: nowrap;
+}
 .rtl-div {
   direction: ltr;
 }
@@ -26,7 +28,7 @@ html[class='dark'] .checkbox {
   border-color: #fff;
 }
 html[class='light'] .checkbox {
-  border-color:  #C4C4C4;
+  border-color: #c4c4c4;
 }
 html[class='dark'] .checkbox:checked,
 .checkbox[checked='true'],
@@ -78,7 +80,9 @@ html[class='dark'] .checkbox:checked,
 .sd {
   @apply dark:text-white;
 }
-.rmdp-header-values, .rmdp-time-picker div .rmdp-am , .rmdp-time-picker div .rmdp-pm {
+.rmdp-header-values,
+.rmdp-time-picker div .rmdp-am,
+.rmdp-time-picker div .rmdp-pm {
   @apply dark:text-white;
 }
 .react-tel-input .selected-flag .arrow {
@@ -106,8 +110,8 @@ html[class='dark'] .checkbox:checked,
 .rmdp-ep-arrow[direction='bottom'] > div {
   @apply dark:bg-transparent dark:border-dark-200  bg-white;
 }
-.rbc-current-time-indicator{
-  @apply hidden
+.rbc-current-time-indicator {
+  @apply hidden;
 }
 .rbc-calendar {
   @apply rounded-md;
@@ -166,29 +170,30 @@ div[class^='rbc-time']:not(.rbc-time-header),
   @apply py-0 px-8  h-[90vh] max-h-[100vh];
 }
 .fullscreen .fullscreen-enabled {
-  @apply dark:bg-dark-100 bg-white
+  @apply dark:bg-dark-100 bg-white;
 }
-.quill > .ql-container > .ql-editor.ql-blank::before{
-@apply text-dark-300
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  @apply text-dark-300;
 }
-.swiper{
-  @apply !z-0
+.swiper {
+  @apply !z-0;
 }
 
-html[class='dark']   div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range){
-  background-color: #1B1B1C !important;
+html[class='dark'] div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range) {
+  background-color: #1b1b1c !important;
 }
-html[class='light']   div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range){
+html[class='light'] div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range) {
   background-color: #fff !important;
 }
 
-.rmdp-shadow{
-  @apply !shadow-none
+.rmdp-shadow {
+  @apply !shadow-none;
 }
 
-.toggle-primary:checked, .toggle-primary[checked="true"], .toggle-primary[aria-checked=true]{
-  background-color:#fff;
-  --tglbg: #3031D9 !important;
-  border-color: #3031D9;
+.toggle-primary:checked,
+.toggle-primary[checked='true'],
+.toggle-primary[aria-checked='true'] {
+  background-color: #fff;
+  --tglbg: #3031d9 !important;
+  border-color: #3031d9;
 }
-

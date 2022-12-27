@@ -1,5 +1,5 @@
 import useTranslation from 'next-translate/useTranslation'
-import React from 'react'
+import React, { useState } from 'react'
 import Camera from 'svg/camera.svg'
 import Clients from 'svg/clients.svg'
 import City from 'svg/city.svg'
@@ -10,6 +10,7 @@ import LineChart from './charts/LineChart'
 import BarChart from './charts/bar-chart'
 import { Table } from 'ui'
 import BookingCard from './booking-card'
+import RefundForm from 'components/common/refund-form'
 
 interface Data {
   id: string
@@ -24,7 +25,7 @@ interface RowCellType {
 
 function Dashboard() {
   const { t } = useTranslation('common')
-
+  const [returnInvoice, setReturnInvoice] = useState<boolean>(false)
   const columns = [
     {
       Header: t('id'),
@@ -53,9 +54,11 @@ function Dashboard() {
       Header: t('action'),
       Cell: ({ row }: { row: any }) => (
         <TableActions
-          onShow={async () => {}}
-          onDelete={() => {}}
+          onView={async () => {}}
           onEdit={() => {}}
+          onReturn={() => {
+            setReturnInvoice(true)
+          }}
         />
       )
     }
@@ -91,7 +94,44 @@ function Dashboard() {
       status: 'Confirmed'
     }
   ]
-
+  const refundData = [
+    {
+      serviceName: 'hair cut',
+      amount: '1',
+      price: '40',
+      discount: '40%',
+      employer: 'esraa',
+      date: '20/12/2022',
+      id: '1'
+    },
+    {
+      serviceName: 'hair cut',
+      amount: '1',
+      price: '40',
+      discount: '40%',
+      employer: 'esraa',
+      date: '20/12/2022',
+      id: '2'
+    },
+    {
+      serviceName: 'hair cut',
+      amount: '1',
+      price: '40',
+      discount: '40%',
+      employer: 'esraa',
+      date: '20/12/2022',
+      id: '3'
+    },
+    {
+      serviceName: 'hair cut',
+      amount: '1',
+      price: '40',
+      discount: '40%',
+      employer: 'esraa',
+      date: '20/12/2022',
+      id: '3'
+    }
+  ]
   return (
     <div className="flex flex-col gap-7">
       {/* Card info */}
@@ -147,6 +187,11 @@ function Dashboard() {
       <div className="sm:hidden">
         <BookingCard name="ahmed" date={new Date()} order={444} total={333} />
       </div>
+      <RefundForm
+        data={refundData}
+        show={returnInvoice}
+        onClose={setReturnInvoice}
+      />
     </div>
   )
 }

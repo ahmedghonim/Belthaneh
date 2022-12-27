@@ -13,7 +13,7 @@ export default function AppointmentFormModal({
   initialValues,
   onSubmit,
   open,
-  customers,
+  clients,
   employees,
   services
 }: AppointmentFormModalProps) {
@@ -28,7 +28,7 @@ export default function AppointmentFormModal({
       <AppointmentForm
         initialValues={initialValues}
         onSubmit={onSubmit}
-        customers={customers}
+        clients={clients}
         employees={employees}
         services={services}
       />

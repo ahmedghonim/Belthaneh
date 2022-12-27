@@ -38,7 +38,7 @@ export interface BookingTableType {
 
 export interface OrdersTableType {
   OrderNo: string
-  customer: string
+  client: string
   date: string
   order: string
   pricing: string | number

@@ -6,7 +6,7 @@ import { ExpensesInfoProps } from 'components/accounting/expenses/type'
 import Salaries from 'svg/bg-white-user.svg'
 import Rent from 'svg/statistics.svg'
 import ElectricityWaterIcon from 'svg/store-1.svg'
-import Fees from 'svg/add-customer.svg'
+import Fees from 'svg/add-client.svg'
 
 function WebExpensesInfo({
   salaries,

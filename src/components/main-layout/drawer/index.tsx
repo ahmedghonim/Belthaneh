@@ -2,6 +2,8 @@ import React from 'react'
 import { OpenProps, SetOpenProps } from '../Types'
 import CloseIcon from 'svg/close.svg'
 import Sidebar from 'components/main-layout/sidebar'
+import LangMod from '../header/user-access/lang-mode'
+import ThemeMode from '../header/user-access/theme-mode'
 
 function Drawer({ open, setOpen }: OpenProps & SetOpenProps) {
   return (
@@ -14,9 +16,13 @@ function Drawer({ open, setOpen }: OpenProps & SetOpenProps) {
         className="absolute ltr:right-7 rtl:left-7 top-7"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <CloseIcon className="stroke-dark-100 dark:stroke-white" />
+        <CloseIcon className="stroke-dark-100 scale-90 dark:stroke-white" />
       </span>
-      <div className="ps-10 pt-20">
+      <div className="flex justify-between pt-24 px-7">
+        <ThemeMode />
+        <LangMod />
+      </div>
+      <div className="ps-10 pt-10">
         <Sidebar open={true} setOpen={setOpen} />
       </div>
     </div>

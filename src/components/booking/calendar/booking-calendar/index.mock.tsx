@@ -10,7 +10,7 @@ export const bookingList: BookingItem[] = [
       { value: '1', label: 'hair color' },
       { value: '2', label: 'hair cut' }
     ],
-    customer: { value: '1', label: 'liza' },
+    client: { value: '1', label: 'liza' },
     status: 'notPaid' as const,
     phone: '123356',
     start: moment().set('hour', 1).toDate(),
@@ -31,7 +31,7 @@ export const bookingList: BookingItem[] = [
       { value: '1', label: 'hair color' },
       { value: '2', label: 'hair cut' }
     ],
-    customer: { value: '1', label: 'liza' },
+    client: { value: '1', label: 'liza' },
     status: 'fromApp' as const,
     phone: '123456',
     start: moment().set('hour', 3).toDate(),
@@ -48,7 +48,7 @@ export const bookingList: BookingItem[] = [
     id: '3',
     resourceId: '2',
     employee: { value: '1', label: 'liza' },
-    customer: { value: '1', label: 'liza' },
+    client: { value: '1', label: 'liza' },
     services: [
       { value: '1', label: 'hair color' },
       { value: '2', label: 'hair cut' }

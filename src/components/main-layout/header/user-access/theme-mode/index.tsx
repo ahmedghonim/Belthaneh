@@ -6,6 +6,7 @@ import DarkIcon from 'svg/dark-mode.svg'
 function ThemeMode() {
   const { theme, setTheme } = useTheme()
   const [isDark, setIsDark] = useState(true)
+
   useEffect(() => {
     setIsDark(theme !== 'dark')
   }, [theme])

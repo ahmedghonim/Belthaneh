@@ -57,16 +57,16 @@ function Navigation({
     },
     {
       label: t('membership'),
-      value: 'membership'
+      value: 'memberships'
     }
   ]
 
   const addButtons: any = {
     packages: { title: t('add_package'), onClick: handleAddPackage },
     memberships: { title: t('membership'), onClick: handleAddMembership },
-    services: { title: t('add_new_service'), onClick: handleAddService }
+    services: { title: t('add_new_package'), onClick: handleAddService }
   }
-  const currentPath: string = asPath.split('/')[3] ?? 'services'
+  const currentPath: string = asPath.split('/')[4] ?? 'services'
 
   return (
     <div className="flex justify-between">
@@ -75,9 +75,14 @@ function Navigation({
       </div>
       <div className="sm:hidden w-3/4">
         <Select
+          defaultValue={{ label: t(currentPath), value: currentPath }}
           options={categoryOptions}
           onChange={(e: any) => {
-            void push(e.value as string)
+            void push(
+              e.value === 'services'
+                ? '/admin/workplace/services'
+                : `/admin/workplace/services/${e.value as string}`
+            )
           }}
         />
       </div>

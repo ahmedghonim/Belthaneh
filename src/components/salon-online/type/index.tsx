@@ -1,6 +1,7 @@
 // blthania logo types--------------------
 export interface BlthaniaLogoProps {
   fontSize?: string
+  color?: string
 }
 
 // landing section types--------------------

@@ -5,7 +5,7 @@ import { BoxsDataType } from 'components/client/client-profile/types'
 import LastService from 'svg/bg-white-user.svg'
 import Payment from 'svg/statistics.svg'
 import Visits from 'svg/store-1.svg'
-import MostService from 'svg/add-customer.svg'
+import MostService from 'svg/add-client.svg'
 
 function WebBoxs({
   lastService,

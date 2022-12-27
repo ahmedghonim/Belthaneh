@@ -17,8 +17,8 @@ function OrdersDetailsTable({ data }: Props) {
       accessor: 'orderNum'
     },
     {
-      Header: t('common:customer'),
-      accessor: 'customer'
+      Header: t('common:client'),
+      accessor: 'client'
     },
     {
       Header: t('common:date'),

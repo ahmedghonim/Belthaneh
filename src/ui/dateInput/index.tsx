@@ -43,7 +43,7 @@ const DateInput: FC<
               <label
                 htmlFor={name}
                 className={
-                  'text-start block mb-2 text-sm  w-full text-dark-200 dark:text-white font-normal'
+                  'text-start block mb-2 text-sm  w-full !text-dark-200 dark:text-white font-normal'
                 }
               >
                 {label}
@@ -161,7 +161,7 @@ function CustomCalendarButton({
     >
       <Calendar className="stroke-dark-300 mx-2" />
       {!ssr && (
-        <span className="flex items-center h-full">
+        <span className="flex items-center h-full text-dark-100 dark:text-white">
           {showDate(0) ?? <span className="text-dark-300">{placeholder}</span>}
           {splitDate(1) !== undefined && showDate(1) !== 'Invalid date'
             ? ' - ' + showDate(1)

@@ -10,7 +10,7 @@ function OrdersDetailsBox({
   order,
   date,
   status,
-  customer,
+  client,
   orderNum = 0,
   price
 }: OrdersDetailsType) {
@@ -39,11 +39,7 @@ function OrdersDetailsBox({
         </div>
       </div>
       <ul className="flex flex-col gap-4 p-3 ">
-        <DetailsBox
-          withLabel={true}
-          labelType={t('customer')}
-          text={customer}
-        />
+        <DetailsBox withLabel={true} labelType={t('client')} text={client} />
         <DetailsBox
           withLabel={true}
           labelType={t('order')}

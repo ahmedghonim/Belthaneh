@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <>
       <Head>
-        <title>{t('')}</title>
+        <title>{t('client')}</title>
       </Head>
       <ProfileFC />
     </>

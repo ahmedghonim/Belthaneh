@@ -1,4 +1,4 @@
-import CustomerFormModal from 'components/common/customer-form-modal'
+import CustomerFormModal from 'components/common/client-form-modal'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { Button, Select } from 'ui'
@@ -10,7 +10,7 @@ interface FieldItem {
 export interface ClientProps {
   systemType: 'booking' | 'queue'
   handleSelectCustomer: (value: any) => void
-  customers: FieldItem[]
+  clients: FieldItem[]
   selectedCustomer: FieldItem | null
   handleAddNewCustomer: () => void
   openCustomerForm: boolean
@@ -20,7 +20,7 @@ export interface ClientProps {
 
 export default function Client({
   openCustomerForm,
-  customers,
+  clients,
   handleSelectCustomer,
   handleAddNewCustomer,
   onCloseCustomerForm,
@@ -31,7 +31,7 @@ export default function Client({
   return (
     <div className="flex gap-5 p-4 dark:bg-dark-200 bg-white rounded-[5px]">
       <Select
-        options={customers}
+        options={clients}
         onChange={handleSelectCustomer}
         label={t('client')}
         required

@@ -21,7 +21,7 @@ import { AppointmentFormModalProps } from 'components/booking/forms/appointment-
 import {
   employees,
   services,
-  customers
+  clients
 } from 'components/booking/forms/appointment-form/index.mock'
 import { WaitingListItem } from 'components/booking/waiting-list/waiting-list-table'
 import { WaitingListCardProps } from 'components/booking/waiting-list/waiting-list-card'
@@ -160,7 +160,7 @@ export default function BookingController() {
     open: openAppointment,
     initialValues: appointmentData,
     employees,
-    customers,
+    clients,
     services
   }
   const waitingFormModalData = {

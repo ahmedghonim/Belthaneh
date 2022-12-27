@@ -7,7 +7,7 @@ export const employees = [
   { label: 'Nour', value: '4' }
 ]
 
-export const customers = [
+export const clients = [
   { label: 'liza', value: '1' },
   { label: 'Mary', value: '2' },
   { label: 'Nona', value: '3' },

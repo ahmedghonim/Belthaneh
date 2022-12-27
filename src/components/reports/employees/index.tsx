@@ -87,6 +87,10 @@ function EmployeesReport() {
 
   const hrColumns = [
     {
+      Header: t('employer_name'),
+      accessor: 'employer_name'
+    },
+    {
       Header: t('absences'),
       accessor: 'absences'
     },
@@ -114,6 +118,7 @@ function EmployeesReport() {
 
   const hrData = [
     {
+      employer_name: 'All',
       absences: 'Ali',
       being_late: 1,
       total_day: 50,
@@ -122,6 +127,7 @@ function EmployeesReport() {
       number_of_clients: 30
     },
     {
+      employer_name: 'All',
       absences: 'Ali',
       being_late: 1,
       total_day: 50,
@@ -146,7 +152,7 @@ function EmployeesReport() {
   }
 
   return (
-    <div className="space-y-7 xs:pb-20">
+    <div className="space-y-7 xs:pb-5">
       <Tabs tabs={tabsList} />
       <SearchHeader />
       <div className="xs:hidden">

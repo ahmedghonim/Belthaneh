@@ -11,6 +11,20 @@ const Myclass = plugin(function ({ addUtilities }) {
     },
     '.backface-hidden': {
       backfaceVisibility: 'hidden'
+    },
+    '.light-shadow': {
+      boxShadow:
+        'rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px'
+    },
+    '.box-shadow': {
+      boxShadow:
+        '0px 16px 16px rgba(50, 50, 71, 0.03), 0px 24px 32px rgba(50, 50, 71, 0.08)'
+    },
+    '.animate-300': {
+      animationDelay: '0.3s'
+    },
+    '.animate-600': {
+      animationDelay: '0.6s'
     }
   })
 })

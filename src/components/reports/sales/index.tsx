@@ -55,7 +55,7 @@ function SalesReport() {
   ]
 
   return (
-    <div className="space-y-7 xs:pb-20">
+    <div className="space-y-7 xs:pb-5">
       <SearchHeader />
       <div className="xs:hidden">
         <Table columns={columns} data={data} />

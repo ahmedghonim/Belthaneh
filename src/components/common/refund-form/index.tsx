@@ -3,11 +3,26 @@ import useTranslation from 'next-translate/useTranslation'
 import RefundInputs from './inputs'
 import RefundItems from './invoice-items'
 import { Text, Button } from 'ui'
-import { RefundFormPropsType } from 'components/accounting/sales/type'
 import Cash from 'svg/cash.svg'
 import Visa from 'svg/visa.svg'
 
-function RefundForm({ data, show, formControler }: RefundFormPropsType) {
+export interface RecieptItemsType {
+  serviceName: string
+  amount: string | number
+  price: string | number
+  discount: string | number
+  employer: string
+  date: string
+  id?: string
+}
+
+export interface RefundFormPropsType {
+  data: RecieptItemsType[]
+  show: boolean
+  onClose: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function RefundForm({ data, show, onClose }: RefundFormPropsType) {
   const { t } = useTranslation('common')
   const [method, setMethod] = useState<string>('visa')
 
@@ -79,10 +94,7 @@ function RefundForm({ data, show, formControler }: RefundFormPropsType) {
         </div>
         <RefundItems data={data} />
         <div className="flex justify-end gap-3">
-          <Button
-            className="bg-transparent"
-            onClick={() => formControler(false)}
-          >
+          <Button className="bg-transparent" onClick={() => onClose(false)}>
             {t('cancel')}
           </Button>
           <Button primary className="px-5">

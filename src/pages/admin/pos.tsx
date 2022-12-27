@@ -28,7 +28,7 @@ function POS() {
   const clientData = {
     systemType: 'booking' as const,
     handleSelectCustomer: (value: any) => undefined,
-    customers: [],
+    clients: [],
     selectedCustomer: null,
     handleAddNewCustomer: () => {
       setOpenAddCustomer(true)

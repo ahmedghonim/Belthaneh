@@ -46,10 +46,6 @@ function ServicesReport() {
       accessor: 'service'
     },
     {
-      Header: t('employer'),
-      accessor: 'employer'
-    },
-    {
       Header: t('quantity_sold'),
       accessor: 'quantity_sold'
     },
@@ -84,93 +80,69 @@ function ServicesReport() {
 
   const packagesColumns = [
     {
-      Header: t('absences'),
-      accessor: 'absences'
+      Header: t('packages'),
+      accessor: 'packages'
     },
     {
-      Header: t('being_late'),
-      accessor: 'being_late'
+      Header: t('id'),
+      accessor: 'id'
     },
     {
-      Header: t('total_day'),
-      accessor: 'total_day'
+      Header: t('quantity_sold'),
+      accessor: 'quantity_sold'
     },
     {
-      Header: t('booking_percentage'),
-      accessor: 'booking_percentage'
-    },
-    {
-      Header: t('infraction'),
-      accessor: 'infraction'
-    },
-    {
-      Header: t('number_of_clients'),
-      accessor: 'number_of_clients'
+      Header: t('profits'),
+      accessor: 'profits'
     }
   ]
 
   const packagesData = [
     {
-      absences: 'Ali',
-      being_late: 1,
-      total_day: 50,
-      booking_percentage: '20%',
-      infraction: 8,
-      number_of_clients: 30
+      packages: 'Ali',
+      id: 1,
+      quantity_sold: 50,
+      profits: 50
     },
     {
-      absences: 'Ali',
-      being_late: 1,
-      total_day: 50,
-      booking_percentage: '20%',
-      infraction: 8,
-      number_of_clients: 30
+      packages: 'Ali',
+      id: 1,
+      quantity_sold: 50,
+      profits: 50
     }
   ]
 
   const membershipsColumns = [
     {
-      Header: t('absences'),
-      accessor: 'absences'
+      Header: t('memberships'),
+      accessor: 'memberships'
     },
     {
-      Header: t('being_late'),
-      accessor: 'being_late'
+      Header: t('id'),
+      accessor: 'id'
     },
     {
-      Header: t('total_day'),
-      accessor: 'total_day'
+      Header: t('quantity_sold'),
+      accessor: 'quantity_sold'
     },
     {
-      Header: t('booking_percentage'),
-      accessor: 'booking_percentage'
-    },
-    {
-      Header: t('infraction'),
-      accessor: 'infraction'
-    },
-    {
-      Header: t('number_of_clients'),
-      accessor: 'number_of_clients'
+      Header: t('profits'),
+      accessor: 'profits'
     }
   ]
 
   const membershipsData = [
     {
-      absences: 'Ali',
-      being_late: 1,
-      total_day: 50,
-      booking_percentage: '20%',
-      infraction: 8,
-      number_of_clients: 30
+      memberships: 'Ali',
+      id: 1,
+      quantity_sold: 50,
+      profits: 50
     },
     {
-      absences: 'Ali',
-      being_late: 1,
-      total_day: 50,
-      booking_percentage: '20%',
-      infraction: 8,
-      number_of_clients: 30
+      memberships: 'Ali',
+      id: 1,
+      quantity_sold: 50,
+      profits: 50
     }
   ]
 

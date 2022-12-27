@@ -38,7 +38,7 @@ function PurchasesWebView({ data }: PurchasesInvoicesDataProps) {
       Header: t('action'),
       Cell: () => (
         <TableActions
-          onShow={() => onShowFun}
+          onView={() => onShowFun}
           onEdit={() => onEditFun}
           onDelete={() => onDeleteFun}
         />

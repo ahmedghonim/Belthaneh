@@ -13,17 +13,16 @@ function CollapsedCard({ columns, data, keyOfTitle }: Props) {
       {data.map((item: any, index: string) => (
         <CollapseCard
           key={index}
-          title={
-            <Text as="h4" white>
-              {item[keyOfTitle]}
-            </Text>
-          }
+          title={<Text as="h4">{item[keyOfTitle]}</Text>}
         >
           <ul>
             {columns.map(
               ({ Header, accessor }) =>
                 accessor !== keyOfTitle && (
-                  <li key={accessor} className="flex justify-between">
+                  <li
+                    key={accessor}
+                    className="flex justify-between dark:text-white text-dark-100"
+                  >
                     <span>{Header}</span>
                     <span>{item[accessor]}</span>
                   </li>

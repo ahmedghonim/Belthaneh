@@ -20,7 +20,7 @@ function MobileClientBooking({ data }: Props) {
             key={card.OrderNo}
             title={
               <div className="flex justify-between">
-                <Text as="span">{card.customer}</Text>
+                <Text as="span">{card.client}</Text>
                 <span
                   className={
                     statusCondition.includes(card.status)

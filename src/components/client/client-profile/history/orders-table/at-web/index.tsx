@@ -1,7 +1,8 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { OrdersTableType } from 'components/client/client-profile/types'
-import { Table, ThreeDots } from 'ui'
+import { Table } from 'ui'
+import TableActions from 'ui/table/actions'
 
 interface Props {
   data: OrdersTableType[]
@@ -16,8 +17,8 @@ function WebClientOrders({ data }: Props) {
       accessor: 'OrderNo'
     },
     {
-      Header: t('customer'),
-      accessor: 'customer'
+      Header: t('client'),
+      accessor: 'client'
     },
     {
       Header: t('date'),
@@ -49,7 +50,7 @@ function WebClientOrders({ data }: Props) {
     {
       id: 'edit',
       Header: '',
-      Cell: () => <ThreeDots onClick={() => {}} />
+      Cell: () => <TableActions onView={() => {}} />
     }
   ]
 

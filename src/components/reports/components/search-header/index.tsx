@@ -32,7 +32,7 @@ function SearchHeader() {
   return (
     <Formik initialValues={{ ...initialValues }} onSubmit={onSubmit}>
       <Form className="flex justify-between xs:flex-col xs:items-end xs:gap-5">
-        <div className="w-2/4 flex gap-5 xs:w-full">
+        <div className="sm:w-2/4 flex xs:flex-col gap-5 xs:w-full">
           <DateInput
             isForm
             format="DD/MM/YYYY"

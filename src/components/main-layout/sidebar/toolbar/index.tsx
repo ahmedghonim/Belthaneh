@@ -9,10 +9,14 @@ import Boxes from 'svg/boxes.svg'
 import Discover from 'svg/discover.svg'
 import Chart from 'svg/chart.svg'
 import Users from 'svg/users.svg'
+import Setting from 'svg/setting.svg'
+import LogOut from 'svg/logout.svg'
 import CollapseTree from './collapse-tree'
 import Tool from './tool'
+import useScreen from 'hooks/useScreen'
 
 function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
+  const screen = useScreen()
   const tolaBarButton = [
     {
       label: 'dashboard',
@@ -69,7 +73,7 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
     },
     {
       label: 'workplace',
-      href: '/admin/workplace',
+      href: '/admin/workplace/services',
       icon: <Boxes />,
       subMenu: [
         {
@@ -122,22 +126,45 @@ function Toolbar({ open, setOpen }: OpenProps & SetOpenProps) {
       label: 'reports',
       href: '/admin/reports',
       icon: <Chart />
+    },
+    {
+      label: 'setting',
+      href: '/admin/setting',
+      icon: <Setting />
+    },
+    {
+      label: 'logout',
+      href: '/login',
+      icon: <LogOut />
     }
   ]
+
+  const tabsDisableInMobile = (label: string): boolean => {
+    if (screen === 'phone') {
+      return ['store', 'booking'].includes(label)
+    }
+    if (screen === 'desktop' || screen === 'tablet') {
+      return ['logout', 'setting'].includes(label)
+    }
+    return false
+  }
+  console.log(tabsDisableInMobile('booking'))
 
   return (
     <div className="flex flex-col h-full gap-2 overflow-y-auto pe-1.5">
       {tolaBarButton.map((props) =>
-        props?.subMenu == null ? (
-          <Tool key={props.href} toggle={open} {...props} setOpen={setOpen} />
-        ) : (
-          <CollapseTree
-            key={props.href}
-            open={open}
-            {...props}
-            setOpen={setOpen}
-          />
-        )
+        !tabsDisableInMobile(props.label) ? (
+          props?.subMenu == null ? (
+            <Tool key={props.href} toggle={open} {...props} setOpen={setOpen} />
+          ) : (
+            <CollapseTree
+              key={props.href}
+              open={open}
+              {...props}
+              setOpen={setOpen}
+            />
+          )
+        ) : null
       )}
     </div>
   )

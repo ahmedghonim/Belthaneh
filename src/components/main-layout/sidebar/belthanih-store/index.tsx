@@ -8,7 +8,7 @@ function WarshicStore({ open }: OpenProps) {
   const { t } = useTranslation('common')
   return (
     <div
-      className={`bg-[#3B4450] flex flex-col items-center gap-2 p-3 rounded-full ${
+      className={`bg-[#3B4450] flex flex-col items-center gap-2 p-3 rounded-full xs:hidden ${
         !open ? '!bg-transparent px-3 py-2' : ''
       }`}
     >

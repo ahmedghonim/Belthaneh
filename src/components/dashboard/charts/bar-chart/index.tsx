@@ -64,7 +64,8 @@ const BarChart = () => {
         style={{ direction: 'ltr' }}
         data={data}
         margin={{
-          top: 20
+          top: 20,
+          right: 20
         }}
         barSize={15}
       >

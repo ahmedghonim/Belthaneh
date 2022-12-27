@@ -79,7 +79,11 @@ function BoxFace({
         }`}
         onClick={flipFun}
       >
-        <Lang className="scale-125 dark:fill-dark-100 fill-white" />
+        <Lang
+          width={17}
+          height={17}
+          className="dark:fill-dark-100 fill-white"
+        />
       </button>
     </Card>
   )

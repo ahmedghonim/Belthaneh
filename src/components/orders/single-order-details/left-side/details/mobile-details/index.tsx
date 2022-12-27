@@ -5,7 +5,7 @@ import { SingleOrderBoxType } from 'components/orders/single-order-details'
 import Image from 'next/image'
 
 function OrderDeatailsBox({
-  customer,
+  client,
   brand,
   id,
   stock,
@@ -27,7 +27,7 @@ function OrderDeatailsBox({
         />
       </div>
       <div className="relative flex-1">
-        <h2 className="font-medium text-base">{customer}</h2>
+        <h2 className="font-medium text-base">{client}</h2>
         <div className="dark:text-dark-400 text-dark-100 xs:!text-xs">
           <p>
             {t('Brand_Name')}: {brand}

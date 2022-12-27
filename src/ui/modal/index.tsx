@@ -32,26 +32,24 @@ const EmptyModal = ({
         <div
           className={`bg-[#fff] rounded-lg overflow-hidden relative z-10  max-h-screen max-w-screen  dark:bg-dark-200 overflow-y-auto flex flex-col ${className}`}
         >
-          <div className="flex p-5">
-            <div className="ltr:left-1 rtl:right-1 absolute top-3 m-1 font-bold text-lg">
-              {header}
-            </div>
-
-            <div
-              className={`m-1 absolute ${
-                lang === 'en' ? 'right-3' : 'left-3'
-              } top-3`}
+          {header !== undefined ? (
+            <div className="py-5 ps-9 top-3 font-bold text-lg">{header}</div>
+          ) : null}
+          <div
+            className={`m-1 absolute ${
+              lang === 'en' ? 'right-3' : 'left-3'
+            } top-3`}
+          >
+            <button
+              onClick={onClose}
+              type="button"
+              data-modal-toggle="defaultModal"
             >
-              <button
-                onClick={onClose}
-                type="button"
-                data-modal-toggle="defaultModal"
-              >
-                <CrossIcon className="fill-dark-200 dark:fill-white" />
-              </button>
-            </div>
+              <CrossIcon className="fill-dark-200 dark:fill-white" />
+            </button>
           </div>
-          <div className={`sm:px-14 py-8 px-6 ${wrapperClassName}`}>
+
+          <div className={`sm:px-14 pb-8 px-6 ${wrapperClassName}`}>
             {children}
           </div>
         </div>

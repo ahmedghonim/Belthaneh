@@ -6,7 +6,7 @@ import OrdersDetailsTable from './large-details/table'
 
 export interface OrdersDetailsType {
   orderNum?: string | number
-  customer: string
+  client: string
   date: string
   order: string
   price: string | number
@@ -41,7 +41,7 @@ export const ButtonsObj = [
 const tableData: OrdersDetailsType[] = [
   {
     orderNum: '#4556',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
@@ -49,7 +49,7 @@ const tableData: OrdersDetailsType[] = [
   },
   {
     orderNum: '#4556',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
@@ -57,7 +57,7 @@ const tableData: OrdersDetailsType[] = [
   },
   {
     orderNum: '#4556',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
@@ -65,7 +65,7 @@ const tableData: OrdersDetailsType[] = [
   },
   {
     orderNum: '#4556',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
@@ -79,7 +79,7 @@ const boxData: OrdersDetailsType[] = [
     order: 'Resistance Bain EX',
     date: '3 Nov,2022, 05:30 PM',
     status: 'Completed',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     orderNum: 4556,
     price: 120
   },
@@ -87,7 +87,7 @@ const boxData: OrdersDetailsType[] = [
     order: 'Resistance Bain EX',
     date: '3 Nov,2022, 05:30 PM',
     status: 'canceled',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     orderNum: 4556,
     price: 120
   },
@@ -95,7 +95,7 @@ const boxData: OrdersDetailsType[] = [
     order: 'Resistance Bain EX',
     date: '3 Nov,2022, 05:30 PM',
     status: 'Completed',
-    customer: 'Saad Fahad',
+    client: 'Saad Fahad',
     orderNum: 4556,
     price: 120
   }

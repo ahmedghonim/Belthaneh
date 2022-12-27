@@ -15,7 +15,7 @@ export interface SingleOrderTableType {
 
 // Single Orders Boxs
 export interface SingleOrderBoxType {
-  customer: string
+  client: string
   brand: string
   id: string
   stock: number
@@ -34,7 +34,7 @@ export interface OrderUpdatesDataType {
 
 // Dummy Data
 const orderMobileData: SingleOrderBoxType = {
-  customer: 'Dina Wael',
+  client: 'Dina Wael',
   brand: ' RESISITANCE',
   id: '4955/SKU:JIP700',
   stock: 50,

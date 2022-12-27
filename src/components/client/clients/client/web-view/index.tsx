@@ -9,7 +9,7 @@ function WebData({ data }: DataPropType) {
   const { t } = useTranslation('common')
   const { push } = useRouter()
 
-  // onShow function
+  // onView function
   const onShowFunction = async (id: any) => {
     await push(`/admin/client/${id as string}`)
   }
@@ -47,7 +47,7 @@ function WebData({ data }: DataPropType) {
       Header: t('action'),
       Cell: ({ row }: { row: any }) => (
         <TableActions
-          onShow={async () => await onShowFunction(row.original.id)}
+          onView={async () => await onShowFunction(row.original.id)}
           onDelete={onDeleteFunction}
           onEdit={onEditFunction}
         />

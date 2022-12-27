@@ -24,7 +24,7 @@ export interface FormInitialValuesType {
   message: string
 }
 
-// add customer function
+// add client function
 export interface AddCustomerFunctionProp {
   searchHandler: () => void
   setMethod: React.Dispatch<React.SetStateAction<boolean>>

@@ -29,9 +29,3 @@ export interface SalesInvoicesProps {
   data: SalesInfoType[]
   returnFun: React.Dispatch<React.SetStateAction<boolean>>
 }
-
-export interface RefundFormPropsType {
-  data: RecieptItemsType[]
-  show: boolean
-  formControler: React.Dispatch<React.SetStateAction<boolean>>
-}

@@ -44,7 +44,7 @@ const bookingData: BookingTableType[] = [
 const ordersData: OrdersTableType[] = [
   {
     OrderNo: '#4556',
-    customer: 'Saa fahad',
+    client: 'Saa fahad',
     date: '5/11/2022',
     order: 'Resistance Bain EX',
     pricing: '$120',
@@ -52,7 +52,7 @@ const ordersData: OrdersTableType[] = [
   },
   {
     OrderNo: '#4556',
-    customer: 'Saa fahad',
+    client: 'Saa fahad',
     date: '5/11/2022',
     order: 'Resistance Bain EX',
     pricing: '$120',
@@ -60,7 +60,7 @@ const ordersData: OrdersTableType[] = [
   },
   {
     OrderNo: '#4556',
-    customer: 'Saa fahad',
+    client: 'Saa fahad',
     date: '5/11/2022',
     order: 'Resistance Bain EX',
     pricing: '$120',
@@ -68,7 +68,7 @@ const ordersData: OrdersTableType[] = [
   },
   {
     OrderNo: '#4556',
-    customer: 'Saa fahad',
+    client: 'Saa fahad',
     date: '5/11/2022',
     order: 'Resistance Bain EX',
     pricing: '$120',

@@ -8,5 +8,5 @@ export default function PageTitle() {
   const title = `${pathname.split('/').reverse()[1]}_${
     pathname.split('/').reverse()[0]
   }`
-  return <h1 className="flex-1 text-lg font-bold xs:hidden">{t(title)}</h1>
+  return <h1 className="flex-1 text-lg font-bold">{t(title)}</h1>
 }

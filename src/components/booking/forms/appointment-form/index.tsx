@@ -4,12 +4,13 @@ import Button from 'ui/button'
 import DateInputForm from 'ui/dateInput'
 import TimePicker from 'react-multi-date-picker/plugins/time_picker'
 import Plus from 'svg/plus.svg'
-import CustomerForm, {
-  FormValuesCustomerForm
-} from 'components/common/customer-form'
+
 import CheckBox from 'ui/check-box'
 import Select from 'ui/select'
 import moment from 'moment'
+import CustomerForm, {
+  FormValuesCustomerForm
+} from 'components/common/client-form'
 
 interface FieldItem {
   value: string
@@ -17,7 +18,7 @@ interface FieldItem {
 }
 
 export interface FormValues {
-  customer: FieldItem
+  client: FieldItem
   services: FieldItem[]
   employee: FieldItem
   date: Date | null | string
@@ -29,12 +30,12 @@ export interface AppointmentFormProps {
   initialValues?: FormValues | null
   employees: FieldItem[]
   services: FieldItem[]
-  customers: FieldItem[]
+  clients: FieldItem[]
   onSubmit: (values: FormValues, helpers?: FormikHelpers<any>) => void
 }
 
 export const defaultValues = {
-  customer: null,
+  client: null,
   services: [],
   employee: null,
   date: null,
@@ -47,7 +48,7 @@ export default function AppointmentForm({
   initialValues,
   onSubmit,
   services,
-  customers,
+  clients,
   employees
 }: AppointmentFormProps) {
   const { t } = useTranslation('common')
@@ -69,10 +70,10 @@ export default function AppointmentForm({
           <div className="flex gap-4">
             <div className="w-[525px]">
               <Select
-                onChange={(val) => setFieldValue('customer', val)}
-                value={values.customer}
-                name={'customer'}
-                options={customers}
+                onChange={(val) => setFieldValue('client', val)}
+                value={values.client}
+                name={'client'}
+                options={clients}
                 placeholder={t('select_customer')}
               />
             </div>

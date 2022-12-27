@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClint.current}>
       <Hydrate state={pageProps.dehydratedState}>
-        <ThemeProvider enableSystem attribute="class">
+        <ThemeProvider attribute="class">
           <LayoutProvider>
             <Component {...pageProps} />
           </LayoutProvider>

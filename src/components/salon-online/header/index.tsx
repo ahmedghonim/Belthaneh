@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import BlthaniaLogo from '../blthania-logo'
+import BlthaniaLogo from '../../common/blthania-logo'
 import DropdownIcon from 'svg/arrow.svg'
 import Bars from 'svg/bars.svg'
 

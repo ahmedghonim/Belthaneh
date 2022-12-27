@@ -12,7 +12,7 @@ function UserInfo({ userName = 'Andrew Smith', open }: Props) {
       className={`${
         !open ? '!p-0 justify-center flex-col mb-4' : ''
       } flex items-center gap-3 
-      border-b border-dark-300 pb-5`}
+      sm:border-b border-dark-300 pb-5`}
     >
       <Avatar src="https://placeimg.com/192/192/people" />
       <div

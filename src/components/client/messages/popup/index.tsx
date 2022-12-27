@@ -13,7 +13,7 @@ const formInitialValues: FormInitialValuesType = {
   subject: 'messageType',
   messageContent: 'messageContent'
 }
-// customer static message
+// client static message
 const initialEnMessage: string =
   "Hi [First_Name], we just wanted to remind you that you have an appointment for [Service] with [Name] tomorrow at [Time]. We're looking forward to seeing you then! Please let us know right away if you need to reschedule. Thank you!"
 
