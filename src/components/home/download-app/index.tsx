@@ -2,7 +2,6 @@ import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import DownloadContent from './main-content'
-import DownloadImage from 'images/download-img.png'
 
 function DownloadApp() {
   const { t } = useTranslation('common')
@@ -11,7 +10,7 @@ function DownloadApp() {
       <DownloadContent />
       <div className="absolute top-[37px] right-[10%] h-[95%]">
         <Image
-          src={DownloadImage}
+          src="/images/download-img.png"
           width={520}
           height={625}
           alt={t('image')}

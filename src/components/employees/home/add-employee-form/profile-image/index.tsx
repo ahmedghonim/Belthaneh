@@ -2,7 +2,6 @@ import { useFormikContext } from 'formik'
 import useTranslation from 'next-translate/useTranslation'
 import Avatar from 'ui/avatar'
 import UploadCloud from 'svg/upload-cloud.svg'
-import placeholder from 'images/placeholder.png'
 import { Text, Upload } from 'ui'
 
 export default function ProfileImg() {
@@ -16,7 +15,7 @@ export default function ProfileImg() {
   return (
     <div className="flex flex-col p-5 gap-5 dark:bg-dark-200 bg-white rounded-[10px] justify-center items-center">
       <Avatar
-        src={values.img !== '' ? values.img : placeholder.src}
+        src={values.img !== '' ? values.img : '/images/placeholder.png'}
         alt={values.name}
         className="sm:w-[116px] sm:h-[116px]"
       />

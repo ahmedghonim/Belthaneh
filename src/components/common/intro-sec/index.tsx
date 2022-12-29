@@ -2,7 +2,6 @@ import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import Header from '../../home/header'
-import Dots from 'images/Dots.png'
 import BlthaniaLogo from 'svg/logo.svg'
 interface Props {
   children: React.ReactNode
@@ -37,7 +36,7 @@ const DotsBackground = ({ className }: { className: string }) => {
   return (
     <div className={`absolute w-[400px] h-[400px] ${className} z-10`}>
       <Image
-        src={Dots}
+        src="/images/Dots.png"
         width={400}
         height={400}
         alt={t('image')}

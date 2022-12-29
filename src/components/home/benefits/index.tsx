@@ -2,9 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import SingleBenefit from './benefit'
-import FreeUpdates from 'images/free-updates.png'
-import FreeSupport from 'images/free-support.png'
-import BenefitsImage from 'images/benefits.png'
 
 function Benefits() {
   const { t } = useTranslation('common')
@@ -15,13 +12,19 @@ function Benefits() {
           {t('after_sale_you_will_get')}
         </h2>
         <div className="flex justify-between">
-          <SingleBenefit src={FreeUpdates} text={t('free_update')} />
-          <SingleBenefit src={FreeSupport} text={t('free_support')} />
+          <SingleBenefit
+            src="/images/free-support.png"
+            text={t('free_update')}
+          />
+          <SingleBenefit
+            src="/images/free-support.png"
+            text={t('free_support')}
+          />
         </div>
       </div>
       <div className="absolute top-0 right-0 h-full w-[35%]">
         <Image
-          src={BenefitsImage}
+          src="/images/benefits.png"
           width={1000}
           height={1000}
           alt={t('image')}

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Toggle from 'ui/toggle'
-import salonImg from 'images/salon.png'
 import Image from 'next/image'
 import { Button } from 'ui'
 import useTranslation from 'next-translate/useTranslation'
@@ -29,7 +28,7 @@ export function SalonInfoCard({
       <div className="sm:flex justify-between p-[15px] shadow rounded-lg bg-white dark:bg-dark-200 hidden">
         <div className="flex items-center gap-5">
           <Image
-            src={img ?? salonImg}
+            src={img ?? '/images/salon.png'}
             alt={name}
             width={54}
             height={54}

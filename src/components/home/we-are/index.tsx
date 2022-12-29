@@ -1,7 +1,6 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
-import WeAreImage from 'images/we-are.png'
 
 function WeAreSection() {
   const { t } = useTranslation('common')
@@ -17,7 +16,7 @@ function WeAreSection() {
       </div>
       <div className="absolute left-0 top-0 h-full">
         <Image
-          src={WeAreImage}
+          src="/images/we-are.png"
           width={500}
           height={500}
           alt={t('image')}

@@ -2,7 +2,6 @@ import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import DownloadBox from '../download-box'
 import AppStore from 'svg/app-store.svg'
-import GooglePlay from 'images/google-play.png'
 import Image from 'next/image'
 
 function DownloadContent() {
@@ -21,7 +20,12 @@ function DownloadContent() {
       <div className="flex flex-start gap-4">
         <DownloadBox
           platformIcon={
-            <Image src={GooglePlay} width={40} height={40} alt={t('image')} />
+            <Image
+              src="/images/google-play.png"
+              width={40}
+              height={40}
+              alt={t('image')}
+            />
           }
           platformName={t('google_play')}
           text={t('get_it_on')}
