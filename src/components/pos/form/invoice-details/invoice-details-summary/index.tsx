@@ -4,7 +4,6 @@ import useTranslation from 'next-translate/useTranslation'
 import { Text } from 'ui'
 import { InvoiceFormValues } from '../../form-observe'
 import { QRCodeSVG } from 'qrcode.react'
-import Logo from 'images/logo1.png'
 
 export default function InvoiceDetailsSummary() {
   const { t } = useTranslation('common')
@@ -136,7 +135,7 @@ export default function InvoiceDetailsSummary() {
             level={'L'}
             includeMargin={false}
             imageSettings={{
-              src: Logo.src,
+              src: 'https://picturesofpeoplescanningqrcodes.tumblr.com/',
               x: undefined,
               y: undefined,
               height: 24,

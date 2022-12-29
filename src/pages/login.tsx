@@ -9,26 +9,12 @@ import React, { useState } from 'react'
 import { useLoginMutation } from 'redux/api/auth/authApiSlice'
 import { setCredentials } from 'redux/features/authSlice'
 
-interface SalonResponse {
-  id: number
-  name: string
-  phone: string
-  email: string
-  avatar?: string
-  image?: string
-  address?: string
-  lat?: string
-  lng?: string
-  created_at?: Date
-  updated_at?: Date
-}
-
 function Login() {
   const { t } = useTranslation('sign')
   const { push } = useRouter()
   const [loading, setLoading] = useState(false)
 
-  const [login, { isLoading }] = useLoginMutation()
+  const [login] = useLoginMutation()
 
   const dispatch = useAppDispatch()
 
@@ -42,7 +28,6 @@ function Login() {
       // redirect to home page
 
       // save user info in local storage
-
       setLoading(false)
       void push('/menu')
     } catch (error: any) {

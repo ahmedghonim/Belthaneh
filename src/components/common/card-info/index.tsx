@@ -7,7 +7,7 @@ interface Option {
 }
 
 export interface CardProps {
-  header: { first: string; second: string | number }
+  header: { first: string; second: string | number | JSX.Element }
   body: Option[]
 }
 export default function CardInfo({ header, body }: CardProps) {

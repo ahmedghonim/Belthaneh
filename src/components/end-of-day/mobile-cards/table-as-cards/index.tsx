@@ -82,8 +82,8 @@ export default function TableAsCards({ list }: TableAsCardsProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      {formattedList.map((_item) => (
-        <CardInfo key={_item.id} {..._item} />
+      {formattedList.map(({ header, body }, index) => (
+        <CardInfo key={index} header={header} body={body} />
       ))}
     </div>
   )

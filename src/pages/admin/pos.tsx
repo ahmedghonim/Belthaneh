@@ -89,7 +89,7 @@ function POS() {
   const membershipData: MembershipsProps = {
     memberships: [
       {
-        name: 'Loyalty',
+        title: 'Loyalty',
         id: '1',
         subTitle: 'Essential Features',
         oldPrice: 59.99,
@@ -127,7 +127,7 @@ function POS() {
         )
       },
       {
-        name: 'Pro',
+        title: 'Pro',
         id: '2',
         subTitle: 'Advanced Features',
         oldPrice: 120.99,

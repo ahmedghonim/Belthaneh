@@ -1,7 +1,7 @@
 import React from 'react'
 import { SocialLinksProps } from 'components/salon-online/type'
 import Facebook from 'svg/facebook.svg'
-import Instagram from 'svg/insta.svg'
+import Instagram from 'svg/instagram.svg'
 import Twitter from 'svg/twitter.svg'
 import WhatsApp from 'svg/whatsApp.svg'
 
