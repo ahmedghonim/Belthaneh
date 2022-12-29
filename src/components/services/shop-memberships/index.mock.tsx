@@ -2,7 +2,7 @@ import { Text } from 'ui'
 
 export const memberships = [
   {
-    title: 'Loyalty',
+    name: 'Loyalty',
     id: '1',
     subTitle: 'Essential Features',
     oldPrice: 59.99,
@@ -43,7 +43,7 @@ export const memberships = [
     )
   },
   {
-    title: 'Pro',
+    name: 'Pro',
     id: '2',
     subTitle: 'Advanced Features',
     oldPrice: 120.99,
@@ -84,7 +84,7 @@ export const memberships = [
     )
   },
   {
-    title: 'Pro',
+    name: 'Pro',
     id: '4',
     subTitle: 'Advanced Features',
     oldPrice: 120.99,
@@ -125,7 +125,7 @@ export const memberships = [
     )
   },
   {
-    title: 'Pro',
+    name: 'Pro',
     id: '3',
     subTitle: 'Advanced Features',
     oldPrice: 120.99,

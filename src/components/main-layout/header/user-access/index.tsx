@@ -4,11 +4,11 @@ import Dropdown from 'ui/dropdown'
 import Avatar from 'ui/avatar'
 import ArrowIcon from 'svg/arrow.svg'
 import Message from 'svg/message.svg'
-import Bell from 'svg/bell.svg'
 import Setting from 'svg/setting.svg'
 import Link from 'next/link'
 import ThemeMode from './theme-mode'
 import LangMod from './lang-mode'
+import Notifications from './notifications'
 
 function UserAccess() {
   const { t } = useTranslation('common')
@@ -23,7 +23,7 @@ function UserAccess() {
       <div className="flex items-center gap-7">
         <Message className="xs:hidden stroke-[#797979E0] dark:stroke-[#ffff]" />
 
-        <Bell className="stroke-[#797979E0] dark:stroke-[#ffff]" />
+        <Notifications />
         <Link className="xs:hidden" href="/admin/setting">
           <Setting className="xs:hidden stroke-[#797979E0] dark:stroke-[#ffff] scale-110" />
         </Link>

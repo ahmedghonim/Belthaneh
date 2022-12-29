@@ -1,7 +1,10 @@
 import React from 'react'
-import { Table, ThreeDots } from 'ui'
+import { Table } from 'ui'
 import { OrdersDetailsType } from 'components/orders/orders-details'
 import useTranslation from 'next-translate/useTranslation'
+import TableActions from 'ui/table/actions'
+import { useRouter } from 'next/router'
+import { Row } from 'react-table'
 
 interface Props {
   data: OrdersDetailsType[]
@@ -10,6 +13,7 @@ interface Props {
 // dummy data
 
 function OrdersDetailsTable({ data }: Props) {
+  const { push, pathname } = useRouter()
   const { t } = useTranslation('common')
   const columns = [
     {
@@ -50,7 +54,13 @@ function OrdersDetailsTable({ data }: Props) {
     {
       id: 'edit',
       Header: '',
-      Cell: () => <ThreeDots onClick={() => {}} />
+      Cell: ({ row }: { row: Row<OrdersDetailsType> }) => (
+        <TableActions
+          onView={() => {
+            void push(`/${pathname}/${row.original.id}`)
+          }}
+        />
+      )
     }
   ]
   return (

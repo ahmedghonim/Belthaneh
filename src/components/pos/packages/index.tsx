@@ -1,4 +1,5 @@
 import PackageCard, { PackageCardProps } from 'components/common/package-card'
+import { useFormikContext } from 'formik'
 import useTranslation from 'next-translate/useTranslation'
 import { Button } from 'ui'
 import BookingModal, { BookingModalProps } from '../modals/booking'
@@ -21,6 +22,14 @@ export default function Packages({
   bookingModalData
 }: PackagesProps) {
   const { t } = useTranslation('common')
+  const { setValues, values } = useFormikContext<{
+    open: boolean
+    service: { id: string; name: string; img: string; price: number }
+    serviceType: string
+  }>()
+  const onClickAdd = (service: any) => {
+    setValues({ ...values, open: true, service, serviceType: 'packages' })
+  }
 
   return (
     <div className="flex flex-col sm:flex-row gap-5 flex-wrap">
@@ -29,7 +38,11 @@ export default function Packages({
           <PackageCard
             {..._item}
             actions={
-              <Button onClick={_item.onClickAdd} primary>
+              <Button
+                onClick={() => onClickAdd(_item)}
+                primary
+                className="!py-1 !px-[10px]"
+              >
                 {t('add')}
               </Button>
             }

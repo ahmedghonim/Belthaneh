@@ -1,6 +1,6 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import FeaturesCards from '../cards-holder/'
+import FeaturesCards from '../cards-holder'
 import Calender from 'svg/home-calender.svg'
 import Search from 'svg/home-search.svg'
 import ShoppingBag from 'svg/shopping-bag.svg'

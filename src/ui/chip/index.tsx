@@ -2,19 +2,19 @@ import React from 'react'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
 import Plus from 'svg/plus.svg'
-import Button from 'ui/button'
+import Button, { ButtonProps } from 'ui/button'
 import { TabProps } from 'ui/tabs/types'
 
 export interface ChipProps extends TabProps {
   icon: any
 }
 
-interface Props extends SwiperProps {
+interface Props extends SwiperProps, ButtonProps {
   list: ChipProps[]
   handleAddCategory?: () => void
 }
 
-function Chip({ list = [], handleAddCategory, ...props }: Props) {
+function Chip({ list = [], handleAddCategory, size, ...props }: Props) {
   return (
     <div className="flex gap-2 items-center">
       <Swiper
@@ -31,6 +31,7 @@ function Chip({ list = [], handleAddCategory, ...props }: Props) {
               secondary={isActive}
               key={label}
               onClick={onClick}
+              size={'xSmall'}
             >
               {icon}
               {label}
@@ -39,10 +40,9 @@ function Chip({ list = [], handleAddCategory, ...props }: Props) {
         ))}
       </Swiper>
       {Boolean(handleAddCategory) && (
-        <Plus
-          onClick={handleAddCategory}
-          className="cursor-pointer fill-secondary-100 scale-[2]"
-        />
+        <Button secondary onClick={handleAddCategory}>
+          <Plus className="sm:hidden" /> <Plus className="xs:hidden" />{' '}
+        </Button>
       )}
     </div>
   )

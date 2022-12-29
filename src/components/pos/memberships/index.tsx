@@ -5,18 +5,33 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
 import { Button } from 'ui'
 import useTranslation from 'next-translate/useTranslation'
-
-export interface MembershipsData extends MembershipCardProps {
-  onClickAdd: () => void
-}
+import { useFormikContext } from 'formik'
 
 export interface MembershipsProps {
-  memberships: MembershipsData[]
+  memberships: MembershipCardProps[]
+}
+interface MembershipItem {
+  service: { id: string; price: number; name: string }
+  qty: number
 }
 
 export default function Memberships({ memberships }: MembershipsProps) {
   const { t } = useTranslation('common')
-
+  const { setValues, values } = useFormikContext<{
+    memberships: MembershipItem[]
+  }>()
+  const onClickAdd = (service: any) => {
+    const newMemberships = values.memberships.map((_item) => {
+      if (_item?.service?.id === service.id) {
+        _item.qty++
+      }
+      return _item
+    })
+    if (values.memberships.find((o) => o?.service?.id === service.id) == null) {
+      newMemberships.push({ service, qty: 1 })
+    }
+    setValues({ ...values, memberships: newMemberships })
+  }
   return (
     <>
       <div className="sm:flex gap-6 hidden sm:flex-wrap">
@@ -29,7 +44,7 @@ export default function Memberships({ memberships }: MembershipsProps) {
                 action={
                   <Button
                     primary
-                    onClick={_item.onClickAdd}
+                    onClick={() => onClickAdd(_item)}
                     className="justify-center mt-10"
                   >
                     {t('add')}
@@ -54,7 +69,7 @@ export default function Memberships({ memberships }: MembershipsProps) {
               action={
                 <Button
                   primary
-                  onClick={_item.onClickAdd}
+                  onClick={() => onClickAdd(_item)}
                   className="justify-center mt-10"
                 >
                   {t('add')}

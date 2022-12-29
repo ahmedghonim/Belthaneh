@@ -5,13 +5,17 @@ import Head from 'next/head'
 
 function Home() {
   const { t } = useTranslation('pages-title')
+
+  // contact form submit function
+  function onSubmit(): void {}
+
   return (
     <div>
       <Head>
         <title>{t('blthania_home')}</title>
         <meta name="description" content="write desc here...." />
       </Head>
-      <HomeFC />
+      <HomeFC onSubmit={onSubmit} />
     </div>
   )
 }

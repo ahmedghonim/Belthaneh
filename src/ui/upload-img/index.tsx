@@ -25,6 +25,7 @@ function UploadImg({
     <button
       className={`grid place-items-center  border-2 border-dashed ${className}`}
       onClick={uploadFun}
+      type="button"
     >
       <div className="grid place-items-center gap-3">
         {icon}

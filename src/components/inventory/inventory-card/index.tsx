@@ -27,7 +27,7 @@ const footerColor = cva(
       status: {
         outOfStock: 'bg-error-100',
         lowStock: 'bg-secondary-100',
-        expired: 'bg-warning-100',
+        expired: 'bg-warning-200',
         available: 'bg-secondary-100'
       }
     },

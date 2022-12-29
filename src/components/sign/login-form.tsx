@@ -4,18 +4,28 @@ import Link from 'next/link'
 import { Form, Formik } from 'formik'
 import { Button, Input, CheckBox } from 'ui'
 
-function LoginForm() {
+export interface FormValue {
+  phone: string
+  password: string
+  remember_me: boolean
+}
+export interface LoginFormProps {
+  onSubmit: (values: FormValue) => void
+  loading: boolean
+}
+
+function LoginForm({ onSubmit, loading }: LoginFormProps) {
   const { t } = useTranslation('common')
 
   return (
     <Formik
-      onSubmit={() => {}}
+      onSubmit={onSubmit}
       initialValues={{ phone: '', password: '', remember_me: false }}
     >
       <Form className="flex flex-col gap-5">
-        <Input name="phone" type="number" label={t('phone_number')} />
+        <Input isForm name="phone" type="number" label={t('phone_number')} />
 
-        <Input name="password" type="password" label={t('password')} />
+        <Input isForm name="password" type="password" label={t('password')} />
 
         <div className="flex justify-between">
           <CheckBox isForm name="remember_me" label={t('remember_me')} />
@@ -25,7 +35,7 @@ function LoginForm() {
           </Link>
         </div>
 
-        <Button center type="submit" primary fullWidth>
+        <Button center type="submit" primary loading={loading} fullWidth>
           {t('login')}
         </Button>
       </Form>

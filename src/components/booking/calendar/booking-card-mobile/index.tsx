@@ -1,12 +1,11 @@
 import React from 'react'
 import { cva } from 'class-variance-authority'
-import Edit from 'svg/edit.svg'
-import Delete from 'svg/delete.svg'
 import Avatar from 'ui/avatar'
 import {
   BookingItem,
   Employee
 } from 'components/booking/calendar/booking-calendar'
+import Actions from 'components/common/actions'
 
 interface BookingCardMobileProps {
   employee: Employee
@@ -64,13 +63,12 @@ export default function BookingCardMobile({
         (_item) =>
           _item.resourceId === employee.resourceId && (
             <EventCard status={_item.status} key={_item.id}>
-              <div className="absolute flex gap-2 top-0 rtl:left-0 ltr:right-0 bg-white rounded-tl rounded-tr ltr:rounded-bl-[30px] rtl:rounded-br-[30px] p-2">
-                <button onClick={_item.handleEdit}>
-                  <Edit className="stroke-secondary-100 scale-75" />
-                </button>
-                <button onClick={_item.handleDelete}>
-                  <Delete className="fill-secondary-100 scale-125" />
-                </button>
+              <div className="absolute flex gap-1 top-0 bg-white bg-opacity-80 p-1 ltr:right-[0px] rtl:left=[0px]  ltr:rounded-tr-md rtl:rounded-tl-md ltr:rounded-bl-[15px] rtl:rounded-br-[15px]  ">
+                <Actions
+                  className="stroke-secondary-100"
+                  onDelete={_item.handleDelete}
+                  onEdit={_item.handleEdit}
+                />
               </div>
               <Body {..._item} />
             </EventCard>

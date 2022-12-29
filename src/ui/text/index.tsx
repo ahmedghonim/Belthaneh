@@ -14,6 +14,9 @@ const text = cva(['dark:text-[#fff]', 'text-[#1A0A0A]'], {
     danger: {
       true: '!text-error-200'
     },
+    success: {
+      true: '!text-success-200'
+    },
     size: {
       xs: 'text-xs',
       sm: 'text-sm',

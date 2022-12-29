@@ -27,7 +27,14 @@ function Chart({ data, xAxisTicksCount, className = '' }: Props) {
       height="100%"
       className={`dark:bg-dark-200 ${className}`}
     >
-      <AreaChart data={data}>
+      <AreaChart
+        data={data}
+        style={{ direction: 'ltr' }}
+        margin={{
+          top: 20,
+          right: 40
+        }}
+      >
         <Tooltip content={<ToolTipFC active={false} payload={undefined} />} />
         <Area
           type="monotone"

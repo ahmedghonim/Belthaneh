@@ -1,52 +1,52 @@
+import { FormValuesCustomerForm } from 'components/common/client-form'
 import CustomerFormModal from 'components/common/client-form-modal'
+import { useFormikContext } from 'formik'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { Button, Select } from 'ui'
+import { Options } from 'ui/select'
 
-interface FieldItem {
-  value: string
-  label: string
-}
 export interface ClientProps {
-  systemType: 'booking' | 'queue'
-  handleSelectCustomer: (value: any) => void
-  clients: FieldItem[]
-  selectedCustomer: FieldItem | null
-  handleAddNewCustomer: () => void
-  openCustomerForm: boolean
-  onSubmitAddCustomer: (values: any) => void
-  onCloseCustomerForm: () => void
+  clients: Options[]
 }
 
-export default function Client({
-  openCustomerForm,
-  clients,
-  handleSelectCustomer,
-  handleAddNewCustomer,
-  onCloseCustomerForm,
-  onSubmitAddCustomer
-}: ClientProps) {
+export default function Client({ clients }: ClientProps) {
   const { t } = useTranslation('common')
-
+  const { setFieldValue, values } = useFormikContext<{
+    client: Options
+    openCustomerForm: boolean
+    newClient: FormValuesCustomerForm
+  }>()
+  const onSubmitAddCustomer = (values: FormValuesCustomerForm) => {
+    setFieldValue('newClient', values)
+  }
+  const onCloseCustomerForm = () => {
+    setFieldValue('openCustomerForm', false)
+  }
+  const handleAddNewCustomer = () => {
+    setFieldValue('openCustomerForm', true)
+  }
   return (
     <div className="flex gap-5 p-4 dark:bg-dark-200 bg-white rounded-[5px]">
       <Select
         options={clients}
-        onChange={handleSelectCustomer}
+        onChange={(option) => {
+          setFieldValue('client', option)
+        }}
         label={t('client')}
-        required
-        placeholder={t('select_customer')}
+        isForm
+        value={values.client}
       />
       <Button
         primary
         onClick={handleAddNewCustomer}
-        className="whitespace-nowrap font-bold self-end sm:text-md xs:text-sm !py-2 !px-3"
+        className="whitespace-nowrap self-end sm:text-md xs:text-sm !py-2 !px-3 font-bold"
       >
         {t('add_customer')}
       </Button>
       <CustomerFormModal
         onSubmit={onSubmitAddCustomer}
-        open={openCustomerForm}
+        open={values.openCustomerForm ?? false}
         handleCancel={onCloseCustomerForm}
       />
     </div>

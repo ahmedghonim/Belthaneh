@@ -1,6 +1,8 @@
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
-import { Tabs } from 'ui'
+import { Tabs, Button } from 'ui'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper'
 
 export interface ServiceTypesProps {
   currentService: 'package' | 'service' | 'membership'
@@ -36,5 +38,36 @@ export default function ServiceTypes({
       onClick: () => onSelectService('membership')
     }
   ]
-  return <Tabs tabs={tabs} className="!bg-transparent !px-0" size={'medium'} />
+  return (
+    <>
+      {' '}
+      <Tabs
+        tabs={tabs}
+        className="!bg-transparent !px-0 sm:flex hidden w-full"
+        size={'medium'}
+      />
+      <Swiper
+        loop={false}
+        spaceBetween={16}
+        modules={[Pagination, Navigation]}
+        className="mySwiper swaper-container w-full sm:hidden block"
+      >
+        {tabs?.map(({ label, isActive = false, onClick }, index) => (
+          <SwiperSlide key={index} className="!w-auto">
+            <Button
+              rounded="full"
+              primaryBorder={!isActive}
+              primary={isActive}
+              key={label}
+              onClick={onClick}
+              size={'xSmall'}
+              className="!px-5"
+            >
+              {label}
+            </Button>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
+  )
 }

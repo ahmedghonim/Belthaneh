@@ -54,13 +54,13 @@ export function BookingCalendarHeader({
       <Button
         primary
         onClick={addNewBooking}
-        className="justify-center xs:text-xs"
+        className="justify-center xs:text-xs  !px-2 !py-2"
       >
         <Plus />
         {t('Add_booking')}
       </Button>
       <Button
-        className="justify-center xs:text-xs"
+        className="justify-center xs:text-xs  !px-2 !py-2"
         primary
         onClick={addToWaitingList}
       >

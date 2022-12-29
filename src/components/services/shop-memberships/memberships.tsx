@@ -44,7 +44,7 @@ export default function Memberships({ list }: MembershipsProps) {
         ))}
       </div>
       <Swiper
-        slidesPerView={1.5}
+        slidesPerView={1}
         spaceBetween={30}
         loop={false}
         pagination={{

@@ -6,7 +6,7 @@ import BookingsMobile, {
   BookingsMobileProps
 } from 'components/booking/calendar/bookings-mobile'
 import Footer from 'components/booking/footer'
-import { useEffect, useState } from 'react'
+import useSSR from 'hooks/useSSR'
 export interface CalendarProps {
   bookingCalendarData: BookingCalendarProps
   bookingsMobileData: BookingsMobileProps
@@ -16,12 +16,9 @@ export default function Calendar({
   bookingCalendarData,
   bookingsMobileData
 }: CalendarProps) {
-  const [ssr, setSSR] = useState(true)
-  useEffect(() => {
-    setSSR(false)
-  }, [])
+  const { ssr } = useSSR()
 
-  return !ssr ? (
+  return ssr ? (
     <div className="flex flex-col gap-2">
       <BookingCalendar {...bookingCalendarData} />
       <BookingsMobile {...bookingsMobileData} />

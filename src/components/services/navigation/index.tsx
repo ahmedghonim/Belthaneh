@@ -64,7 +64,7 @@ function Navigation({
   const addButtons: any = {
     packages: { title: t('add_package'), onClick: handleAddPackage },
     memberships: { title: t('membership'), onClick: handleAddMembership },
-    services: { title: t('add_new_package'), onClick: handleAddService }
+    services: { title: t('add_new_service'), onClick: handleAddService }
   }
   const currentPath: string = asPath.split('/')[4] ?? 'services'
 

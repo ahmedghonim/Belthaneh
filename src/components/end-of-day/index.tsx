@@ -4,14 +4,26 @@ import CalenderIcon from 'svg/brown-calender.svg'
 import StoreIcon from 'svg/brown-store.svg'
 import LineChartIcon from 'svg/line-chart.svg'
 import BrownMessageIcon from 'svg/brown-message.svg'
-import TableAsCard from './table-as-card'
+import MobileCards, { MobileCardsProps } from './mobile-cards'
 import { DateInput } from 'ui'
 import CardInfo from './card-info'
 import ReportTable from './report-table'
 import ReportCards from './report-cards'
 import useTranslation from 'next-translate/useTranslation'
+import {
+  bookingColumns,
+  bookingData,
+  employeesColumns,
+  employeesData,
+  orderColumns,
+  orderTableData
+} from './report-table/tables.mock'
 
-function EndOfDay() {
+export interface EndOfDayProps {
+  mobileCardData: MobileCardsProps
+}
+
+function EndOfDay({ mobileCardData }: EndOfDayProps) {
   const { t } = useTranslation('common')
 
   const cardStaticData = [
@@ -73,26 +85,7 @@ function EndOfDay() {
       current: 13
     }
   ]
-  const data = [
-    {
-      employees: 'Saa fahad',
-      date: '5/11/2022',
-      order: 'Resistance Bain EX',
-      pricing: '$120',
-      status: 'Completed',
-      onEdit: () => undefined,
-      onDelete: () => undefined
-    },
-    {
-      employees: 'Saa fahad',
-      date: '5/11/2022',
-      order: 'Resistance Bain EX',
-      pricing: '$120',
-      status: 'Cancelled',
-      onEdit: () => undefined,
-      onDelete: () => undefined
-    }
-  ]
+
   return (
     <div className="space-y-7">
       <div className="w-44">
@@ -106,21 +99,39 @@ function EndOfDay() {
       </section>
 
       <section className="flex gap-8 w-full">
-        <ReportTable data={data} title={t('booking')} />
+        <ReportTable
+          data={bookingData}
+          title={t('booking')}
+          columns={bookingColumns.map((_item) => ({
+            ..._item,
+            Header: t(_item.Header)
+          }))}
+        />
 
         <ReportCards />
       </section>
 
       <section className="flex gap-8 w-full">
-        <ReportTable data={data} title={t('employees')} />
+        <ReportTable
+          data={employeesData}
+          title={t('employees')}
+          columns={employeesColumns.map((_item) => ({
+            ..._item,
+            Header: t(_item.Header)
+          }))}
+        />
 
-        <ReportTable data={[]} title={t('All_Orders')} />
+        <ReportTable
+          data={orderTableData}
+          title={t('All_Orders')}
+          columns={orderColumns.map((_item) => ({
+            ..._item,
+            Header: t(_item.Header)
+          }))}
+        />
       </section>
       <section className="sm:hidden flex flex-col gap-4">
-        <TableAsCard name="booking" />
-        <TableAsCard name="orders" />
-        <TableAsCard name="products" />
-        <TableAsCard name="employees" />
+        <MobileCards {...mobileCardData} />
       </section>
     </div>
   )

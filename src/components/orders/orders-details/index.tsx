@@ -11,6 +11,7 @@ export interface OrdersDetailsType {
   order: string
   price: string | number
   status: string
+  id: string
 }
 
 //  buttons data
@@ -45,7 +46,8 @@ const tableData: OrdersDetailsType[] = [
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
-    status: 'completed'
+    status: 'completed',
+    id: '1'
   },
   {
     orderNum: '#4556',
@@ -53,7 +55,8 @@ const tableData: OrdersDetailsType[] = [
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
-    status: 'completed'
+    status: 'completed',
+    id: '2'
   },
   {
     orderNum: '#4556',
@@ -61,7 +64,8 @@ const tableData: OrdersDetailsType[] = [
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
-    status: 'canceled'
+    status: 'canceled',
+    id: '3'
   },
   {
     orderNum: '#4556',
@@ -69,7 +73,8 @@ const tableData: OrdersDetailsType[] = [
     date: '1/11/2022',
     price: '$50',
     order: 'Resistance Bain EX',
-    status: 'completed'
+    status: 'completed',
+    id: '4'
   }
 ]
 
@@ -81,7 +86,8 @@ const boxData: OrdersDetailsType[] = [
     status: 'Completed',
     client: 'Saad Fahad',
     orderNum: 4556,
-    price: 120
+    price: 120,
+    id: '1'
   },
   {
     order: 'Resistance Bain EX',
@@ -89,7 +95,8 @@ const boxData: OrdersDetailsType[] = [
     status: 'canceled',
     client: 'Saad Fahad',
     orderNum: 4556,
-    price: 120
+    price: 120,
+    id: '2'
   },
   {
     order: 'Resistance Bain EX',
@@ -97,7 +104,8 @@ const boxData: OrdersDetailsType[] = [
     status: 'Completed',
     client: 'Saad Fahad',
     orderNum: 4556,
-    price: 120
+    price: 120,
+    id: '3'
   }
 ]
 

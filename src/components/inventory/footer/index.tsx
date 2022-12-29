@@ -12,7 +12,7 @@ export default function Footer() {
       </div>
       <div className="flex gap-3 items-center xs:justify-between">
         <span>{t('almost_expired')}</span>
-        <div className="bg-warning-100 w-8 h-3" />
+        <div className="bg-warning-200 w-8 h-3" />
       </div>
       <div className="flex gap-3 items-center xs:justify-between">
         <span>{t('available')}</span>

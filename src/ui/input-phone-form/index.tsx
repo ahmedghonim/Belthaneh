@@ -14,7 +14,9 @@ const InputPhoneForm = ({ label, name, showSearch, ...props }: Props) => {
       className="px-[4px] w-[34px] focus:outline-none absolute items-center justify-end  ltr:right-0 rtl:left-0  block z-10 top-9"
       id="end"
     >
-      {showSearch != null && <Search className="fill-dark-300" />}
+      {showSearch != null && (
+        <Search className="fill-dark-300 cursor-pointer" />
+      )}
     </div>
   )
 

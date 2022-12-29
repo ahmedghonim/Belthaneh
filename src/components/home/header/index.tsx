@@ -5,7 +5,7 @@ import ActionsButtons from './actions'
 
 function Header() {
   return (
-    <header className="flex items-center">
+    <header className="flex items-center relative z-20">
       <BlthaniaLogo color="!text-black" />
       <Navbar />
       <ActionsButtons />

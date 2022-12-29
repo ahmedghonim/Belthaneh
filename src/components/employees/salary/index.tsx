@@ -91,11 +91,11 @@ function Salary() {
   const { t } = useTranslation('common')
 
   return (
-    <section>
+    <section className="flex flex-col gap-5">
+      <h1 className="text-primary-100 text-base !font-bold capitalize ">
+        {t('salary')}
+      </h1>
       <div className="sm:h-[30vh] h-[20vh] dark:bg-[#272727] relative rounded-lg overflow-hidden">
-        <span className="absolute top-2 left-2 dark:text-light-200 text-dark-100">
-          {t('salary_of_year')}
-        </span>
         <WavyChart
           data={chartData}
           className="dark:!bg-[#272727] !bg-[#F1F1F1]"

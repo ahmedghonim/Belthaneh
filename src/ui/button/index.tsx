@@ -30,9 +30,9 @@ const button = cva(
       },
       size: {
         xSmall: ['text-sm', 'px-2', 'py-1', 'h-fit'],
-        small: ['text-sm', 'px-2', 'py-2', 'h-fit'],
+        small: ['!text-sm', '!px-2', '!py-2', '!h-fit'],
         medium: ['text-md', 'h-10', 'px-3'],
-        large: 'text-lg h-12 font-bold'
+        large: 'py-4 px-10 font-bold'
       }
     },
     defaultVariants: {
@@ -45,6 +45,7 @@ export type ButtonProps = VariantProps<typeof button>
 interface Props {
   onClick?: () => void
   form?: boolean
+  loading?: boolean
   type?: 'button' | 'submit' | 'reset'
   className?: CSSStyleSheet | any
   children?: React.ReactNode | any
@@ -64,8 +65,9 @@ function Button({
   rounded,
   center,
   type,
+  loading,
   secondaryBorder,
-  disabled
+  disabled = false
 }: Props & ButtonProps) {
   return (
     <button
@@ -82,10 +84,7 @@ function Button({
       })}
       disabled={disabled}
       type={type}
-      onClick={(e) => {
-        e.preventDefault()
-        onClick?.()
-      }}
+      onClick={onClick}
     >
       {children}
     </button>

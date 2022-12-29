@@ -49,18 +49,19 @@ function Select({
               options={options}
               styles={styles}
               {...field}
-              {...props}
               name={name}
               classNamePrefix={`select2-selection ${
                 Boolean(touched[name]) && Boolean(errors[name])
                   ? '!border-error-100'
                   : ''
               } `}
-              className={`h-10 w-full ${className}  `}
-              onChange={(selectedOption: any) =>
-                setFieldValue(name, selectedOption.value)
-              }
               {...props}
+              className={`h-10 w-full ${className}  `}
+              onChange={(selectedOption: any) => {
+                if (props?.onChange == null) {
+                  setFieldValue(name, selectedOption.value)
+                }
+              }}
             />
             {Boolean(touched[name]) && Boolean(errors[name]) && (
               <div className="text-error-100 text-sm text-start">

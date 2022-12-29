@@ -25,13 +25,15 @@ export default function AppointmentFormModal({
 
   return (
     <Modal onClose={handleCancel} open={open} header={header}>
-      <AppointmentForm
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        clients={clients}
-        employees={employees}
-        services={services}
-      />
+      <div className="sm:w-[776px] w-full">
+        <AppointmentForm
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          clients={clients}
+          employees={employees}
+          services={services}
+        />
+      </div>
     </Modal>
   )
 }

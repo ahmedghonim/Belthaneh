@@ -1,23 +1,28 @@
 import React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import WeAreImage from 'svg/we-are-image.svg'
+import Image from 'next/image'
+import WeAreImage from 'images/we-are.png'
 
 function WeAreSection() {
   const { t } = useTranslation('common')
   return (
-    <div className="bg-white">
-      <div className="flex items-center justify-between">
-        <div>
-          <span className="relative !top-[2px]">
-            <WeAreImage />
-          </span>
-        </div>
+    <div className="bg-white relative overflow-hidden">
+      <div className="flex items-center justify-end py-[119px]">
         <div className="w-[60%] flex flex-col gap-3 px-24">
           <h1 className="text-black text-[36px] font-bold">
             {t('we_are_head')}
           </h1>
           <p className="text-black text-[20px]">{t('we_are_paragraph')}</p>
         </div>
+      </div>
+      <div className="absolute left-0 top-0 h-full">
+        <Image
+          src={WeAreImage}
+          width={500}
+          height={500}
+          alt={t('image')}
+          className="!h-full"
+        />
       </div>
     </div>
   )

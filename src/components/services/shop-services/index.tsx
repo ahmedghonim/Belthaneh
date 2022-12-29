@@ -31,7 +31,11 @@ function ShopServices({
       {/* navigation buttons and Add Service */}
       <Navigation handleAddService={handleAddService} />
       {/* Category and Add Category */}
-      <Chip list={categories} handleAddCategory={handleAddCategory} />
+      <Chip
+        list={categories}
+        handleAddCategory={handleAddCategory}
+        size={'xSmall'}
+      />
       {/* Services */}
       <Services list={services} />
       <ServiceFormModal {...serviceFormModalData} />

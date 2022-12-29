@@ -1,5 +1,4 @@
 import Pos from 'components/pos'
-import { CartCardProps } from 'components/pos/cart/card'
 import { MembershipsProps } from 'components/pos/memberships'
 import { PackagesProps } from 'components/pos/packages'
 import { packagesData } from 'components/pos/packages/index.mock'
@@ -12,32 +11,27 @@ import HairIcon from 'svg/hair.svg'
 import { Text } from 'ui'
 
 function POS() {
-  const [openCustomerForm, setOpenAddCustomer] = useState(false)
-  const [openAddService, setOpenAddService] = useState<{
-    open: boolean
-    service: null | unknown
-  }>({ open: false, service: null })
   const [currentService, setCurrentService] = useState<
     'service' | 'package' | 'membership'
   >('service')
   const { t } = useTranslation('common')
-  const [currentCategory, setCurrentCategory] = useState<number>(0)
-  const [cart, setCart] = useState<CartCardProps[]>([])
   const screen = useScreen()
 
   const clientData = {
-    systemType: 'booking' as const,
-    handleSelectCustomer: (value: any) => undefined,
-    clients: [],
-    selectedCustomer: null,
-    handleAddNewCustomer: () => {
-      setOpenAddCustomer(true)
-    },
-    openCustomerForm,
-    onSubmitAddCustomer: (values: any) => undefined,
-    onCloseCustomerForm: () => {
-      setOpenAddCustomer(false)
-    }
+    clients: [
+      {
+        label: 'Ahmed Sameh',
+        value: '1'
+      },
+      {
+        label: 'Kaled Dahy',
+        value: '2'
+      },
+      {
+        label: 'Somia Ali',
+        value: '3'
+      }
+    ]
   }
   const serviceTypesData = {
     currentService,
@@ -47,139 +41,59 @@ function POS() {
   }
   const packages: PackagesProps = {
     packagesList: packagesData.map((_item) => ({
-      ..._item,
-      onClickAdd: () => {
-        setOpenAddService({ open: true, service: _item })
-      }
+      ..._item
     })),
     systemType: 'queue' as const,
     bookingModalData: null,
     queueModalData: {
-      employees,
-      onSelect: (val: unknown) => undefined,
-      open: openAddService.open,
-      onClose: () => {
-        setOpenAddService({ open: false, service: null })
-      },
-      onAdd: () => {
-        setOpenAddService({ open: false, service: null })
-        const newItem = { ...(openAddService.service as any) }
-        setCart((prevEvents) => {
-          const filtered = prevEvents.find((item) => item?.id === newItem?.id)
-          return [
-            {
-              ...newItem,
-              serviceType: 'package',
-              qty: filtered !== undefined ? Number(filtered?.qty) + 1 : 1
-            },
-            ...cart
-          ]
-        })
-      }
+      employees
     }
   }
   const categories = [
     {
       label: t('waxing'),
-      isActive: currentCategory === 0,
-      onClick: () => {
-        setCurrentCategory(0)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 0 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
+      id: '0',
+      icon: HairIcon,
+      onClick: () => undefined
     },
     {
       label: t('waxing'),
-      isActive: currentCategory === 1,
-      onClick: () => {
-        setCurrentCategory(1)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 1 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
+      id: '1',
+      icon: HairIcon,
+      onClick: () => undefined
     },
     {
       label: t('waxing'),
-      isActive: currentCategory === 2,
-      onClick: () => {
-        setCurrentCategory(2)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 2 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
+      id: '2',
+      icon: HairIcon,
+      onClick: () => undefined
     },
     {
       label: t('waxing'),
-      isActive: currentCategory === 3,
-      onClick: () => {
-        setCurrentCategory(3)
-      },
-      icon: (
-        <HairIcon
-          className={`dark:fill-white  ${
-            currentCategory === 3 ? 'fill-white' : 'fill-secondary-100'
-          }`}
-        />
-      )
+      id: '3',
+      icon: HairIcon,
+      onClick: () => undefined
     }
   ]
   const servicesData = {
     services: services.map((_item) => ({
-      ..._item,
-      onClickAdd: () => {
-        setOpenAddService({ open: true, service: _item })
-      }
+      ..._item
     })),
     categories,
     systemType: 'booking' as const,
     queueModalData: null,
     bookingModalData: {
-      onChangeDate: () => undefined,
-      employees,
-      onSelect: (val: unknown) => undefined,
-      open: openAddService.open,
-      onClose: () => {
-        setOpenAddService({ open: false, service: null })
-      },
-      onAdd: () => {
-        setOpenAddService({ open: false, service: null })
-        const newItem = { ...(openAddService.service as any) }
-        setCart((prevEvents) => {
-          const filtered = prevEvents.find((item) => item?.id === newItem?.id)
-          return [
-            {
-              ...newItem,
-              serviceType: 'service',
-              qty: filtered !== undefined ? Number(filtered?.qty) + 1 : 1
-            },
-            ...cart
-          ]
-        })
-      }
+      employees
     }
   }
   const membershipData: MembershipsProps = {
     memberships: [
       {
-        title: 'Loyalty',
+        name: 'Loyalty',
         id: '1',
         subTitle: 'Essential Features',
         oldPrice: 59.99,
         price: 53.99,
-        onClickAdd: () => undefined,
         body: (
           <div className="flex flex-col gap-[13px]">
             <div className="flex-1 flex gap-2 items-center">
@@ -213,12 +127,11 @@ function POS() {
         )
       },
       {
-        title: 'Pro',
+        name: 'Pro',
         id: '2',
         subTitle: 'Advanced Features',
         oldPrice: 120.99,
         price: 109.99,
-        onClickAdd: () => undefined,
         body: (
           <div className="flex flex-col gap-[13px]">
             <div className="flex-1 flex gap-2 items-center">
@@ -253,49 +166,33 @@ function POS() {
       }
     ]
   }
-  const endShift = () => {
-    //
-  }
 
   const initialValues = {
     coupon: '',
     discount: 0,
     cash: '',
     credit: '',
-    cart: [...cart],
-    currentStep: screen === 'phone' ? null : 0
+    open: false,
+    openInvoiceDetails: false,
+    currentStep: screen === 'phone' ? null : 0,
+    services: [],
+    packages: [],
+    memberships: [],
+    category: '0',
+    total: 0,
+    tax: 0,
+    subTotal: 0,
+    couponValue: 0,
+    taxPercentage: 0,
+    client: null,
+    newClient: null,
+    invoiceNumber: '#123'
   }
   const onSubmit = () => undefined
   const invoiceFormData = {
-    calcTotal: (discount: number) => undefined,
     onApplyCoupon: () => undefined,
-    invoiceNumber: '123',
-    footerProps: {
-      subTotal: 150,
-      taxPercentage: 10,
-      tax: 20,
-      total: 100
-    }
+    children: null
   }
-  const adaptedMemberships = membershipData.memberships.map((_item) => ({
-    ..._item,
-    handleAdd: () => {
-      setCart((prevEvents) => {
-        const filtered = prevEvents.find((item) => item?.id === _item?.id)
-        return [
-          {
-            ..._item,
-            name: _item.title,
-            onAdd: () => undefined,
-            onRemove: () => undefined,
-            serviceType: 'membership',
-            qty: filtered !== undefined ? Number(filtered?.qty) + 1 : 1
-          },
-          ...cart
-        ]
-      })
-    }
-  }))
 
   return (
     <>
@@ -307,8 +204,7 @@ function POS() {
         serviceTypesData={serviceTypesData}
         packagesData={packages}
         servicesData={servicesData}
-        membershipsData={{ memberships: adaptedMemberships }}
-        endShift={endShift}
+        membershipsData={membershipData}
         invoiceFormData={invoiceFormData}
         onSubmit={onSubmit}
         initialValues={initialValues}

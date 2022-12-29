@@ -1,7 +1,5 @@
-import React from 'react'
-import Edit from 'svg/edit.svg'
-import Delete from 'svg/delete.svg'
 import { cva } from 'class-variance-authority'
+import Actions from 'components/common/actions'
 
 type Status = 'paid' | 'notPaid' | 'fromApp'
 
@@ -84,13 +82,12 @@ export default function BookingCard({
 
   return (
     <EventCard status={status}>
-      <div className="absolute flex gap-2 top-0 rtl:left-[-1px] ltr:right-[-1px] bg-white p-2  ltr:rounded-tr-[15px] rtl:rounded-tl-[15px] ltr:rounded-bl-[30px] rtl:rounded-br-[30px]  ">
-        <button onClick={handleEdit}>
-          <Edit className="stroke-secondary-100 scale-75" />
-        </button>
-        <button onClick={handleDelete}>
-          <Delete className="fill-secondary-100 scale-125" />
-        </button>
+      <div className="absolute flex gap-1 bg-white bg-opacity-80 p-1  ltr:right-[-2px] rtl:left-[-2px]  ltr:rounded-tr-[15px] rtl:rounded-tl-[15px] ltr:rounded-bl-[30px] rtl:rounded-br-[30px]  ">
+        <Actions
+          onDelete={handleDelete}
+          onEdit={handleEdit}
+          className="stroke-secondary-100"
+        />
       </div>
       <Body />
     </EventCard>

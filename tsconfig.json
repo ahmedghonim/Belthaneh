@@ -5,7 +5,9 @@
     "paths": {
       "svg/*": ["assets/svg/*"],
       "images/*": ["assets/images/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+      "util/*": ["util/*"],
+      "store/*": ["store/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

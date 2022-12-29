@@ -43,7 +43,7 @@ const Table = <ColumnsType,>({
   return data.length !== 0 ? (
     ssr ? (
       <table
-        className="z-0 table w-full rounded-lg relative"
+        className="z-0 table w-full rounded-lg relative border border-dark-300"
         {...getTableProps()}
       >
         <thead>

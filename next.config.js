@@ -3,8 +3,10 @@ const withSVGR = require('next-svgr')
 const nextTranslate = require('next-translate')
 
 const config = {
-  publicRuntimeConfig: {},
-  images: { domains: ['placeimg.com', 'www.pngmart.com'] }
+  images: { domains: ['placeimg.com', 'www.pngmart.com'] },
+  publicRuntimeConfig: {
+    NEXT_PUBLIC_BASE_API_URL: process.env.NEXT_PUBLIC_BASE_API_URL
+  }
 }
 
 const withWebpack = (userConfig) => {

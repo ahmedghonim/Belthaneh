@@ -2,6 +2,7 @@ import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { Card, Text } from 'ui'
 import WalletIcon from 'svg/wallet.svg'
+import OnlineIcon from 'svg/online.svg'
 
 function ReportCards() {
   const { t } = useTranslation('common')
@@ -17,7 +18,7 @@ function ReportCards() {
             <Text className="!text-success-100">+0,94%</Text>
           </div>
           <div>
-            <WalletIcon className="dark:fill-white fill-dark-100" />
+            <OnlineIcon className="dark:fill-white fill-dark-100" />
           </div>
         </div>
       </Card>

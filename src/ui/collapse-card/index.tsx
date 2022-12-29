@@ -18,7 +18,7 @@ const CollapseCard = ({
       className={`collapse collapse-arrow rounded-box bg-white dark:bg-dark-200 ${className}`}
     >
       <input type="checkbox" className="peer" />
-      <div className="collapse-title dark:bg-[#3b4450] rounded-box bg-[#D4D6D9] dark:text-white text-dark-100">
+      <div className="collapse-title dark:bg-dark-200 rounded-box bg-[#D4D6D9] dark:text-white text-dark-100">
         {title}
       </div>
       <div className={`collapse-content dark:bg-dark-100 ${classNameWrapper}`}>

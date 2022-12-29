@@ -18,11 +18,13 @@ export default function WaitingFormModal({
 
   return (
     <Modal onClose={handleCancel} open={open} header={t('waiting_List')}>
-      <WaitingForm
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        handleCancel={handleCancel}
-      />
+      <div className="sm:w-[745px] w-full">
+        <WaitingForm
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          handleCancel={handleCancel}
+        />
+      </div>
     </Modal>
   )
 }

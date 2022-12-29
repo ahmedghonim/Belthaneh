@@ -62,7 +62,7 @@ function PartnerFeatures() {
   ]
 
   return (
-    <div className="bg-primary-100 px-[197px] pb-[190px]">
+    <div className="bg-[#4C4CE5] px-[197px] pb-[190px]">
       <div>
         <h2 className="text-white py-14 text-center text-[36px] font-bold">
           {t('partner_features_head')}

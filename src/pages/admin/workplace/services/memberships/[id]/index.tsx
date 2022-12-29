@@ -14,7 +14,7 @@ function MembershipViewController() {
     <>
       <Head>
         <title>
-          {t('memberships')}/{currentMembership?.title}
+          {t('memberships')}/{currentMembership?.name}
         </title>
       </Head>
       <MembershipView list={data} />

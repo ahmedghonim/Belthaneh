@@ -68,7 +68,7 @@ export default function AppointmentForm({
       }: { values: FormValues } & FormikHelpers<any>) => (
         <Form className="flex flex-col gap-5">
           <div className="flex gap-4">
-            <div className="w-[525px]">
+            <div className="flex-grow">
               <Select
                 onChange={(val) => setFieldValue('client', val)}
                 value={values.client}
@@ -78,7 +78,7 @@ export default function AppointmentForm({
               />
             </div>
             <Button onClick={() => setFieldValue('openCustomer', true)} primary>
-              <span className="xs:hidden sm:inline-block">
+              <span className="xs:hidden sm:inline-block font-bold">
                 {t('add_customer')}
               </span>
               <Plus className="sm:hidden block" />

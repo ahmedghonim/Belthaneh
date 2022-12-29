@@ -54,16 +54,16 @@ export default function WaitingForm({
       validationSchema={validationSchema}
     >
       <Form className="flex flex-col gap-4">
-        <InputPhoneForm
-          name="phone"
-          label={`${t('phone')}*`}
-          placeholder={t('phone_number')}
-        />
         <Input
           isForm
           name="name"
           label={`${t('name')}*`}
           placeholder={t('name')}
+        />
+        <InputPhoneForm
+          name="phone"
+          label={`${t('phone')}*`}
+          placeholder={t('phone_number')}
         />
         <TextAreaForm
           name="message"
@@ -72,14 +72,14 @@ export default function WaitingForm({
           rows={4}
           isForm
         />
-        <div className="flex gap-4 justify-end">
+        <div className="flex sm:gap-20 gap-8 justify-end">
           <Button
             onClick={handleCancel}
             className={'dark:text-white text-dark-300 bg-transparent'}
           >
             {t('cancel')}
           </Button>
-          <Button type="submit" primary>
+          <Button type="submit" primary className={'!px-10'}>
             {t('save')}
           </Button>
         </div>

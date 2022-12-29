@@ -102,7 +102,7 @@ html[class='dark'] .checkbox:checked,
 }
 .react-tel-input .country-list .country.highlight,
 .react-tel-input .country-list .country:hover {
-  @apply dark:bg-dark-200 bg-white;
+  @apply dark:bg-dark-200 bg-white ;
 }
 .rmdp-time-picker,
 .rmdp-ep-arrow:after,
@@ -143,6 +143,9 @@ div[class^='rbc-time']:not(.rbc-time-header),
 .rbc-time-view-resources .rbc-time-header-gutter {
   @apply dark:bg-dark-200 !border-0  items-center flex justify-end  bg-white;
 }
+.rbc-time-header-gutter{
+@apply !min-w-[82px]
+}
 .rbc-event-label {
   @apply !hidden;
 }
@@ -164,16 +167,17 @@ div[class^='rbc-time']:not(.rbc-time-header),
 }
 
 .fullscreen-enabled * .rbc-time-content {
-  @apply py-0 px-8  h-[90vh] max-h-[80vh];
+  @apply py-0 px-8  h-[90vh] max-h-[77vh];
 }
 .fullscreen-enabled * .webQueue {
   @apply py-0 px-8  h-[90vh] max-h-[100vh];
 }
-.fullscreen .fullscreen-enabled {
-  @apply dark:bg-dark-100 bg-white;
+.fullscreen-enabled {
+  @apply dark:!bg-dark-100 !bg-light-200
 }
-.quill > .ql-container > .ql-editor.ql-blank::before {
-  @apply text-dark-300;
+
+.quill > .ql-container > .ql-editor.ql-blank::before{
+@apply text-dark-300
 }
 .swiper {
   @apply !z-0;
@@ -181,9 +185,11 @@ div[class^='rbc-time']:not(.rbc-time-header),
 
 html[class='dark'] div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range) {
   background-color: #1b1b1c !important;
+  color:#3031d9 !important;
 }
 html[class='light'] div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range) {
   background-color: #fff !important;
+  color:#3031d9 !important;
 }
 
 .rmdp-shadow {
@@ -197,3 +203,10 @@ html[class='light'] div[class^='rmdp']:not(.rmdp-container):not(.rmdp-range) {
   --tglbg: #3031d9 !important;
   border-color: #3031d9;
 }
+
+.rmdp-day.rmdp-selected span:not(.highlight), .rmdp-range , .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover,.rmdp-day.rmdp-today span{
+  background-color: #3031d9 !important;
+  }
+.rmdp-arrow{
+    border-color:  #3031d9 !important;
+ }
